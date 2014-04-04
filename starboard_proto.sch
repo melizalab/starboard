@@ -13112,6 +13112,10 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <junction x="414.02" y="279.4"/>
 <pinref part="J1" gate="G$1" pin="3"/>
 <wire x1="414.02" y1="292.1" x2="419.1" y2="292.1" width="0.1524" layer="91"/>
+<pinref part="J1" gate="G$1" pin="2"/>
+<wire x1="419.1" y1="294.64" x2="414.02" y2="294.64" width="0.1524" layer="91"/>
+<wire x1="414.02" y1="294.64" x2="414.02" y2="292.1" width="0.1524" layer="91"/>
+<junction x="414.02" y="292.1"/>
 </segment>
 <segment>
 <pinref part="GND16" gate="1" pin="GND"/>
@@ -13232,9 +13236,9 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <label x="88.9" y="294.64" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="BBB" gate="G$1" pin="EHRPWM2A"/>
-<wire x1="345.44" y1="187.96" x2="327.66" y2="187.96" width="0.1524" layer="91"/>
-<label x="322.58" y="187.96" size="1.778" layer="95"/>
+<pinref part="BBB" gate="G$1" pin="GPIO2_1"/>
+<wire x1="401.32" y1="190.5" x2="419.1" y2="190.5" width="0.1524" layer="91"/>
+<label x="414.02" y="190.5" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="LEFT_GRN" class="0">
@@ -13244,9 +13248,9 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <label x="88.9" y="276.86" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="BBB" gate="G$1" pin="GPIO2_1"/>
-<wire x1="401.32" y1="190.5" x2="419.1" y2="190.5" width="0.1524" layer="91"/>
-<label x="414.02" y="190.5" size="1.778" layer="95"/>
+<pinref part="BBB" gate="G$1" pin="EHRPWM2A"/>
+<wire x1="345.44" y1="187.96" x2="327.66" y2="187.96" width="0.1524" layer="91"/>
+<label x="322.58" y="187.96" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="LEFT_BLU" class="0">
