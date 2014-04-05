@@ -10192,10 +10192,10 @@ Type: &lt;b&gt;SPC4077 / SPC 4078&lt;/b&gt;&lt;p&gt;</description>
 <wire x1="6.35" y1="0" x2="48.26" y2="0" width="0.127" layer="51" style="shortdash"/>
 <wire x1="0" y1="14.605" x2="0" y2="6.35" width="0.127" layer="51" style="shortdash"/>
 <wire x1="0" y1="14.605" x2="12.7" y2="14.605" width="0.127" layer="20"/>
-<wire x1="41.91" y1="14.605" x2="54.61" y2="14.605" width="0.127" layer="20"/>
-<wire x1="18.415" y1="20.32" x2="36.195" y2="20.32" width="0.127" layer="20"/>
+<wire x1="38.1" y1="14.605" x2="54.61" y2="14.605" width="0.127" layer="20"/>
+<wire x1="18.415" y1="20.32" x2="32.385" y2="20.32" width="0.127" layer="20"/>
 <wire x1="18.415" y1="20.32" x2="12.7" y2="14.605" width="0.127" layer="20" curve="90"/>
-<wire x1="36.195" y1="20.32" x2="41.91" y2="14.605" width="0.127" layer="20" curve="-90"/>
+<wire x1="32.385" y1="20.32" x2="38.1" y2="14.605" width="0.127" layer="20" curve="-90"/>
 <pad name="1" x="4.445" y="19.05" drill="1" shape="square" rot="R90"/>
 <pad name="2" x="1.905" y="19.05" drill="1" rot="R90"/>
 <pad name="3" x="4.445" y="21.59" drill="1" rot="R90"/>
@@ -10288,10 +10288,8 @@ Type: &lt;b&gt;SPC4077 / SPC 4078&lt;/b&gt;&lt;p&gt;</description>
 <pad name="90" x="50.165" y="72.39" drill="1" rot="R90"/>
 <pad name="91" x="52.705" y="74.93" drill="1" rot="R90"/>
 <pad name="92" x="50.165" y="74.93" drill="1" rot="R90"/>
-<text x="7.62" y="17.78" size="1.27" layer="25" rot="R90">&gt;NAME</text>
-<text x="10.16" y="17.78" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
-<text x="45.72" y="17.78" size="1.27" layer="25" rot="R90">&gt;NAME</text>
-<text x="48.26" y="17.78" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
+<text x="7.62" y="16.51" size="1.27" layer="27" rot="R180">&gt;VALUE</text>
+<text x="53.34" y="16.51" size="1.27" layer="27" rot="R180">&gt;VALUE</text>
 <text x="2.54" y="77.47" size="1.27" layer="51">P8</text>
 <text x="50.8" y="77.47" size="1.27" layer="51">P9</text>
 <rectangle x1="4.191" y1="18.796" x2="4.699" y2="19.304" layer="51" rot="R90"/>
@@ -12518,6 +12516,68 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 </deviceset>
 </devicesets>
 </library>
+<library name="shorts-old">
+<description>Hacks for connecting nets to work around no subnets</description>
+<packages>
+<package name="SHORT_TOP-50">
+<description>Short, top layer, 50mil width</description>
+<smd name="1" x="0.635" y="0" dx="1.27" dy="1.27" layer="1" stop="no" cream="no"/>
+<smd name="2" x="-0.635" y="0" dx="1.27" dy="1.27" layer="1" stop="no" cream="no"/>
+<text x="-1.27" y="-2.032" size="1.27" layer="25" ratio="16">&gt;NAME</text>
+</package>
+<package name="SHORT_ALL-50">
+<description>Short, all layers, 50mil width</description>
+<pad name="1" x="-0.635" y="0" drill="0.7366" diameter="1.524"/>
+<pad name="2" x="0.635" y="0" drill="0.7366" diameter="1.524"/>
+<text x="-1.7145" y="-2.2225" size="1.27" layer="25" ratio="16">&gt;NAME</text>
+<text x="0.381" y="-0.889" size="0.762" layer="51" ratio="10" rot="R90">&gt;NAME</text>
+<rectangle x1="-0.254" y1="0.381" x2="0.254" y2="0.635" layer="1"/>
+<rectangle x1="-0.254" y1="-0.635" x2="0.254" y2="-0.381" layer="1"/>
+<rectangle x1="-0.254" y1="0.381" x2="0.254" y2="0.635" layer="16"/>
+<rectangle x1="-0.254" y1="-0.635" x2="0.254" y2="-0.381" layer="16"/>
+</package>
+</packages>
+<symbols>
+<symbol name="SHORT-H">
+<wire x1="-2.54" y1="0" x2="2.54" y2="0" width="0.508" layer="94"/>
+<text x="-2.2225" y="1.27" size="1.778" layer="95">&gt;NAME</text>
+<pin name="P$1" x="-2.54" y="0" visible="off" length="point" swaplevel="1"/>
+<pin name="P$2" x="2.54" y="0" visible="off" length="point" swaplevel="1"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="SHORT-H" prefix="SH">
+<description>Short between two nets</description>
+<gates>
+<gate name="G$1" symbol="SHORT-H" x="0" y="0" swaplevel="1"/>
+</gates>
+<devices>
+<device name="T5" package="SHORT_TOP-50">
+<connects>
+<connect gate="G$1" pin="P$1" pad="1"/>
+<connect gate="G$1" pin="P$2" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="BOM" value="no"/>
+</technology>
+</technologies>
+</device>
+<device name="A5" package="SHORT_ALL-50">
+<connects>
+<connect gate="G$1" pin="P$1" pad="1"/>
+<connect gate="G$1" pin="P$2" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="BOM" value="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -12546,7 +12606,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="+3V4" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
 <part name="FRAME2" library="frames" deviceset="FRAME_B_L" device="" value="1"/>
-<part name="J1" library="con-jack" deviceset="JACK-PLUG" device="0" value="12V"/>
+<part name="12V" library="con-jack" deviceset="JACK-PLUG" device="0" value="12V"/>
 <part name="VDD1" library="supply1" deviceset="VDD" device=""/>
 <part name="C1" library="rcl" deviceset="C-EU" device="C1210" value="10u"/>
 <part name="C2" library="rcl" deviceset="C-EU" device="C0603" value="0.1u"/>
@@ -12613,7 +12673,6 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="R25" library="rcl" deviceset="R-US_" device="R0402" value="4.4k"/>
 <part name="R26" library="rcl" deviceset="R-US_" device="R0402" value="75"/>
 <part name="P+3" library="supply1" deviceset="+5V" device=""/>
-<part name="AGND3" library="supply1" deviceset="AGND" device=""/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
 <part name="+3V10" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
@@ -12637,6 +12696,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="GND16" library="supply1" deviceset="GND" device=""/>
 <part name="+3V8" library="supply1" deviceset="+3V3" device=""/>
 <part name="P+4" library="supply1" deviceset="+5V" device=""/>
+<part name="SH1" library="shorts-old" deviceset="SHORT-H" device="A5" value="SHORT-HA5"/>
 </parts>
 <sheets>
 <sheet>
@@ -12675,7 +12735,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <instance part="GND3" gate="1" x="73.66" y="284.48"/>
 <instance part="FRAME2" gate="G$1" x="10.16" y="35.56"/>
 <instance part="FRAME2" gate="G$2" x="335.28" y="35.56"/>
-<instance part="J1" gate="G$1" x="426.72" y="294.64" rot="MR0"/>
+<instance part="12V" gate="G$1" x="426.72" y="294.64" rot="MR0"/>
 <instance part="VDD1" gate="G$1" x="414.02" y="304.8"/>
 <instance part="C1" gate="G$1" x="403.86" y="287.02" rot="R90"/>
 <instance part="C2" gate="G$1" x="403.86" y="279.4" rot="R90"/>
@@ -12742,7 +12802,6 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <instance part="R25" gate="G$1" x="160.02" y="187.96" rot="R90"/>
 <instance part="R26" gate="G$1" x="149.86" y="195.58" rot="R90"/>
 <instance part="P+3" gate="1" x="327.66" y="149.86"/>
-<instance part="AGND3" gate="VR1" x="429.26" y="81.28"/>
 <instance part="GND5" gate="1" x="327.66" y="208.28"/>
 <instance part="IC2" gate="P" x="73.66" y="205.74"/>
 <instance part="+3V10" gate="G$1" x="73.66" y="215.9"/>
@@ -12770,6 +12829,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <instance part="IC2" gate="D" x="223.52" y="200.66"/>
 <instance part="IC2" gate="E" x="223.52" y="180.34"/>
 <instance part="IC2" gate="F" x="223.52" y="162.56"/>
+<instance part="SH1" gate="G$1" x="386.08" y="259.08"/>
 </instances>
 <busses>
 </busses>
@@ -13003,11 +13063,11 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="C2" gate="G$1" pin="2"/>
 <wire x1="408.94" y1="279.4" x2="414.02" y2="279.4" width="0.1524" layer="91"/>
 <junction x="414.02" y="279.4"/>
-<pinref part="J1" gate="G$1" pin="1"/>
+<pinref part="12V" gate="G$1" pin="1"/>
 <wire x1="421.64" y1="292.1" x2="414.02" y2="292.1" width="0.1524" layer="91"/>
 <wire x1="414.02" y1="292.1" x2="414.02" y2="287.02" width="0.1524" layer="91"/>
 <junction x="414.02" y="287.02"/>
-<pinref part="J1" gate="G$1" pin="2"/>
+<pinref part="12V" gate="G$1" pin="2"/>
 <wire x1="421.64" y1="294.64" x2="414.02" y2="294.64" width="0.1524" layer="91"/>
 <wire x1="414.02" y1="294.64" x2="414.02" y2="292.1" width="0.1524" layer="91"/>
 <junction x="414.02" y="292.1"/>
@@ -13015,6 +13075,8 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <segment>
 <pinref part="GND16" gate="1" pin="GND"/>
 <wire x1="396.24" y1="259.08" x2="396.24" y2="254" width="0.1524" layer="91"/>
+<wire x1="396.24" y1="259.08" x2="388.62" y2="259.08" width="0.1524" layer="91"/>
+<pinref part="SH1" gate="G$1" pin="P$2"/>
 </segment>
 </net>
 <net name="+3V3" class="0">
@@ -13367,7 +13429,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="398.78" y1="279.4" x2="401.32" y2="279.4" width="0.1524" layer="91"/>
 <wire x1="398.78" y1="297.18" x2="414.02" y2="297.18" width="0.1524" layer="91"/>
 <junction x="398.78" y="297.18"/>
-<pinref part="J1" gate="G$1" pin="3"/>
+<pinref part="12V" gate="G$1" pin="3"/>
 <wire x1="421.64" y1="297.18" x2="414.02" y2="297.18" width="0.1524" layer="91"/>
 <junction x="414.02" y="297.18"/>
 </segment>
@@ -13430,7 +13492,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="360.68" y1="299.72" x2="353.06" y2="299.72" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$31" class="0">
+<net name="SW" class="0">
 <segment>
 <pinref part="U1" gate="A" pin="SW"/>
 <pinref part="L1" gate="G$1" pin="2"/>
@@ -13453,14 +13515,9 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="340.36" y1="269.24" x2="340.36" y2="264.16" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="BBB" gate="G$1" pin="GNDA_ADC"/>
-<wire x1="401.32" y1="104.14" x2="429.26" y2="104.14" width="0.1524" layer="91"/>
-<pinref part="AGND3" gate="VR1" pin="AGND"/>
-<wire x1="429.26" y1="104.14" x2="429.26" y2="83.82" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="AGND4" gate="VR1" pin="AGND"/>
 <wire x1="383.54" y1="254" x2="383.54" y2="259.08" width="0.1524" layer="91"/>
+<pinref part="SH1" gate="G$1" pin="P$1"/>
 </segment>
 </net>
 <net name="+5V" class="0">
