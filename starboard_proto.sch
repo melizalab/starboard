@@ -12516,68 +12516,6 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 </deviceset>
 </devicesets>
 </library>
-<library name="shorts-old">
-<description>Hacks for connecting nets to work around no subnets</description>
-<packages>
-<package name="SHORT_TOP-50">
-<description>Short, top layer, 50mil width</description>
-<smd name="1" x="0.635" y="0" dx="1.27" dy="1.27" layer="1" stop="no" cream="no"/>
-<smd name="2" x="-0.635" y="0" dx="1.27" dy="1.27" layer="1" stop="no" cream="no"/>
-<text x="-1.27" y="-2.032" size="1.27" layer="25" ratio="16">&gt;NAME</text>
-</package>
-<package name="SHORT_ALL-50">
-<description>Short, all layers, 50mil width</description>
-<pad name="1" x="-0.635" y="0" drill="0.7366" diameter="1.524"/>
-<pad name="2" x="0.635" y="0" drill="0.7366" diameter="1.524"/>
-<text x="-1.7145" y="-2.2225" size="1.27" layer="25" ratio="16">&gt;NAME</text>
-<text x="0.381" y="-0.889" size="0.762" layer="51" ratio="10" rot="R90">&gt;NAME</text>
-<rectangle x1="-0.254" y1="0.381" x2="0.254" y2="0.635" layer="1"/>
-<rectangle x1="-0.254" y1="-0.635" x2="0.254" y2="-0.381" layer="1"/>
-<rectangle x1="-0.254" y1="0.381" x2="0.254" y2="0.635" layer="16"/>
-<rectangle x1="-0.254" y1="-0.635" x2="0.254" y2="-0.381" layer="16"/>
-</package>
-</packages>
-<symbols>
-<symbol name="SHORT-H">
-<wire x1="-2.54" y1="0" x2="2.54" y2="0" width="0.508" layer="94"/>
-<text x="-2.2225" y="1.27" size="1.778" layer="95">&gt;NAME</text>
-<pin name="P$1" x="-2.54" y="0" visible="off" length="point" swaplevel="1"/>
-<pin name="P$2" x="2.54" y="0" visible="off" length="point" swaplevel="1"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="SHORT-H" prefix="SH">
-<description>Short between two nets</description>
-<gates>
-<gate name="G$1" symbol="SHORT-H" x="0" y="0" swaplevel="1"/>
-</gates>
-<devices>
-<device name="T5" package="SHORT_TOP-50">
-<connects>
-<connect gate="G$1" pin="P$1" pad="1"/>
-<connect gate="G$1" pin="P$2" pad="2"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="BOM" value="no"/>
-</technology>
-</technologies>
-</device>
-<device name="A5" package="SHORT_ALL-50">
-<connects>
-<connect gate="G$1" pin="P$1" pad="1"/>
-<connect gate="G$1" pin="P$2" pad="2"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="BOM" value="no"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 </libraries>
 <attributes>
 </attributes>
@@ -12591,15 +12529,15 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="+3V1" library="supply1" deviceset="+3V3" device=""/>
 <part name="IC1" library="dmeliza_custom" deviceset="74*04" device="APW" technology="LVC"/>
 <part name="IC2" library="dmeliza_custom" deviceset="74*04" device="APW" technology="LVC"/>
-<part name="R1" library="adafruit" deviceset="R-US_" device="R0402" value="150"/>
-<part name="R2" library="adafruit" deviceset="R-US_" device="R0402" value="6.2"/>
-<part name="R3" library="adafruit" deviceset="R-US_" device="R0402" value="39"/>
-<part name="R4" library="adafruit" deviceset="R-US_" device="R0402" value="150"/>
-<part name="R5" library="adafruit" deviceset="R-US_" device="R0402" value="6.2"/>
-<part name="R6" library="adafruit" deviceset="R-US_" device="R0402" value="39"/>
-<part name="R7" library="adafruit" deviceset="R-US_" device="R0402" value="150"/>
-<part name="R8" library="adafruit" deviceset="R-US_" device="R0402" value="6.2"/>
-<part name="R9" library="adafruit" deviceset="R-US_" device="R0402" value="100"/>
+<part name="R1" library="adafruit" deviceset="R-US_" device="R0402" value="140"/>
+<part name="R2" library="adafruit" deviceset="R-US_" device="R0402" value="10"/>
+<part name="R3" library="adafruit" deviceset="R-US_" device="R0402" value="33"/>
+<part name="R4" library="adafruit" deviceset="R-US_" device="R0402" value="140"/>
+<part name="R5" library="adafruit" deviceset="R-US_" device="R0402" value="10"/>
+<part name="R6" library="adafruit" deviceset="R-US_" device="R0402" value="33"/>
+<part name="R7" library="adafruit" deviceset="R-US_" device="R0402" value="140"/>
+<part name="R8" library="adafruit" deviceset="R-US_" device="R0402" value="10"/>
+<part name="R9" library="adafruit" deviceset="R-US_" device="R0402" value="33"/>
 <part name="BBB" library="dmeliza_custom" deviceset="BEAGLEBONE_OUTLINE" device=""/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
 <part name="+3V3" library="supply1" deviceset="+3V3" device=""/>
@@ -12608,14 +12546,14 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="FRAME2" library="frames" deviceset="FRAME_B_L" device="" value="1"/>
 <part name="12V" library="con-jack" deviceset="JACK-PLUG" device="0" value="12V"/>
 <part name="VDD1" library="supply1" deviceset="VDD" device=""/>
-<part name="C1" library="rcl" deviceset="C-EU" device="C1210" value="10u"/>
-<part name="C2" library="rcl" deviceset="C-EU" device="C0603" value="0.1u"/>
-<part name="C4" library="rcl" deviceset="C-EU" device="C0603" value="1u"/>
-<part name="C3" library="rcl" deviceset="C-EU" device="C0603" value="33n"/>
+<part name="C1" library="rcl" deviceset="C-EU" device="C1210" value="10uF"/>
+<part name="C2" library="rcl" deviceset="C-EU" device="C0603" value="0.1uF"/>
+<part name="C4" library="rcl" deviceset="C-EU" device="C0603" value="1uF"/>
+<part name="C3" library="rcl" deviceset="C-EU" device="C0603" value="3.3nF"/>
 <part name="U1" library="dmeliza_custom" deviceset="TPS54332DDA" device="" value="TPS54327DDAR"/>
 <part name="R17" library="rcl" deviceset="R-US_" device="R0402" value="22.1k"/>
 <part name="R18" library="rcl" deviceset="R-US_" device="R0402" value="124k"/>
-<part name="C6" library="rcl" deviceset="C-EU" device="C0603" value="0.1u"/>
+<part name="C6" library="rcl" deviceset="C-EU" device="C0603" value="0.1uF"/>
 <part name="L1" library="dmeliza_custom" deviceset="L-US" device="" value="3.3u"/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
 <part name="AGND1" library="supply1" deviceset="AGND" device=""/>
@@ -12623,7 +12561,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
 <part name="P+1" library="supply1" deviceset="+5V" device=""/>
-<part name="C7" library="rcl" deviceset="C-EU" device="C1206" value="22u"/>
+<part name="C7" library="rcl" deviceset="C-EU" device="C1206" value="22uF"/>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
 <part name="JP1" library="dmeliza_custom" deviceset="PINHD-1X4" device="KK100" value="LC"/>
 <part name="JP2" library="dmeliza_custom" deviceset="PINHD-1X4" device="KK100" value="CC"/>
@@ -12641,37 +12579,37 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="+3V2" library="supply1" deviceset="+3V3" device=""/>
 <part name="Q2" library="transistor-power" deviceset="N-HEXFET_?-*" device="SOT323" value="ZXMS6004SGTA"/>
 <part name="LED1" library="led" deviceset="LED" device="CHIPLED_0603" value="LBQ39"/>
-<part name="R13" library="rcl" deviceset="R-US_" device="R0402" value="4.4k"/>
+<part name="R13" library="rcl" deviceset="R-US_" device="R0402" value="2k"/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="VDD2" library="supply1" deviceset="VDD" device=""/>
 <part name="JP8" library="dmeliza_custom" deviceset="PINHD-1X2" device="KK100" value="left hop"/>
 <part name="Q3" library="transistor-power" deviceset="N-HEXFET_?-*" device="SOT323" value="ZXMS6004SGTA"/>
 <part name="LED2" library="led" deviceset="LED" device="CHIPLED_0603" value="LBQ39"/>
-<part name="R14" library="rcl" deviceset="R-US_" device="R0402" value="4.4k"/>
+<part name="R14" library="rcl" deviceset="R-US_" device="R0402" value="2k"/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="VDD3" library="supply1" deviceset="VDD" device=""/>
 <part name="JP9" library="dmeliza_custom" deviceset="PINHD-1X2" device="KK100" value="right hop"/>
 <part name="Q1" library="transistor-power" deviceset="N-HEXFET_?-*" device="SOT323" value="ZXMS6004SGTA"/>
 <part name="LED3" library="led" deviceset="LED" device="CHIPLED_0603" value="LBQ39"/>
-<part name="R15" library="rcl" deviceset="R-US_" device="R0402" value="4.4k"/>
+<part name="R15" library="rcl" deviceset="R-US_" device="R0402" value="2k"/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
 <part name="VDD4" library="supply1" deviceset="VDD" device=""/>
 <part name="JP10" library="dmeliza_custom" deviceset="PINHD-1X2" device="KK100" value="lights"/>
 <part name="LED4" library="led" deviceset="LED" device="CHIPLED_0603" value="LBQ39"/>
-<part name="R10" library="rcl" deviceset="R-US_" device="R0402" value="4.4k"/>
-<part name="R11" library="rcl" deviceset="R-US_" device="R0402" value="75"/>
+<part name="R10" library="rcl" deviceset="R-US_" device="R0402" value="4.7k"/>
+<part name="R11" library="rcl" deviceset="R-US_" device="R0402" value="91"/>
 <part name="+3V5" library="supply1" deviceset="+3V3" device=""/>
 <part name="LED5" library="led" deviceset="LED" device="CHIPLED_0603" value="LBQ39"/>
-<part name="R12" library="rcl" deviceset="R-US_" device="R0402" value="4.4k"/>
-<part name="R16" library="rcl" deviceset="R-US_" device="R0402" value="75"/>
+<part name="R12" library="rcl" deviceset="R-US_" device="R0402" value="4.7k"/>
+<part name="R16" library="rcl" deviceset="R-US_" device="R0402" value="91"/>
 <part name="+3V6" library="supply1" deviceset="+3V3" device=""/>
 <part name="LED6" library="led" deviceset="LED" device="CHIPLED_0603" value="LBQ39"/>
-<part name="R23" library="rcl" deviceset="R-US_" device="R0402" value="4.4k"/>
-<part name="R24" library="rcl" deviceset="R-US_" device="R0402" value="75"/>
+<part name="R23" library="rcl" deviceset="R-US_" device="R0402" value="4.7k"/>
+<part name="R24" library="rcl" deviceset="R-US_" device="R0402" value="91"/>
 <part name="+3V7" library="supply1" deviceset="+3V3" device=""/>
 <part name="LED7" library="led" deviceset="LED" device="CHIPLED_0603" value="LBQ39"/>
-<part name="R25" library="rcl" deviceset="R-US_" device="R0402" value="4.4k"/>
-<part name="R26" library="rcl" deviceset="R-US_" device="R0402" value="75"/>
+<part name="R25" library="rcl" deviceset="R-US_" device="R0402" value="4.7k"/>
+<part name="R26" library="rcl" deviceset="R-US_" device="R0402" value="91"/>
 <part name="P+3" library="supply1" deviceset="+5V" device=""/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
 <part name="+3V10" library="supply1" deviceset="+3V3" device=""/>
@@ -12690,13 +12628,16 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
 <part name="GND15" library="supply1" deviceset="GND" device=""/>
 <part name="+3V11" library="supply1" deviceset="+3V3" device=""/>
-<part name="C8" library="rcl" deviceset="C-EU" device="C1206" value="22u"/>
+<part name="C8" library="rcl" deviceset="C-EU" device="C1206" value="22uF"/>
 <part name="R27" library="rcl" deviceset="R-US_" device="R0402" value="10k"/>
 <part name="AGND4" library="supply1" deviceset="AGND" device=""/>
 <part name="GND16" library="supply1" deviceset="GND" device=""/>
 <part name="+3V8" library="supply1" deviceset="+3V3" device=""/>
 <part name="P+4" library="supply1" deviceset="+5V" device=""/>
-<part name="SH1" library="shorts-old" deviceset="SHORT-H" device="A5" value="SHORT-HA5"/>
+<part name="+5V" library="testpad" deviceset="TP" device="PAD1-17"/>
+<part name="AGND" library="testpad" deviceset="TP" device="PAD1-17"/>
+<part name="DGND" library="testpad" deviceset="TP" device="PAD1-17"/>
+<part name="AGND3" library="supply1" deviceset="AGND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -12822,14 +12763,14 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <instance part="+3V11" gate="G$1" x="20.32" y="109.22"/>
 <instance part="C8" gate="G$1" x="312.42" y="287.02" rot="R180"/>
 <instance part="R27" gate="G$1" x="403.86" y="302.26"/>
-<instance part="AGND4" gate="VR1" x="383.54" y="251.46"/>
-<instance part="GND16" gate="1" x="396.24" y="251.46"/>
+<instance part="AGND4" gate="VR1" x="304.8" y="231.14"/>
+<instance part="GND16" gate="1" x="327.66" y="231.14"/>
 <instance part="+3V8" gate="G$1" x="411.48" y="147.32"/>
 <instance part="P+4" gate="1" x="419.1" y="147.32"/>
-<instance part="IC2" gate="D" x="223.52" y="200.66"/>
-<instance part="IC2" gate="E" x="223.52" y="180.34"/>
-<instance part="IC2" gate="F" x="223.52" y="162.56"/>
-<instance part="SH1" gate="G$1" x="386.08" y="259.08"/>
+<instance part="+5V" gate="G$1" x="312.42" y="299.72"/>
+<instance part="AGND" gate="G$1" x="304.8" y="246.38"/>
+<instance part="DGND" gate="G$1" x="327.66" y="246.38"/>
+<instance part="AGND3" gate="VR1" x="340.36" y="231.14"/>
 </instances>
 <busses>
 </busses>
@@ -13073,10 +13014,14 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <junction x="414.02" y="292.1"/>
 </segment>
 <segment>
+<pinref part="AGND3" gate="VR1" pin="AGND"/>
+<wire x1="340.36" y1="233.68" x2="340.36" y2="241.3" width="0.1524" layer="91"/>
 <pinref part="GND16" gate="1" pin="GND"/>
-<wire x1="396.24" y1="259.08" x2="396.24" y2="254" width="0.1524" layer="91"/>
-<wire x1="396.24" y1="259.08" x2="388.62" y2="259.08" width="0.1524" layer="91"/>
-<pinref part="SH1" gate="G$1" pin="P$2"/>
+<pinref part="DGND" gate="G$1" pin="TP"/>
+<wire x1="327.66" y1="233.68" x2="327.66" y2="241.3" width="0.1524" layer="91"/>
+<wire x1="327.66" y1="241.3" x2="327.66" y2="243.84" width="0.1524" layer="91"/>
+<wire x1="340.36" y1="241.3" x2="327.66" y2="241.3" width="0.1524" layer="91"/>
+<junction x="327.66" y="241.3"/>
 </segment>
 </net>
 <net name="+3V3" class="0">
@@ -13516,8 +13461,8 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 </segment>
 <segment>
 <pinref part="AGND4" gate="VR1" pin="AGND"/>
-<wire x1="383.54" y1="254" x2="383.54" y2="259.08" width="0.1524" layer="91"/>
-<pinref part="SH1" gate="G$1" pin="P$1"/>
+<pinref part="AGND" gate="G$1" pin="TP"/>
+<wire x1="304.8" y1="233.68" x2="304.8" y2="243.84" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+5V" class="0">
@@ -13538,6 +13483,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="C8" gate="G$1" pin="2"/>
 <wire x1="312.42" y1="297.18" x2="312.42" y2="292.1" width="0.1524" layer="91"/>
 <junction x="312.42" y="297.18"/>
+<pinref part="+5V" gate="G$1" pin="TP"/>
 </segment>
 <segment>
 <pinref part="P+2" gate="1" pin="+5V"/>
@@ -13898,9 +13844,15 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 </sheet>
 </sheets>
 <errors>
-<approved hash="114,1,71.2235,205.804,IC2,A,I,,,"/>
-<approved hash="114,1,71.2235,205.804,IC2,B,I,,,"/>
-<approved hash="114,1,71.2235,205.804,IC2,C,I,,,"/>
+<approved hash="201,1,340.36,233.68,AGND,AGND\, GND,,,,"/>
+<approved hash="204,1,345.44,137.16,BBB,SYS_5V,,,,"/>
+<approved hash="204,1,345.44,96.52,BBB,AIN0,,,,"/>
+<approved hash="202,1,345.44,93.98,BBB,CLKOUT2,,,,"/>
+<approved hash="208,1,414.02,302.26,VDD,sup,,,,"/>
+<approved hash="208,1,396.24,297.18,VDD,out,,,,"/>
+<approved hash="208,1,40.64,157.48,VDD,sup,,,,"/>
+<approved hash="208,1,88.9,157.48,VDD,sup,,,,"/>
+<approved hash="208,1,137.16,157.48,VDD,sup,,,,"/>
 </errors>
 </schematic>
 </drawing>
