@@ -12539,7 +12539,6 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="R8" library="adafruit" deviceset="R-US_" device="R0402" value="10"/>
 <part name="R9" library="adafruit" deviceset="R-US_" device="R0402" value="33"/>
 <part name="BBB" library="dmeliza_custom" deviceset="BEAGLEBONE_OUTLINE" device=""/>
-<part name="GND4" library="supply1" deviceset="GND" device=""/>
 <part name="+3V3" library="supply1" deviceset="+3V3" device=""/>
 <part name="+3V4" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
@@ -12669,7 +12668,6 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <instance part="R8" gate="G$1" x="58.42" y="187.96"/>
 <instance part="R9" gate="G$1" x="58.42" y="175.26"/>
 <instance part="BBB" gate="G$1" x="373.38" y="149.86"/>
-<instance part="GND4" gate="1" x="411.48" y="81.28"/>
 <instance part="+3V3" gate="G$1" x="335.28" y="149.86"/>
 <instance part="IC1" gate="P" x="73.66" y="294.64"/>
 <instance part="+3V4" gate="G$1" x="73.66" y="304.8"/>
@@ -12885,12 +12883,6 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 </net>
 <net name="GND" class="0">
 <segment>
-<pinref part="BBB" gate="G$1" pin="GND@6"/>
-<wire x1="401.32" y1="88.9" x2="411.48" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="GND4" gate="1" pin="GND"/>
-<wire x1="411.48" y1="88.9" x2="411.48" y2="83.82" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="IC1" gate="P" pin="GND"/>
 <pinref part="GND3" gate="1" pin="GND"/>
 </segment>
@@ -13022,6 +13014,21 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="327.66" y1="241.3" x2="327.66" y2="243.84" width="0.1524" layer="91"/>
 <wire x1="340.36" y1="241.3" x2="327.66" y2="241.3" width="0.1524" layer="91"/>
 <junction x="327.66" y="241.3"/>
+</segment>
+<segment>
+<pinref part="C3" gate="G$1" pin="2"/>
+<pinref part="AGND1" gate="VR1" pin="AGND"/>
+<wire x1="353.06" y1="279.4" x2="353.06" y2="264.16" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="R17" gate="G$1" pin="1"/>
+<pinref part="AGND2" gate="VR1" pin="AGND"/>
+<wire x1="340.36" y1="269.24" x2="340.36" y2="264.16" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="AGND4" gate="VR1" pin="AGND"/>
+<pinref part="AGND" gate="G$1" pin="TP"/>
+<wire x1="304.8" y1="233.68" x2="304.8" y2="243.84" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+3V3" class="0">
@@ -13281,12 +13288,6 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <label x="322.58" y="154.94" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="GPIO0_7" class="0">
-<segment>
-<pinref part="BBB" gate="G$1" pin="GPIO0_7"/>
-<wire x1="401.32" y1="93.98" x2="416.56" y2="93.98" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="MCASP0_FSX" class="0">
 <segment>
 <pinref part="BBB" gate="G$1" pin="SPI1_DO"/>
@@ -13446,23 +13447,6 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="345.44" y1="297.18" x2="337.82" y2="297.18" width="0.1524" layer="91"/>
 <wire x1="345.44" y1="299.72" x2="345.44" y2="297.18" width="0.1524" layer="91"/>
 <junction x="345.44" y="297.18"/>
-</segment>
-</net>
-<net name="AGND" class="0">
-<segment>
-<pinref part="C3" gate="G$1" pin="2"/>
-<pinref part="AGND1" gate="VR1" pin="AGND"/>
-<wire x1="353.06" y1="279.4" x2="353.06" y2="264.16" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="R17" gate="G$1" pin="1"/>
-<pinref part="AGND2" gate="VR1" pin="AGND"/>
-<wire x1="340.36" y1="269.24" x2="340.36" y2="264.16" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="AGND4" gate="VR1" pin="AGND"/>
-<pinref part="AGND" gate="G$1" pin="TP"/>
-<wire x1="304.8" y1="233.68" x2="304.8" y2="243.84" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+5V" class="0">
