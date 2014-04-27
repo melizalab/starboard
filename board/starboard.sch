@@ -12439,7 +12439,6 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <smd name="20" x="-1" y="2.1" dx="1" dy="0.3" layer="1" rot="R270"/>
 <text x="-2.6" y="-4.1" size="1.27" layer="25" font="vector">&gt;NAME</text>
 <text x="-2.5" y="-5.8" size="1.27" layer="25" font="vector">&gt;VALUE</text>
-<rectangle x1="-1.25" y1="-1.25" x2="1.25" y2="1.25" layer="1"/>
 <rectangle x1="-1.3" y1="-1.3" x2="1.3" y2="1.3" layer="29"/>
 <rectangle x1="-1.2" y1="0.4" x2="-0.4" y2="1.2" layer="31"/>
 <rectangle x1="0.4" y1="0.4" x2="1.2" y2="1.2" layer="31"/>
@@ -12454,6 +12453,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="-1.25" y1="2.25" x2="-2" y2="2.25" width="0.127" layer="21"/>
 <wire x1="-2" y1="2.25" x2="-2.25" y2="2" width="0.127" layer="21"/>
 <wire x1="-2.25" y1="2" x2="-2.25" y2="1.25" width="0.127" layer="21"/>
+<smd name="EP" x="0" y="0" dx="2.54" dy="2.54" layer="1" cream="no"/>
 </package>
 <package name="SOT23-5">
 <description>&lt;b&gt;Small Outline Transistor&lt;/b&gt;&lt;p&gt;
@@ -12548,6 +12548,7 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 <pin name="GND@18" x="2.54" y="-35.56" length="middle" direction="pwr" rot="R90"/>
 <pin name="GND@19" x="0" y="-35.56" length="middle" direction="pwr" rot="R90"/>
 <pin name="PVDD@20" x="2.54" y="27.94" length="middle" direction="pwr" rot="R270"/>
+<pin name="GND@21" x="-2.54" y="-35.56" length="middle" direction="pwr" rot="R90"/>
 </symbol>
 <symbol name="7486">
 <wire x1="-1.27" y1="5.08" x2="-6.35" y2="5.08" width="0.4064" layer="94"/>
@@ -12597,6 +12598,7 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 <connect gate="G$1" pin="GND@17" pad="17"/>
 <connect gate="G$1" pin="GND@18" pad="18"/>
 <connect gate="G$1" pin="GND@19" pad="19"/>
+<connect gate="G$1" pin="GND@21" pad="EP"/>
 <connect gate="G$1" pin="GND@8" pad="8"/>
 <connect gate="G$1" pin="LRCLK" pad="9"/>
 <connect gate="G$1" pin="MCLK" pad="6"/>
@@ -12809,6 +12811,8 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 <part name="+3V13" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND21" library="supply1" deviceset="GND" device=""/>
 <part name="FB1" library="starboard" deviceset="FERRITE-BEAD" device=""/>
+<part name="+3V3" library="supply1" deviceset="+3V3" device=""/>
+<part name="GND22" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -12821,8 +12825,8 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 <text x="30.48" y="304.8" size="1.778" layer="97">CUE LEDS</text>
 <text x="25.4" y="165.1" size="1.778" layer="97">POWER OUTPUTS</text>
 <text x="127" y="304.8" size="1.778" layer="94">INPUTS</text>
-<text x="185.42" y="147.32" size="1.778" layer="97">AUDIO</text>
-<text x="185.42" y="132.08" size="1.778" layer="97">BCLK is inverted in McASP driver
+<text x="180.34" y="147.32" size="1.778" layer="97">AUDIO</text>
+<text x="180.34" y="132.08" size="1.778" layer="97">BCLK is inverted in McASP driver
 Swap R30 to R31 if driver is fixed.</text>
 </plain>
 <instances>
@@ -12962,11 +12966,14 @@ Swap R30 to R31 if driver is fixed.</text>
 <instance part="R29" gate="G$1" x="193.04" y="88.9" rot="R90"/>
 <instance part="+3V12" gate="G$1" x="175.26" y="104.14"/>
 <instance part="IC3" gate="A" x="231.14" y="121.92"/>
-<instance part="R30" gate="G$1" x="180.34" y="134.62" rot="R90"/>
-<instance part="R31" gate="G$1" x="180.34" y="116.84" rot="R90"/>
-<instance part="+3V13" gate="G$1" x="180.34" y="144.78"/>
-<instance part="GND21" gate="1" x="180.34" y="109.22"/>
+<instance part="R30" gate="G$1" x="175.26" y="134.62" rot="R90"/>
+<instance part="R31" gate="G$1" x="175.26" y="116.84" rot="R90"/>
+<instance part="+3V13" gate="G$1" x="175.26" y="144.78"/>
+<instance part="GND21" gate="1" x="175.26" y="109.22"/>
 <instance part="FB1" gate="G$1" x="302.26" y="127"/>
+<instance part="IC3" gate="P" x="233.68" y="121.92"/>
+<instance part="+3V3" gate="G$1" x="233.68" y="144.78"/>
+<instance part="GND22" gate="1" x="233.68" y="109.22"/>
 </instances>
 <busses>
 </busses>
@@ -13035,9 +13042,9 @@ Swap R30 to R31 if driver is fixed.</text>
 <junction x="154.94" y="279.4"/>
 </segment>
 <segment>
-<pinref part="BBB" gate="G$1" pin="GPIO2_7"/>
-<wire x1="401.32" y1="154.94" x2="419.1" y2="154.94" width="0.1524" layer="91"/>
-<label x="414.02" y="154.94" size="1.778" layer="95"/>
+<pinref part="BBB" gate="G$1" pin="GPIO0_27"/>
+<wire x1="345.44" y1="190.5" x2="327.66" y2="190.5" width="0.1524" layer="91"/>
+<label x="322.58" y="190.5" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="CENT_PECK" class="0">
@@ -13050,9 +13057,9 @@ Swap R30 to R31 if driver is fixed.</text>
 <junction x="154.94" y="248.92"/>
 </segment>
 <segment>
-<pinref part="BBB" gate="G$1" pin="GPIO2_8"/>
-<wire x1="345.44" y1="157.48" x2="327.66" y2="157.48" width="0.1524" layer="91"/>
-<label x="322.58" y="157.48" size="1.778" layer="95"/>
+<pinref part="BBB" gate="G$1" pin="GPIO1_15"/>
+<wire x1="345.44" y1="193.04" x2="327.66" y2="193.04" width="0.1524" layer="91"/>
+<label x="322.58" y="193.04" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RGHT_PECK" class="0">
@@ -13065,9 +13072,9 @@ Swap R30 to R31 if driver is fixed.</text>
 <junction x="154.94" y="215.9"/>
 </segment>
 <segment>
-<pinref part="BBB" gate="G$1" pin="GPIO2_9"/>
-<wire x1="401.32" y1="157.48" x2="419.1" y2="157.48" width="0.1524" layer="91"/>
-<label x="414.02" y="157.48" size="1.778" layer="95"/>
+<pinref part="BBB" gate="G$1" pin="GPIO0_26"/>
+<wire x1="401.32" y1="195.58" x2="419.1" y2="195.58" width="0.1524" layer="91"/>
+<label x="414.02" y="195.58" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -13250,6 +13257,11 @@ Swap R30 to R31 if driver is fixed.</text>
 <pinref part="R31" gate="G$1" pin="1"/>
 <pinref part="GND21" gate="1" pin="GND"/>
 </segment>
+<segment>
+<pinref part="IC3" gate="P" pin="GND"/>
+<pinref part="GND22" gate="1" pin="GND"/>
+<wire x1="233.68" y1="114.3" x2="233.68" y2="111.76" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="+3V3" class="0">
 <segment>
@@ -13359,7 +13371,12 @@ Swap R30 to R31 if driver is fixed.</text>
 <segment>
 <pinref part="R30" gate="G$1" pin="2"/>
 <pinref part="+3V13" gate="G$1" pin="+3V3"/>
-<wire x1="180.34" y1="139.7" x2="180.34" y2="142.24" width="0.1524" layer="91"/>
+<wire x1="175.26" y1="139.7" x2="175.26" y2="142.24" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="IC3" gate="P" pin="VCC"/>
+<pinref part="+3V3" gate="G$1" pin="+3V3"/>
+<wire x1="233.68" y1="129.54" x2="233.68" y2="142.24" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="LEFT_RED" class="0">
@@ -13369,9 +13386,9 @@ Swap R30 to R31 if driver is fixed.</text>
 <label x="88.9" y="294.64" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="BBB" gate="G$1" pin="GPIO2_10"/>
-<wire x1="345.44" y1="160.02" x2="327.66" y2="160.02" width="0.1524" layer="91"/>
-<label x="322.58" y="160.02" size="1.778" layer="95"/>
+<pinref part="BBB" gate="G$1" pin="GPIO2_6"/>
+<wire x1="345.44" y1="154.94" x2="327.66" y2="154.94" width="0.1524" layer="91"/>
+<label x="322.58" y="154.94" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="LEFT_GRN" class="0">
@@ -13381,9 +13398,9 @@ Swap R30 to R31 if driver is fixed.</text>
 <label x="88.9" y="276.86" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="BBB" gate="G$1" pin="GPIO2_11"/>
-<wire x1="401.32" y1="160.02" x2="419.1" y2="160.02" width="0.1524" layer="91"/>
-<label x="414.02" y="160.02" size="1.778" layer="95"/>
+<pinref part="BBB" gate="G$1" pin="GPIO2_7"/>
+<wire x1="401.32" y1="154.94" x2="419.1" y2="154.94" width="0.1524" layer="91"/>
+<label x="414.02" y="154.94" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="LEFT_BLU" class="0">
@@ -13393,9 +13410,9 @@ Swap R30 to R31 if driver is fixed.</text>
 <label x="88.9" y="264.16" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="BBB" gate="G$1" pin="GPIO1_29"/>
-<wire x1="401.32" y1="180.34" x2="419.1" y2="180.34" width="0.1524" layer="91"/>
-<label x="414.02" y="180.34" size="1.778" layer="95"/>
+<pinref part="BBB" gate="G$1" pin="GPIO2_8"/>
+<wire x1="345.44" y1="157.48" x2="327.66" y2="157.48" width="0.1524" layer="91"/>
+<label x="322.58" y="157.48" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="CENT_RED" class="0">
@@ -13405,9 +13422,9 @@ Swap R30 to R31 if driver is fixed.</text>
 <label x="88.9" y="248.92" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="BBB" gate="G$1" pin="EHRPWM2A"/>
-<wire x1="345.44" y1="187.96" x2="327.66" y2="187.96" width="0.1524" layer="91"/>
-<label x="322.58" y="187.96" size="1.778" layer="95"/>
+<pinref part="BBB" gate="G$1" pin="GPIO2_9"/>
+<wire x1="401.32" y1="157.48" x2="419.1" y2="157.48" width="0.1524" layer="91"/>
+<label x="414.02" y="157.48" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="CENT_GRN" class="0">
@@ -13417,9 +13434,9 @@ Swap R30 to R31 if driver is fixed.</text>
 <label x="88.9" y="236.22" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="BBB" gate="G$1" pin="GPIO2_1"/>
-<wire x1="401.32" y1="190.5" x2="419.1" y2="190.5" width="0.1524" layer="91"/>
-<label x="414.02" y="190.5" size="1.778" layer="95"/>
+<pinref part="BBB" gate="G$1" pin="GPIO2_10"/>
+<wire x1="345.44" y1="160.02" x2="327.66" y2="160.02" width="0.1524" layer="91"/>
+<label x="322.58" y="160.02" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="CENT_BLU" class="0">
@@ -13429,9 +13446,9 @@ Swap R30 to R31 if driver is fixed.</text>
 <label x="88.9" y="223.52" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="BBB" gate="G$1" pin="GPIO0_27"/>
-<wire x1="345.44" y1="190.5" x2="327.66" y2="190.5" width="0.1524" layer="91"/>
-<label x="322.58" y="190.5" size="1.778" layer="95"/>
+<pinref part="BBB" gate="G$1" pin="GPIO2_11"/>
+<wire x1="401.32" y1="160.02" x2="419.1" y2="160.02" width="0.1524" layer="91"/>
+<label x="414.02" y="160.02" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RGHT_GRN" class="0">
@@ -13441,9 +13458,9 @@ Swap R30 to R31 if driver is fixed.</text>
 <label x="88.9" y="187.96" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="BBB" gate="G$1" pin="GPIO1_15"/>
-<wire x1="345.44" y1="193.04" x2="327.66" y2="193.04" width="0.1524" layer="91"/>
-<label x="322.58" y="193.04" size="1.778" layer="95"/>
+<pinref part="BBB" gate="G$1" pin="GPIO2_1"/>
+<wire x1="401.32" y1="190.5" x2="419.1" y2="190.5" width="0.1524" layer="91"/>
+<label x="414.02" y="190.5" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RGHT_BLU" class="0">
@@ -13453,9 +13470,9 @@ Swap R30 to R31 if driver is fixed.</text>
 <label x="88.9" y="175.26" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="BBB" gate="G$1" pin="GPIO0_26"/>
-<wire x1="401.32" y1="195.58" x2="419.1" y2="195.58" width="0.1524" layer="91"/>
-<label x="414.02" y="195.58" size="1.778" layer="95"/>
+<pinref part="BBB" gate="G$1" pin="EHRPWM2A"/>
+<wire x1="345.44" y1="187.96" x2="327.66" y2="187.96" width="0.1524" layer="91"/>
+<label x="322.58" y="187.96" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="HOUSE_LGHT" class="0">
@@ -13489,9 +13506,9 @@ Swap R30 to R31 if driver is fixed.</text>
 <label x="88.9" y="205.74" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="BBB" gate="G$1" pin="GPIO1_14"/>
-<wire x1="401.32" y1="193.04" x2="419.1" y2="193.04" width="0.1524" layer="91"/>
-<label x="414.02" y="193.04" size="1.778" layer="95"/>
+<pinref part="BBB" gate="G$1" pin="GPIO1_29"/>
+<wire x1="401.32" y1="180.34" x2="419.1" y2="180.34" width="0.1524" layer="91"/>
+<label x="414.02" y="180.34" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="HOPPER_UP" class="0">
@@ -13504,9 +13521,9 @@ Swap R30 to R31 if driver is fixed.</text>
 <junction x="154.94" y="182.88"/>
 </segment>
 <segment>
-<pinref part="BBB" gate="G$1" pin="GPIO2_6"/>
-<wire x1="345.44" y1="154.94" x2="327.66" y2="154.94" width="0.1524" layer="91"/>
-<label x="322.58" y="154.94" size="1.778" layer="95"/>
+<pinref part="BBB" gate="G$1" pin="GPIO1_14"/>
+<wire x1="401.32" y1="193.04" x2="419.1" y2="193.04" width="0.1524" layer="91"/>
+<label x="414.02" y="193.04" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="MCASP0_FSX" class="0">
@@ -13530,7 +13547,7 @@ Swap R30 to R31 if driver is fixed.</text>
 <segment>
 <pinref part="R10" gate="G$1" pin="1"/>
 <wire x1="205.74" y1="119.38" x2="195.58" y2="119.38" width="0.1524" layer="91"/>
-<label x="185.42" y="119.38" size="1.778" layer="95"/>
+<label x="182.88" y="119.38" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="MCASP0_AXR2" class="0">
@@ -14082,6 +14099,11 @@ Swap R30 to R31 if driver is fixed.</text>
 <wire x1="345.44" y1="111.76" x2="327.66" y2="111.76" width="0.1524" layer="91"/>
 <label x="325.12" y="111.76" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="DAC" gate="G$1" pin="!SD"/>
+<wire x1="248.92" y1="68.58" x2="175.26" y2="68.58" width="0.1524" layer="91"/>
+<label x="170.18" y="68.58" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="N$15" class="0">
 <segment>
@@ -14156,11 +14178,11 @@ Swap R30 to R31 if driver is fixed.</text>
 <segment>
 <pinref part="IC3" gate="A" pin="I0"/>
 <pinref part="R30" gate="G$1" pin="1"/>
-<wire x1="218.44" y1="124.46" x2="180.34" y2="124.46" width="0.1524" layer="91"/>
-<wire x1="180.34" y1="124.46" x2="180.34" y2="129.54" width="0.1524" layer="91"/>
+<wire x1="218.44" y1="124.46" x2="175.26" y2="124.46" width="0.1524" layer="91"/>
+<wire x1="175.26" y1="124.46" x2="175.26" y2="129.54" width="0.1524" layer="91"/>
 <pinref part="R31" gate="G$1" pin="2"/>
-<wire x1="180.34" y1="124.46" x2="180.34" y2="121.92" width="0.1524" layer="91"/>
-<junction x="180.34" y="124.46"/>
+<wire x1="175.26" y1="124.46" x2="175.26" y2="121.92" width="0.1524" layer="91"/>
+<junction x="175.26" y="124.46"/>
 </segment>
 </net>
 <net name="N$52" class="0">
@@ -14177,13 +14199,16 @@ Swap R30 to R31 if driver is fixed.</text>
 <pinref part="FB1" gate="G$1" pin="P$2"/>
 <wire x1="294.64" y1="127" x2="297.18" y2="127" width="0.1524" layer="91"/>
 <junction x="294.64" y="127"/>
+<pinref part="DAC" gate="G$1" pin="PVDD@20"/>
+<wire x1="274.32" y1="111.76" x2="274.32" y2="127" width="0.1524" layer="91"/>
+<wire x1="274.32" y1="127" x2="276.86" y2="127" width="0.1524" layer="91"/>
+<junction x="276.86" y="127"/>
 </segment>
 </net>
 </nets>
 </sheet>
 </sheets>
 <errors>
-<approved hash="201,1,340.36,233.68,AGND,AGND\, GND,,,,"/>
 <approved hash="204,1,345.44,137.16,BBB,SYS_5V,,,,"/>
 <approved hash="204,1,345.44,96.52,BBB,AIN0,,,,"/>
 <approved hash="202,1,345.44,93.98,BBB,CLKOUT2,,,,"/>
