@@ -12039,6 +12039,22 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 <rectangle x1="-0.775" y1="0.6" x2="-0.525" y2="1.05" layer="51"/>
 <rectangle x1="0.525" y1="0.6" x2="0.775" y2="1.05" layer="51"/>
 </package>
+<package name="R1206">
+<description>&lt;b&gt;RESISTOR&lt;/b&gt;</description>
+<wire x1="0.9525" y1="-0.8128" x2="-0.9652" y2="-0.8128" width="0.1524" layer="51"/>
+<wire x1="0.9525" y1="0.8128" x2="-0.9652" y2="0.8128" width="0.1524" layer="51"/>
+<wire x1="-2.473" y1="0.983" x2="2.473" y2="0.983" width="0.0508" layer="39"/>
+<wire x1="2.473" y1="0.983" x2="2.473" y2="-0.983" width="0.0508" layer="39"/>
+<wire x1="2.473" y1="-0.983" x2="-2.473" y2="-0.983" width="0.0508" layer="39"/>
+<wire x1="-2.473" y1="-0.983" x2="-2.473" y2="0.983" width="0.0508" layer="39"/>
+<smd name="2" x="1.422" y="0" dx="1.6" dy="1.803" layer="1"/>
+<smd name="1" x="-1.422" y="0" dx="1.6" dy="1.803" layer="1"/>
+<text x="-1.27" y="1.27" size="1.27" layer="25">&gt;NAME</text>
+<text x="-1.27" y="-2.54" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="-1.6891" y1="-0.8763" x2="-0.9525" y2="0.8763" layer="51"/>
+<rectangle x1="0.9525" y1="-0.8763" x2="1.6891" y2="0.8763" layer="51"/>
+<rectangle x1="-0.3" y1="-0.7" x2="0.3" y2="0.7" layer="35"/>
+</package>
 <package name="R0603">
 <wire x1="-0.432" y1="-0.356" x2="0.432" y2="-0.356" width="0.1524" layer="51"/>
 <wire x1="0.432" y1="0.356" x2="-0.432" y2="0.356" width="0.1524" layer="51"/>
@@ -12619,12 +12635,21 @@ Source: DCJ0202.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="FERRITE-BEAD" prefix="FB" uservalue="yes">
+<deviceset name="FBEAD" prefix="FB" uservalue="yes">
 <gates>
 <gate name="G$1" symbol="FERRITE-BEAD" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="R0603">
+<device name="0603" package="R0603">
+<connects>
+<connect gate="G$1" pin="P$1" pad="1"/>
+<connect gate="G$1" pin="P$2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="1206" package="R1206">
 <connects>
 <connect gate="G$1" pin="P$1" pad="1"/>
 <connect gate="G$1" pin="P$2" pad="2"/>
@@ -12863,12 +12888,12 @@ Source: DCJ0202.pdf</description>
 <part name="VDD1" library="supply1" deviceset="VDD" device=""/>
 <part name="C1" library="rcl" deviceset="C-EU" device="C1210" value="10uF"/>
 <part name="C2" library="rcl" deviceset="C-EU" device="C0603" value="0.1uF"/>
-<part name="C4" library="rcl" deviceset="C-EU" device="C0603" value="1uF"/>
-<part name="C3" library="rcl" deviceset="C-EU" device="C0603" value="3.3nF"/>
-<part name="REG1" library="dmeliza_custom" deviceset="TPS54332DDA" device="" value="TPS54327DDAR"/>
-<part name="R17" library="rcl" deviceset="R-US_" device="R0603" value="22.1k"/>
-<part name="R18" library="rcl" deviceset="R-US_" device="R0603" value="124k"/>
-<part name="C6" library="rcl" deviceset="C-EU" device="C0603" value="0.1uF"/>
+<part name="C6" library="rcl" deviceset="C-EU" device="C0603" value="1uF"/>
+<part name="C7" library="rcl" deviceset="C-EU" device="C0603" value="3.3nF"/>
+<part name="REG" library="dmeliza_custom" deviceset="TPS54332DDA" device="" value="TPS54327DDAR"/>
+<part name="R23" library="rcl" deviceset="R-US_" device="R0603" value="22.1k"/>
+<part name="R22" library="rcl" deviceset="R-US_" device="R0603" value="124k"/>
+<part name="C3" library="rcl" deviceset="C-EU" device="C0603" value="0.1uF"/>
 <part name="L1" library="dmeliza_custom" deviceset="L-US" device="" value="3.3u"/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
 <part name="AGND1" library="supply1" deviceset="AGND" device=""/>
@@ -12876,70 +12901,70 @@ Source: DCJ0202.pdf</description>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
 <part name="P+1" library="supply1" deviceset="+5V" device=""/>
-<part name="C7" library="rcl" deviceset="C-EU" device="C1206" value="22uF"/>
+<part name="C4" library="rcl" deviceset="C-EU" device="C1206" value="22uF"/>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
-<part name="JP1" library="starboard" deviceset="PINHD-1X4" device="KK100" value="LC"/>
-<part name="JP2" library="starboard" deviceset="PINHD-1X4" device="KK100" value="CC"/>
-<part name="JP3" library="starboard" deviceset="PINHD-1X4" device="KK100" value="RC"/>
+<part name="JP1" library="starboard" deviceset="PINHD-1X4" device="KK100" value="LCUE"/>
+<part name="JP5" library="starboard" deviceset="PINHD-1X4" device="KK100" value="CCUE"/>
+<part name="JP9" library="starboard" deviceset="PINHD-1X4" device="KK100" value="RCUE"/>
 <part name="P+2" library="supply1" deviceset="+5V" device=""/>
-<part name="JP4" library="starboard" deviceset="PINHD-1X5" device="KK100" value="LP"/>
-<part name="JP5" library="starboard" deviceset="PINHD-1X5" device="KK100" value="CP"/>
-<part name="JP6" library="starboard" deviceset="PINHD-1X5" device="KK100" value="RP"/>
-<part name="JP7" library="starboard" deviceset="PINHD-1X5" device="KK100" value="HOP"/>
-<part name="R19" library="adafruit" deviceset="R-US_" device="R0603" value="120"/>
-<part name="R20" library="adafruit" deviceset="R-US_" device="R0603" value="120"/>
-<part name="R21" library="adafruit" deviceset="R-US_" device="R0603" value="120"/>
-<part name="R22" library="adafruit" deviceset="R-US_" device="R0805" value="100"/>
+<part name="JP6" library="starboard" deviceset="PINHD-1X5" device="KK100" value="LPECK"/>
+<part name="JP7" library="starboard" deviceset="PINHD-1X5" device="KK100" value="CPECK"/>
+<part name="JP3" library="starboard" deviceset="PINHD-1X5" device="KK100" value="RPECK"/>
+<part name="JP2" library="starboard" deviceset="PINHD-1X5" device="KK100" value="HOP"/>
+<part name="R14" library="adafruit" deviceset="R-US_" device="R0603" value="120"/>
+<part name="R16" library="adafruit" deviceset="R-US_" device="R0603" value="120"/>
+<part name="R12" library="adafruit" deviceset="R-US_" device="R0603" value="120"/>
+<part name="R10" library="adafruit" deviceset="R-US_" device="R0805" value="100"/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="+3V2" library="supply1" deviceset="+3V3" device=""/>
 <part name="Q2" library="transistor-power" deviceset="N-HEXFET_?-*" device="SOT323" value="ZXMS6004SGTA"/>
-<part name="LED1" library="led" deviceset="LED" device="CHIPLED_0603" value="LBQ39"/>
-<part name="R13" library="rcl" deviceset="R-US_" device="R0603" value="2k"/>
+<part name="LED4" library="led" deviceset="LED" device="CHIPLED_0603" value="LBQ39"/>
+<part name="R19" library="rcl" deviceset="R-US_" device="R0603" value="2k"/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="VDD2" library="supply1" deviceset="VDD" device=""/>
 <part name="JP8" library="starboard" deviceset="PINHD-1X2" device="KK100" value="left hop"/>
 <part name="Q3" library="transistor-power" deviceset="N-HEXFET_?-*" device="SOT323" value="ZXMS6004SGTA"/>
-<part name="LED2" library="led" deviceset="LED" device="CHIPLED_0603" value="LBQ39"/>
-<part name="R14" library="rcl" deviceset="R-US_" device="R0603" value="2k"/>
+<part name="LED7" library="led" deviceset="LED" device="CHIPLED_0603" value="LBQ39"/>
+<part name="R20" library="rcl" deviceset="R-US_" device="R0603" value="2k"/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="VDD3" library="supply1" deviceset="VDD" device=""/>
-<part name="JP9" library="starboard" deviceset="PINHD-1X2" device="KK100" value="right hop"/>
+<part name="JP10" library="starboard" deviceset="PINHD-1X2" device="KK100" value="right hop"/>
 <part name="Q1" library="transistor-power" deviceset="N-HEXFET_?-*" device="SOT323" value="ZXMS6004SGTA"/>
 <part name="LED3" library="led" deviceset="LED" device="CHIPLED_0603" value="LBQ39"/>
-<part name="R15" library="rcl" deviceset="R-US_" device="R0603" value="2k"/>
+<part name="R18" library="rcl" deviceset="R-US_" device="R0603" value="2k"/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
 <part name="VDD4" library="supply1" deviceset="VDD" device=""/>
-<part name="JP10" library="starboard" deviceset="PINHD-1X2" device="KK100" value="lights"/>
-<part name="LED4" library="led" deviceset="LED" device="CHIPLED_0603" value="LBQ39"/>
-<part name="R11" library="rcl" deviceset="R-US_" device="R0603" value="91"/>
-<part name="+3V5" library="supply1" deviceset="+3V3" device=""/>
+<part name="JP4" library="starboard" deviceset="PINHD-1X2" device="KK100" value="lights"/>
 <part name="LED5" library="led" deviceset="LED" device="CHIPLED_0603" value="LBQ39"/>
-<part name="R16" library="rcl" deviceset="R-US_" device="R0603" value="91"/>
-<part name="+3V6" library="supply1" deviceset="+3V3" device=""/>
+<part name="R15" library="rcl" deviceset="R-US_" device="R0603" value="91"/>
+<part name="+3V5" library="supply1" deviceset="+3V3" device=""/>
 <part name="LED6" library="led" deviceset="LED" device="CHIPLED_0603" value="LBQ39"/>
-<part name="R24" library="rcl" deviceset="R-US_" device="R0603" value="91"/>
+<part name="R17" library="rcl" deviceset="R-US_" device="R0603" value="91"/>
+<part name="+3V6" library="supply1" deviceset="+3V3" device=""/>
+<part name="LED2" library="led" deviceset="LED" device="CHIPLED_0603" value="LBQ39"/>
+<part name="R13" library="rcl" deviceset="R-US_" device="R0603" value="91"/>
 <part name="+3V7" library="supply1" deviceset="+3V3" device=""/>
-<part name="LED7" library="led" deviceset="LED" device="CHIPLED_0603" value="LBQ39"/>
-<part name="R26" library="rcl" deviceset="R-US_" device="R0603" value="91"/>
+<part name="LED1" library="led" deviceset="LED" device="CHIPLED_0603" value="LBQ39"/>
+<part name="R11" library="rcl" deviceset="R-US_" device="R0603" value="91"/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
 <part name="+3V10" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
 <part name="EEPROM" library="puggleboard" deviceset="24C*" device="" value="CAT24C256"/>
-<part name="C45" library="rcl" deviceset="C-EU" device="C0603" value="0.1uF"/>
-<part name="R59" library="rcl" deviceset="R-US_" device="R0603" value="5.6k"/>
-<part name="R54" library="rcl" deviceset="R-US_" device="R0603" value="4.7k"/>
-<part name="R55" library="rcl" deviceset="R-US_" device="R0603" value="4.7k"/>
-<part name="R56" library="rcl" deviceset="R-US_" device="R0603" value="4.7k"/>
-<part name="R58" library="rcl" deviceset="R-US_" device="R0603" value="5.6k"/>
-<part name="R57" library="rcl" deviceset="R-US_" device="R0603" value="10k"/>
+<part name="C8" library="rcl" deviceset="C-EU" device="C0603" value="0.1uF"/>
+<part name="R24" library="rcl" deviceset="R-US_" device="R0603" value="5.6k"/>
+<part name="R29" library="rcl" deviceset="R-US_" device="R0603" value="4.7k"/>
+<part name="R28" library="rcl" deviceset="R-US_" device="R0603" value="4.7k"/>
+<part name="R27" library="rcl" deviceset="R-US_" device="R0603" value="4.7k"/>
+<part name="R25" library="rcl" deviceset="R-US_" device="R0603" value="5.6k"/>
+<part name="R26" library="rcl" deviceset="R-US_" device="R0603" value="10k"/>
 <part name="S1" library="smd-special" deviceset="SWS002" device=""/>
-<part name="EP_WP" library="testpad" deviceset="TP" device="TP14SQ" value="TPTP14SQ"/>
+<part name="EPRWP" library="testpad" deviceset="TP" device="TP14SQ" value="TPTP14SQ"/>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
 <part name="GND15" library="supply1" deviceset="GND" device=""/>
 <part name="+3V11" library="supply1" deviceset="+3V3" device=""/>
-<part name="C8" library="rcl" deviceset="C-EU" device="C1206" value="22uF"/>
-<part name="R27" library="rcl" deviceset="R-US_" device="R0603" value="10k"/>
+<part name="C5" library="rcl" deviceset="C-EU" device="C1206" value="22uF"/>
+<part name="R21" library="rcl" deviceset="R-US_" device="R0603" value="10k"/>
 <part name="AGND4" library="supply1" deviceset="AGND" device=""/>
 <part name="GND16" library="supply1" deviceset="GND" device=""/>
 <part name="+3V8" library="supply1" deviceset="+3V3" device=""/>
@@ -12958,22 +12983,22 @@ Source: DCJ0202.pdf</description>
 <part name="GND18" library="supply1" deviceset="GND" device=""/>
 <part name="GND19" library="supply1" deviceset="GND" device=""/>
 <part name="GND20" library="supply1" deviceset="GND" device=""/>
-<part name="C5" library="rcl" deviceset="C-EU" device="C0603" value="0.1uF"/>
 <part name="C9" library="rcl" deviceset="C-EU" device="C0603" value="0.1uF"/>
+<part name="C11" library="rcl" deviceset="C-EU" device="C0603" value="0.1uF"/>
 <part name="C10" library="rcl" deviceset="C-EU" device="C0603" value="10uF"/>
-<part name="R10" library="rcl" deviceset="R-US_" device="R0603" value="33"/>
-<part name="R12" library="rcl" deviceset="R-US_" device="R0603" value="33"/>
-<part name="R23" library="rcl" deviceset="R-US_" device="R0603" value="33"/>
-<part name="R25" library="rcl" deviceset="R-US_" device="R0603" value="33"/>
-<part name="R28" library="rcl" deviceset="R-US_" device="R0603" value="2.2k"/>
-<part name="R29" library="rcl" deviceset="R-US_" device="R0603" value="2.2k"/>
+<part name="R32" library="rcl" deviceset="R-US_" device="R0603" value="33"/>
+<part name="R34" library="rcl" deviceset="R-US_" device="R0603" value="33"/>
+<part name="R33" library="rcl" deviceset="R-US_" device="R0603" value="33"/>
+<part name="R35" library="rcl" deviceset="R-US_" device="R0603" value="33"/>
+<part name="R36" library="rcl" deviceset="R-US_" device="R0603" value="2.2k"/>
+<part name="R37" library="rcl" deviceset="R-US_" device="R0603" value="2.2k"/>
 <part name="+3V12" library="supply1" deviceset="+3V3" device=""/>
 <part name="IC3" library="starboard" deviceset="74*1G86" device="DCK" technology="AHC" value="MC74VHC1G86"/>
 <part name="R30" library="rcl" deviceset="R-US_" device="R0603" value="10k"/>
 <part name="R31" library="rcl" deviceset="R-US_" device="R0603" value="DNF"/>
 <part name="+3V13" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND21" library="supply1" deviceset="GND" device=""/>
-<part name="FB1" library="starboard" deviceset="FERRITE-BEAD" device=""/>
+<part name="FB1" library="starboard" deviceset="FBEAD" device="1206" value="3A"/>
 <part name="+3V3" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND22" library="supply1" deviceset="GND" device=""/>
 </parts>
@@ -12991,6 +13016,11 @@ Source: DCJ0202.pdf</description>
 <text x="180.34" y="147.32" size="1.778" layer="97">AUDIO</text>
 <text x="180.34" y="132.08" size="1.778" layer="97">BCLK is inverted in McASP driver
 Swap R30 to R31 if driver is fixed.</text>
+<text x="165.1" y="294.64" size="1.778" layer="97">Connect pins 2 and 4 to IR LED (OP133)
+Connect pins 1,3,5 to IR detector (OPL820-OC)
+LED lights when beam is interrupted (pin is low)
+Max current is 5 mA - safe to drive pins low</text>
+<text x="43.18" y="101.6" size="1.778" layer="97">EEPROM is read-only unless EP_WP is grounded</text>
 </plain>
 <instances>
 <instance part="+3V1" gate="G$1" x="25.4" y="304.8"/>
@@ -13022,12 +13052,12 @@ Swap R30 to R31 if driver is fixed.</text>
 <instance part="VDD1" gate="G$1" x="414.02" y="304.8"/>
 <instance part="C1" gate="G$1" x="403.86" y="287.02" rot="R90"/>
 <instance part="C2" gate="G$1" x="403.86" y="279.4" rot="R90"/>
-<instance part="C4" gate="G$1" x="345.44" y="284.48"/>
-<instance part="C3" gate="G$1" x="353.06" y="284.48"/>
-<instance part="REG1" gate="A" x="378.46" y="292.1"/>
-<instance part="R17" gate="G$1" x="340.36" y="274.32" rot="R90"/>
-<instance part="R18" gate="G$1" x="330.2" y="289.56"/>
-<instance part="C6" gate="G$1" x="347.98" y="299.72" rot="R90"/>
+<instance part="C6" gate="G$1" x="345.44" y="284.48"/>
+<instance part="C7" gate="G$1" x="353.06" y="284.48"/>
+<instance part="REG" gate="A" x="378.46" y="292.1"/>
+<instance part="R23" gate="G$1" x="340.36" y="274.32" rot="R90"/>
+<instance part="R22" gate="G$1" x="330.2" y="289.56"/>
+<instance part="C3" gate="G$1" x="347.98" y="299.72" rot="R90"/>
 <instance part="L1" gate="G$1" x="330.2" y="297.18" rot="R90"/>
 <instance part="GND6" gate="1" x="360.68" y="261.62"/>
 <instance part="AGND1" gate="VR1" x="353.06" y="261.62"/>
@@ -13035,71 +13065,80 @@ Swap R30 to R31 if driver is fixed.</text>
 <instance part="GND7" gate="1" x="414.02" y="261.62"/>
 <instance part="GND8" gate="1" x="345.44" y="261.62"/>
 <instance part="P+1" gate="1" x="304.8" y="304.8"/>
-<instance part="C7" gate="G$1" x="304.8" y="287.02" rot="R180"/>
+<instance part="C4" gate="G$1" x="304.8" y="287.02" rot="R180"/>
 <instance part="GND9" gate="1" x="304.8" y="264.16"/>
 <instance part="JP1" gate="A" x="38.1" y="289.56"/>
-<instance part="JP2" gate="A" x="38.1" y="243.84"/>
-<instance part="JP3" gate="A" x="38.1" y="200.66"/>
+<instance part="JP5" gate="A" x="38.1" y="243.84"/>
+<instance part="JP9" gate="A" x="38.1" y="200.66"/>
 <instance part="P+2" gate="1" x="119.38" y="304.8"/>
-<instance part="JP4" gate="A" x="139.7" y="279.4"/>
-<instance part="JP5" gate="A" x="139.7" y="248.92"/>
-<instance part="JP6" gate="A" x="139.7" y="215.9"/>
-<instance part="JP7" gate="A" x="139.7" y="182.88"/>
-<instance part="R19" gate="G$1" x="127" y="276.86"/>
-<instance part="R20" gate="G$1" x="127" y="246.38"/>
-<instance part="R21" gate="G$1" x="127" y="213.36"/>
-<instance part="R22" gate="G$1" x="127" y="180.34"/>
+<instance part="JP6" gate="A" x="139.7" y="279.4"/>
+<instance part="JP7" gate="A" x="139.7" y="248.92"/>
+<instance part="JP3" gate="A" x="139.7" y="215.9"/>
+<instance part="JP2" gate="A" x="139.7" y="182.88"/>
+<instance part="R14" gate="G$1" x="127" y="276.86"/>
+<instance part="R16" gate="G$1" x="127" y="246.38"/>
+<instance part="R12" gate="G$1" x="127" y="213.36"/>
+<instance part="R10" gate="G$1" x="127" y="180.34"/>
 <instance part="GND10" gate="1" x="144.78" y="170.18"/>
 <instance part="+3V2" gate="G$1" x="154.94" y="304.8"/>
-<instance part="Q2" gate="G$1" x="38.1" y="129.54"/>
-<instance part="LED1" gate="G$1" x="40.64" y="142.24"/>
-<instance part="R13" gate="G$1" x="40.64" y="149.86" rot="R90"/>
+<instance part="Q2" gate="G$1" x="38.1" y="129.54" smashed="yes">
+<attribute name="NAME" x="44.45" y="127" size="1.778" layer="95"/>
+<attribute name="VALUE" x="44.45" y="124.46" size="1.778" layer="96"/>
+</instance>
+<instance part="LED4" gate="G$1" x="40.64" y="142.24"/>
+<instance part="R19" gate="G$1" x="40.64" y="149.86" rot="R90"/>
 <instance part="GND1" gate="1" x="40.64" y="116.84"/>
 <instance part="VDD2" gate="G$1" x="40.64" y="160.02"/>
 <instance part="JP8" gate="G$1" x="60.96" y="154.94"/>
-<instance part="Q3" gate="G$1" x="86.36" y="129.54"/>
-<instance part="LED2" gate="G$1" x="88.9" y="142.24"/>
-<instance part="R14" gate="G$1" x="88.9" y="149.86" rot="R90"/>
+<instance part="Q3" gate="G$1" x="86.36" y="129.54" smashed="yes">
+<attribute name="NAME" x="92.71" y="127" size="1.778" layer="95"/>
+<attribute name="VALUE" x="92.71" y="124.46" size="1.778" layer="96"/>
+</instance>
+<instance part="LED7" gate="G$1" x="88.9" y="142.24"/>
+<instance part="R20" gate="G$1" x="88.9" y="149.86" rot="R90"/>
 <instance part="GND2" gate="1" x="88.9" y="116.84"/>
 <instance part="VDD3" gate="G$1" x="88.9" y="160.02"/>
-<instance part="JP9" gate="G$1" x="109.22" y="154.94"/>
-<instance part="Q1" gate="G$1" x="134.62" y="129.54"/>
+<instance part="JP10" gate="G$1" x="109.22" y="154.94"/>
+<instance part="Q1" gate="G$1" x="134.62" y="129.54" smashed="yes">
+<attribute name="NAME" x="140.97" y="127" size="1.778" layer="95"/>
+<attribute name="VALUE" x="140.97" y="124.46" size="1.778" layer="96"/>
+</instance>
 <instance part="LED3" gate="G$1" x="137.16" y="142.24"/>
-<instance part="R15" gate="G$1" x="137.16" y="149.86" rot="R90"/>
+<instance part="R18" gate="G$1" x="137.16" y="149.86" rot="R90"/>
 <instance part="GND11" gate="1" x="137.16" y="116.84"/>
 <instance part="VDD4" gate="G$1" x="137.16" y="160.02"/>
-<instance part="JP10" gate="G$1" x="157.48" y="154.94"/>
-<instance part="LED4" gate="G$1" x="154.94" y="284.48"/>
-<instance part="R11" gate="G$1" x="154.94" y="292.1" rot="R90"/>
+<instance part="JP4" gate="G$1" x="157.48" y="154.94"/>
+<instance part="LED5" gate="G$1" x="154.94" y="284.48"/>
+<instance part="R15" gate="G$1" x="154.94" y="292.1" rot="R90"/>
 <instance part="+3V5" gate="G$1" x="154.94" y="271.78"/>
-<instance part="LED5" gate="G$1" x="154.94" y="254"/>
-<instance part="R16" gate="G$1" x="154.94" y="261.62" rot="R90"/>
+<instance part="LED6" gate="G$1" x="154.94" y="254"/>
+<instance part="R17" gate="G$1" x="154.94" y="261.62" rot="R90"/>
 <instance part="+3V6" gate="G$1" x="154.94" y="238.76"/>
-<instance part="LED6" gate="G$1" x="154.94" y="220.98"/>
-<instance part="R24" gate="G$1" x="154.94" y="228.6" rot="R90"/>
+<instance part="LED2" gate="G$1" x="154.94" y="220.98"/>
+<instance part="R13" gate="G$1" x="154.94" y="228.6" rot="R90"/>
 <instance part="+3V7" gate="G$1" x="154.94" y="205.74"/>
-<instance part="LED7" gate="G$1" x="154.94" y="187.96"/>
-<instance part="R26" gate="G$1" x="154.94" y="195.58" rot="R90"/>
+<instance part="LED1" gate="G$1" x="154.94" y="187.96"/>
+<instance part="R11" gate="G$1" x="154.94" y="195.58" rot="R90"/>
 <instance part="GND5" gate="1" x="327.66" y="208.28"/>
 <instance part="IC2" gate="P" x="73.66" y="205.74"/>
 <instance part="+3V10" gate="G$1" x="73.66" y="215.9"/>
 <instance part="GND12" gate="1" x="73.66" y="195.58"/>
 <instance part="EEPROM" gate="G$1" x="114.3" y="58.42"/>
-<instance part="C45" gate="G$1" x="160.02" y="60.96"/>
-<instance part="R59" gate="G$1" x="137.16" y="86.36" rot="R90"/>
-<instance part="R54" gate="G$1" x="43.18" y="86.36" rot="R90"/>
-<instance part="R55" gate="G$1" x="50.8" y="86.36" rot="R90"/>
-<instance part="R56" gate="G$1" x="58.42" y="86.36" rot="R90"/>
-<instance part="R58" gate="G$1" x="96.52" y="86.36" rot="R90"/>
-<instance part="R57" gate="G$1" x="66.04" y="86.36" rot="R90"/>
+<instance part="C8" gate="G$1" x="160.02" y="60.96"/>
+<instance part="R24" gate="G$1" x="137.16" y="86.36" rot="R90"/>
+<instance part="R29" gate="G$1" x="43.18" y="86.36" rot="R90"/>
+<instance part="R28" gate="G$1" x="50.8" y="86.36" rot="R90"/>
+<instance part="R27" gate="G$1" x="58.42" y="86.36" rot="R90"/>
+<instance part="R25" gate="G$1" x="96.52" y="86.36" rot="R90"/>
+<instance part="R26" gate="G$1" x="66.04" y="86.36" rot="R90"/>
 <instance part="S1" gate="G$1" x="30.48" y="53.34" rot="MR90"/>
-<instance part="EP_WP" gate="G$1" x="68.58" y="76.2" rot="R270"/>
+<instance part="EPRWP" gate="G$1" x="68.58" y="76.2" rot="R270"/>
 <instance part="GND13" gate="1" x="20.32" y="40.64"/>
 <instance part="GND14" gate="1" x="160.02" y="40.64"/>
 <instance part="GND15" gate="1" x="121.92" y="40.64"/>
 <instance part="+3V11" gate="G$1" x="20.32" y="104.14"/>
-<instance part="C8" gate="G$1" x="312.42" y="287.02" rot="R180"/>
-<instance part="R27" gate="G$1" x="403.86" y="302.26"/>
+<instance part="C5" gate="G$1" x="312.42" y="287.02" rot="R180"/>
+<instance part="R21" gate="G$1" x="403.86" y="302.26"/>
 <instance part="AGND4" gate="VR1" x="304.8" y="231.14"/>
 <instance part="GND16" gate="1" x="327.66" y="231.14"/>
 <instance part="+3V8" gate="G$1" x="411.48" y="147.32"/>
@@ -13118,15 +13157,15 @@ Swap R30 to R31 if driver is fixed.</text>
 <instance part="GND18" gate="1" x="284.48" y="111.76"/>
 <instance part="GND19" gate="1" x="259.08" y="111.76"/>
 <instance part="GND20" gate="1" x="246.38" y="40.64"/>
-<instance part="C5" gate="G$1" x="259.08" y="119.38"/>
-<instance part="C9" gate="G$1" x="284.48" y="119.38"/>
+<instance part="C9" gate="G$1" x="259.08" y="119.38"/>
+<instance part="C11" gate="G$1" x="284.48" y="119.38"/>
 <instance part="C10" gate="G$1" x="294.64" y="119.38"/>
-<instance part="R10" gate="G$1" x="210.82" y="119.38"/>
-<instance part="R12" gate="G$1" x="238.76" y="99.06"/>
-<instance part="R23" gate="G$1" x="231.14" y="93.98"/>
-<instance part="R25" gate="G$1" x="238.76" y="88.9"/>
-<instance part="R28" gate="G$1" x="185.42" y="88.9" rot="R90"/>
-<instance part="R29" gate="G$1" x="193.04" y="88.9" rot="R90"/>
+<instance part="R32" gate="G$1" x="210.82" y="119.38"/>
+<instance part="R34" gate="G$1" x="238.76" y="99.06"/>
+<instance part="R33" gate="G$1" x="231.14" y="93.98"/>
+<instance part="R35" gate="G$1" x="238.76" y="88.9"/>
+<instance part="R36" gate="G$1" x="185.42" y="88.9" rot="R90"/>
+<instance part="R37" gate="G$1" x="193.04" y="88.9" rot="R90"/>
 <instance part="+3V12" gate="G$1" x="175.26" y="104.14"/>
 <instance part="IC3" gate="A" x="231.14" y="121.92"/>
 <instance part="R30" gate="G$1" x="175.26" y="134.62" rot="R90"/>
@@ -13198,9 +13237,9 @@ Swap R30 to R31 if driver is fixed.</text>
 <net name="LEFT_PECK" class="0">
 <segment>
 <label x="165.1" y="279.4" size="1.778" layer="95"/>
-<pinref part="LED4" gate="G$1" pin="C"/>
+<pinref part="LED5" gate="G$1" pin="C"/>
 <wire x1="154.94" y1="279.4" x2="167.64" y2="279.4" width="0.1524" layer="91"/>
-<pinref part="JP4" gate="A" pin="3"/>
+<pinref part="JP6" gate="A" pin="3"/>
 <wire x1="154.94" y1="279.4" x2="137.16" y2="279.4" width="0.1524" layer="91"/>
 <junction x="154.94" y="279.4"/>
 </segment>
@@ -13214,8 +13253,8 @@ Swap R30 to R31 if driver is fixed.</text>
 <segment>
 <label x="165.1" y="248.92" size="1.778" layer="95"/>
 <wire x1="154.94" y1="248.92" x2="167.64" y2="248.92" width="0.1524" layer="91"/>
-<pinref part="LED5" gate="G$1" pin="C"/>
-<pinref part="JP5" gate="A" pin="3"/>
+<pinref part="LED6" gate="G$1" pin="C"/>
+<pinref part="JP7" gate="A" pin="3"/>
 <wire x1="154.94" y1="248.92" x2="137.16" y2="248.92" width="0.1524" layer="91"/>
 <junction x="154.94" y="248.92"/>
 </segment>
@@ -13228,9 +13267,9 @@ Swap R30 to R31 if driver is fixed.</text>
 <net name="RGHT_PECK" class="0">
 <segment>
 <label x="165.1" y="215.9" size="1.778" layer="95"/>
-<pinref part="LED6" gate="G$1" pin="C"/>
+<pinref part="LED2" gate="G$1" pin="C"/>
 <wire x1="154.94" y1="215.9" x2="167.64" y2="215.9" width="0.1524" layer="91"/>
-<pinref part="JP6" gate="A" pin="3"/>
+<pinref part="JP3" gate="A" pin="3"/>
 <wire x1="154.94" y1="215.9" x2="137.16" y2="215.9" width="0.1524" layer="91"/>
 <junction x="154.94" y="215.9"/>
 </segment>
@@ -13246,23 +13285,23 @@ Swap R30 to R31 if driver is fixed.</text>
 <pinref part="GND3" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="REG1" gate="A" pin="EP"/>
-<pinref part="REG1" gate="A" pin="GND"/>
+<pinref part="REG" gate="A" pin="EP"/>
+<pinref part="REG" gate="A" pin="GND"/>
 <wire x1="360.68" y1="279.4" x2="360.68" y2="276.86" width="0.1524" layer="91"/>
 <junction x="360.68" y="276.86"/>
 <wire x1="360.68" y1="276.86" x2="360.68" y2="264.16" width="0.1524" layer="91"/>
 <pinref part="GND6" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="C4" gate="G$1" pin="2"/>
+<pinref part="C6" gate="G$1" pin="2"/>
 <pinref part="GND8" gate="1" pin="GND"/>
 <wire x1="345.44" y1="279.4" x2="345.44" y2="264.16" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="C7" gate="G$1" pin="1"/>
+<pinref part="C4" gate="G$1" pin="1"/>
 <pinref part="GND9" gate="1" pin="GND"/>
 <wire x1="304.8" y1="284.48" x2="304.8" y2="279.4" width="0.1524" layer="91"/>
-<pinref part="C8" gate="G$1" pin="1"/>
+<pinref part="C5" gate="G$1" pin="1"/>
 <wire x1="304.8" y1="279.4" x2="304.8" y2="266.7" width="0.1524" layer="91"/>
 <wire x1="312.42" y1="284.48" x2="312.42" y2="279.4" width="0.1524" layer="91"/>
 <wire x1="312.42" y1="279.4" x2="304.8" y2="279.4" width="0.1524" layer="91"/>
@@ -13270,35 +13309,35 @@ Swap R30 to R31 if driver is fixed.</text>
 </segment>
 <segment>
 <pinref part="GND10" gate="1" pin="GND"/>
-<pinref part="JP7" gate="A" pin="5"/>
+<pinref part="JP2" gate="A" pin="5"/>
 <wire x1="144.78" y1="177.8" x2="144.78" y2="172.72" width="0.1524" layer="91"/>
 <wire x1="137.16" y1="177.8" x2="144.78" y2="177.8" width="0.1524" layer="91"/>
 <junction x="144.78" y="177.8"/>
-<pinref part="JP6" gate="A" pin="5"/>
+<pinref part="JP3" gate="A" pin="5"/>
 <wire x1="137.16" y1="210.82" x2="144.78" y2="210.82" width="0.1524" layer="91"/>
 <wire x1="144.78" y1="210.82" x2="144.78" y2="180.34" width="0.1524" layer="91"/>
 <junction x="144.78" y="210.82"/>
-<pinref part="JP5" gate="A" pin="5"/>
+<pinref part="JP7" gate="A" pin="5"/>
 <wire x1="144.78" y1="180.34" x2="144.78" y2="177.8" width="0.1524" layer="91"/>
 <wire x1="137.16" y1="243.84" x2="144.78" y2="243.84" width="0.1524" layer="91"/>
 <wire x1="144.78" y1="243.84" x2="144.78" y2="213.36" width="0.1524" layer="91"/>
 <junction x="144.78" y="243.84"/>
-<pinref part="JP4" gate="A" pin="5"/>
+<pinref part="JP6" gate="A" pin="5"/>
 <wire x1="144.78" y1="213.36" x2="144.78" y2="210.82" width="0.1524" layer="91"/>
 <wire x1="137.16" y1="274.32" x2="144.78" y2="274.32" width="0.1524" layer="91"/>
 <wire x1="144.78" y1="274.32" x2="144.78" y2="246.38" width="0.1524" layer="91"/>
-<pinref part="JP4" gate="A" pin="4"/>
+<pinref part="JP6" gate="A" pin="4"/>
 <wire x1="144.78" y1="246.38" x2="144.78" y2="243.84" width="0.1524" layer="91"/>
 <wire x1="137.16" y1="276.86" x2="144.78" y2="276.86" width="0.1524" layer="91"/>
 <wire x1="144.78" y1="276.86" x2="144.78" y2="274.32" width="0.1524" layer="91"/>
 <junction x="144.78" y="274.32"/>
-<pinref part="JP5" gate="A" pin="4"/>
+<pinref part="JP7" gate="A" pin="4"/>
 <wire x1="137.16" y1="246.38" x2="144.78" y2="246.38" width="0.1524" layer="91"/>
 <junction x="144.78" y="246.38"/>
-<pinref part="JP6" gate="A" pin="4"/>
+<pinref part="JP3" gate="A" pin="4"/>
 <wire x1="137.16" y1="213.36" x2="144.78" y2="213.36" width="0.1524" layer="91"/>
 <junction x="144.78" y="213.36"/>
-<pinref part="JP7" gate="A" pin="4"/>
+<pinref part="JP2" gate="A" pin="4"/>
 <wire x1="137.16" y1="180.34" x2="144.78" y2="180.34" width="0.1524" layer="91"/>
 <junction x="144.78" y="180.34"/>
 </segment>
@@ -13337,7 +13376,7 @@ Swap R30 to R31 if driver is fixed.</text>
 <pinref part="GND13" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="C45" gate="G$1" pin="2"/>
+<pinref part="C8" gate="G$1" pin="2"/>
 <wire x1="160.02" y1="55.88" x2="160.02" y2="43.18" width="0.1524" layer="91"/>
 <pinref part="GND14" gate="1" pin="GND"/>
 </segment>
@@ -13375,12 +13414,12 @@ Swap R30 to R31 if driver is fixed.</text>
 <junction x="327.66" y="241.3"/>
 </segment>
 <segment>
-<pinref part="C3" gate="G$1" pin="2"/>
+<pinref part="C7" gate="G$1" pin="2"/>
 <pinref part="AGND1" gate="VR1" pin="AGND"/>
 <wire x1="353.06" y1="279.4" x2="353.06" y2="264.16" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="R17" gate="G$1" pin="1"/>
+<pinref part="R23" gate="G$1" pin="1"/>
 <pinref part="AGND2" gate="VR1" pin="AGND"/>
 <wire x1="340.36" y1="269.24" x2="340.36" y2="264.16" width="0.1524" layer="91"/>
 </segment>
@@ -13406,11 +13445,11 @@ Swap R30 to R31 if driver is fixed.</text>
 </segment>
 <segment>
 <pinref part="GND19" gate="1" pin="GND"/>
-<pinref part="C5" gate="G$1" pin="2"/>
+<pinref part="C9" gate="G$1" pin="2"/>
 </segment>
 <segment>
 <pinref part="GND18" gate="1" pin="GND"/>
-<pinref part="C9" gate="G$1" pin="2"/>
+<pinref part="C11" gate="G$1" pin="2"/>
 </segment>
 <segment>
 <pinref part="GND17" gate="1" pin="GND"/>
@@ -13436,33 +13475,33 @@ Swap R30 to R31 if driver is fixed.</text>
 <wire x1="25.4" y1="302.26" x2="25.4" y2="287.02" width="0.1524" layer="91"/>
 <pinref part="JP1" gate="A" pin="4"/>
 <wire x1="25.4" y1="287.02" x2="35.56" y2="287.02" width="0.1524" layer="91"/>
-<pinref part="JP2" gate="A" pin="4"/>
+<pinref part="JP5" gate="A" pin="4"/>
 <wire x1="35.56" y1="241.3" x2="25.4" y2="241.3" width="0.1524" layer="91"/>
 <wire x1="25.4" y1="241.3" x2="25.4" y2="287.02" width="0.1524" layer="91"/>
 <junction x="25.4" y="287.02"/>
 <wire x1="25.4" y1="241.3" x2="25.4" y2="198.12" width="0.1524" layer="91"/>
 <junction x="25.4" y="241.3"/>
-<pinref part="JP3" gate="A" pin="4"/>
+<pinref part="JP9" gate="A" pin="4"/>
 <wire x1="25.4" y1="198.12" x2="35.56" y2="198.12" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="+3V2" gate="G$1" pin="+3V3"/>
-<pinref part="R11" gate="G$1" pin="2"/>
+<pinref part="R15" gate="G$1" pin="2"/>
 <wire x1="154.94" y1="297.18" x2="154.94" y2="302.26" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="+3V5" gate="G$1" pin="+3V3"/>
-<pinref part="R16" gate="G$1" pin="2"/>
+<pinref part="R17" gate="G$1" pin="2"/>
 <wire x1="154.94" y1="266.7" x2="154.94" y2="269.24" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="+3V6" gate="G$1" pin="+3V3"/>
-<pinref part="R24" gate="G$1" pin="2"/>
+<pinref part="R13" gate="G$1" pin="2"/>
 <wire x1="154.94" y1="233.68" x2="154.94" y2="236.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="+3V7" gate="G$1" pin="+3V3"/>
-<pinref part="R26" gate="G$1" pin="2"/>
+<pinref part="R11" gate="G$1" pin="2"/>
 <wire x1="154.94" y1="200.66" x2="154.94" y2="203.2" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -13478,26 +13517,26 @@ Swap R30 to R31 if driver is fixed.</text>
 <wire x1="50.8" y1="96.52" x2="43.18" y2="96.52" width="0.1524" layer="91"/>
 <wire x1="121.92" y1="71.12" x2="121.92" y2="96.52" width="0.1524" layer="91"/>
 <junction x="121.92" y="96.52"/>
-<pinref part="C45" gate="G$1" pin="1"/>
+<pinref part="C8" gate="G$1" pin="1"/>
 <wire x1="121.92" y1="96.52" x2="137.16" y2="96.52" width="0.1524" layer="91"/>
 <wire x1="137.16" y1="96.52" x2="160.02" y2="96.52" width="0.1524" layer="91"/>
 <wire x1="160.02" y1="96.52" x2="160.02" y2="63.5" width="0.1524" layer="91"/>
-<pinref part="R59" gate="G$1" pin="2"/>
+<pinref part="R24" gate="G$1" pin="2"/>
 <wire x1="137.16" y1="91.44" x2="137.16" y2="96.52" width="0.1524" layer="91"/>
 <junction x="137.16" y="96.52"/>
-<pinref part="R54" gate="G$1" pin="2"/>
+<pinref part="R29" gate="G$1" pin="2"/>
 <wire x1="43.18" y1="91.44" x2="43.18" y2="96.52" width="0.1524" layer="91"/>
 <junction x="43.18" y="96.52"/>
-<pinref part="R55" gate="G$1" pin="2"/>
+<pinref part="R28" gate="G$1" pin="2"/>
 <wire x1="50.8" y1="96.52" x2="50.8" y2="91.44" width="0.1524" layer="91"/>
 <junction x="50.8" y="96.52"/>
-<pinref part="R56" gate="G$1" pin="2"/>
+<pinref part="R27" gate="G$1" pin="2"/>
 <wire x1="58.42" y1="96.52" x2="58.42" y2="91.44" width="0.1524" layer="91"/>
 <junction x="58.42" y="96.52"/>
-<pinref part="R57" gate="G$1" pin="2"/>
+<pinref part="R26" gate="G$1" pin="2"/>
 <wire x1="66.04" y1="96.52" x2="66.04" y2="91.44" width="0.1524" layer="91"/>
 <junction x="66.04" y="96.52"/>
-<pinref part="R58" gate="G$1" pin="2"/>
+<pinref part="R25" gate="G$1" pin="2"/>
 <wire x1="96.52" y1="96.52" x2="96.52" y2="91.44" width="0.1524" layer="91"/>
 <junction x="96.52" y="96.52"/>
 <wire x1="43.18" y1="96.52" x2="20.32" y2="96.52" width="0.1524" layer="91"/>
@@ -13514,17 +13553,17 @@ Swap R30 to R31 if driver is fixed.</text>
 <pinref part="+3V9" gate="G$1" pin="+3V3"/>
 <pinref part="DAC" gate="G$1" pin="DVDD"/>
 <wire x1="266.7" y1="129.54" x2="266.7" y2="127" width="0.1524" layer="91"/>
-<pinref part="C5" gate="G$1" pin="1"/>
+<pinref part="C9" gate="G$1" pin="1"/>
 <wire x1="266.7" y1="127" x2="266.7" y2="111.76" width="0.1524" layer="91"/>
 <wire x1="266.7" y1="127" x2="259.08" y2="127" width="0.1524" layer="91"/>
 <wire x1="259.08" y1="127" x2="259.08" y2="121.92" width="0.1524" layer="91"/>
 <junction x="266.7" y="127"/>
 </segment>
 <segment>
-<pinref part="R29" gate="G$1" pin="2"/>
+<pinref part="R37" gate="G$1" pin="2"/>
 <wire x1="185.42" y1="99.06" x2="193.04" y2="99.06" width="0.1524" layer="91"/>
 <wire x1="193.04" y1="99.06" x2="193.04" y2="93.98" width="0.1524" layer="91"/>
-<pinref part="R28" gate="G$1" pin="2"/>
+<pinref part="R36" gate="G$1" pin="2"/>
 <wire x1="185.42" y1="93.98" x2="185.42" y2="99.06" width="0.1524" layer="91"/>
 <pinref part="+3V12" gate="G$1" pin="+3V3"/>
 <wire x1="185.42" y1="99.06" x2="175.26" y2="99.06" width="0.1524" layer="91"/>
@@ -13678,8 +13717,8 @@ Swap R30 to R31 if driver is fixed.</text>
 <segment>
 <label x="165.1" y="182.88" size="1.778" layer="95"/>
 <wire x1="154.94" y1="182.88" x2="167.64" y2="182.88" width="0.1524" layer="91"/>
-<pinref part="LED7" gate="G$1" pin="C"/>
-<pinref part="JP7" gate="A" pin="3"/>
+<pinref part="LED1" gate="G$1" pin="C"/>
+<pinref part="JP2" gate="A" pin="3"/>
 <wire x1="154.94" y1="182.88" x2="137.16" y2="182.88" width="0.1524" layer="91"/>
 <junction x="154.94" y="182.88"/>
 </segment>
@@ -13696,7 +13735,7 @@ Swap R30 to R31 if driver is fixed.</text>
 <label x="320.04" y="109.22" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R12" gate="G$1" pin="1"/>
+<pinref part="R34" gate="G$1" pin="1"/>
 <wire x1="233.68" y1="99.06" x2="213.36" y2="99.06" width="0.1524" layer="91"/>
 <label x="203.2" y="99.06" size="1.778" layer="95"/>
 </segment>
@@ -13708,7 +13747,7 @@ Swap R30 to R31 if driver is fixed.</text>
 <label x="320.04" y="106.68" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R10" gate="G$1" pin="1"/>
+<pinref part="R32" gate="G$1" pin="1"/>
 <wire x1="205.74" y1="119.38" x2="195.58" y2="119.38" width="0.1524" layer="91"/>
 <label x="182.88" y="119.38" size="1.778" layer="95"/>
 </segment>
@@ -13720,7 +13759,7 @@ Swap R30 to R31 if driver is fixed.</text>
 <label x="406.4" y="111.76" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R23" gate="G$1" pin="1"/>
+<pinref part="R33" gate="G$1" pin="1"/>
 <wire x1="226.06" y1="93.98" x2="213.36" y2="93.98" width="0.1524" layer="91"/>
 <label x="203.2" y="93.98" size="1.778" layer="95"/>
 </segment>
@@ -13732,7 +13771,7 @@ Swap R30 to R31 if driver is fixed.</text>
 <label x="320.04" y="114.3" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R25" gate="G$1" pin="1"/>
+<pinref part="R35" gate="G$1" pin="1"/>
 <wire x1="233.68" y1="88.9" x2="213.36" y2="88.9" width="0.1524" layer="91"/>
 <label x="203.2" y="88.9" size="1.778" layer="95"/>
 </segment>
@@ -13783,10 +13822,10 @@ Swap R30 to R31 if driver is fixed.</text>
 <wire x1="414.02" y1="302.26" x2="414.02" y2="304.8" width="0.1524" layer="91"/>
 <junction x="414.02" y="302.26"/>
 <wire x1="414.02" y1="297.18" x2="414.02" y2="302.26" width="0.1524" layer="91"/>
-<pinref part="R27" gate="G$1" pin="2"/>
+<pinref part="R21" gate="G$1" pin="2"/>
 <wire x1="414.02" y1="302.26" x2="408.94" y2="302.26" width="0.1524" layer="91"/>
 <wire x1="398.78" y1="297.18" x2="396.24" y2="297.18" width="0.1524" layer="91"/>
-<pinref part="REG1" gate="A" pin="VIN"/>
+<pinref part="REG" gate="A" pin="VIN"/>
 <wire x1="398.78" y1="297.18" x2="398.78" y2="287.02" width="0.1524" layer="91"/>
 <pinref part="C1" gate="G$1" pin="1"/>
 <wire x1="398.78" y1="287.02" x2="401.32" y2="287.02" width="0.1524" layer="91"/>
@@ -13802,7 +13841,7 @@ Swap R30 to R31 if driver is fixed.</text>
 </segment>
 <segment>
 <pinref part="VDD2" gate="G$1" pin="VDD"/>
-<pinref part="R13" gate="G$1" pin="2"/>
+<pinref part="R19" gate="G$1" pin="2"/>
 <wire x1="40.64" y1="157.48" x2="40.64" y2="154.94" width="0.1524" layer="91"/>
 <pinref part="JP8" gate="G$1" pin="1"/>
 <wire x1="40.64" y1="157.48" x2="58.42" y2="157.48" width="1.016" layer="91"/>
@@ -13810,17 +13849,17 @@ Swap R30 to R31 if driver is fixed.</text>
 </segment>
 <segment>
 <pinref part="VDD3" gate="G$1" pin="VDD"/>
-<pinref part="R14" gate="G$1" pin="2"/>
+<pinref part="R20" gate="G$1" pin="2"/>
 <wire x1="88.9" y1="157.48" x2="88.9" y2="154.94" width="0.1524" layer="91"/>
-<pinref part="JP9" gate="G$1" pin="1"/>
+<pinref part="JP10" gate="G$1" pin="1"/>
 <wire x1="88.9" y1="157.48" x2="106.68" y2="157.48" width="1.016" layer="91"/>
 <junction x="88.9" y="157.48"/>
 </segment>
 <segment>
 <pinref part="VDD4" gate="G$1" pin="VDD"/>
-<pinref part="R15" gate="G$1" pin="2"/>
+<pinref part="R18" gate="G$1" pin="2"/>
 <wire x1="137.16" y1="157.48" x2="137.16" y2="154.94" width="0.1524" layer="91"/>
-<pinref part="JP10" gate="G$1" pin="1"/>
+<pinref part="JP4" gate="G$1" pin="1"/>
 <wire x1="137.16" y1="157.48" x2="154.94" y2="157.48" width="1.016" layer="91"/>
 <junction x="137.16" y="157.48"/>
 </segment>
@@ -13828,25 +13867,25 @@ Swap R30 to R31 if driver is fixed.</text>
 <net name="N$16" class="0">
 <segment>
 <wire x1="360.68" y1="287.02" x2="353.06" y2="287.02" width="0.1524" layer="91"/>
-<pinref part="C3" gate="G$1" pin="1"/>
-<pinref part="REG1" gate="A" pin="SS"/>
+<pinref part="C7" gate="G$1" pin="1"/>
+<pinref part="REG" gate="A" pin="SS"/>
 </segment>
 </net>
 <net name="N$28" class="0">
 <segment>
 <wire x1="360.68" y1="289.56" x2="345.44" y2="289.56" width="0.1524" layer="91"/>
-<pinref part="C4" gate="G$1" pin="1"/>
+<pinref part="C6" gate="G$1" pin="1"/>
 <wire x1="345.44" y1="289.56" x2="345.44" y2="287.02" width="0.1524" layer="91"/>
-<pinref part="REG1" gate="A" pin="VREG5"/>
+<pinref part="REG" gate="A" pin="VREG5"/>
 </segment>
 </net>
 <net name="N$29" class="0">
 <segment>
-<pinref part="REG1" gate="A" pin="VFB"/>
+<pinref part="REG" gate="A" pin="VFB"/>
 <wire x1="360.68" y1="294.64" x2="340.36" y2="294.64" width="0.1524" layer="91"/>
-<pinref part="R17" gate="G$1" pin="2"/>
+<pinref part="R23" gate="G$1" pin="2"/>
 <wire x1="340.36" y1="294.64" x2="340.36" y2="289.56" width="0.1524" layer="91"/>
-<pinref part="R18" gate="G$1" pin="2"/>
+<pinref part="R22" gate="G$1" pin="2"/>
 <wire x1="340.36" y1="289.56" x2="340.36" y2="279.4" width="0.1524" layer="91"/>
 <wire x1="335.28" y1="289.56" x2="340.36" y2="289.56" width="0.1524" layer="91"/>
 <junction x="340.36" y="289.56"/>
@@ -13854,17 +13893,17 @@ Swap R30 to R31 if driver is fixed.</text>
 </net>
 <net name="N$30" class="0">
 <segment>
-<pinref part="REG1" gate="A" pin="VBST"/>
-<pinref part="C6" gate="G$1" pin="2"/>
+<pinref part="REG" gate="A" pin="VBST"/>
+<pinref part="C3" gate="G$1" pin="2"/>
 <wire x1="360.68" y1="299.72" x2="353.06" y2="299.72" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="SW" class="0">
 <segment>
-<pinref part="REG1" gate="A" pin="SW"/>
+<pinref part="REG" gate="A" pin="SW"/>
 <pinref part="L1" gate="G$1" pin="2"/>
 <wire x1="360.68" y1="297.18" x2="345.44" y2="297.18" width="0.1524" layer="91"/>
-<pinref part="C6" gate="G$1" pin="1"/>
+<pinref part="C3" gate="G$1" pin="1"/>
 <wire x1="345.44" y1="297.18" x2="337.82" y2="297.18" width="0.1524" layer="91"/>
 <wire x1="345.44" y1="299.72" x2="345.44" y2="297.18" width="0.1524" layer="91"/>
 <junction x="345.44" y="297.18"/>
@@ -13879,13 +13918,13 @@ Swap R30 to R31 if driver is fixed.</text>
 <wire x1="304.8" y1="297.18" x2="304.8" y2="302.26" width="0.1524" layer="91"/>
 <pinref part="P+1" gate="1" pin="+5V"/>
 <junction x="317.5" y="297.18"/>
-<pinref part="R18" gate="G$1" pin="1"/>
+<pinref part="R22" gate="G$1" pin="1"/>
 <wire x1="317.5" y1="289.56" x2="317.5" y2="297.18" width="0.1524" layer="91"/>
 <wire x1="325.12" y1="289.56" x2="317.5" y2="289.56" width="0.1524" layer="91"/>
-<pinref part="C7" gate="G$1" pin="2"/>
+<pinref part="C4" gate="G$1" pin="2"/>
 <wire x1="304.8" y1="297.18" x2="304.8" y2="292.1" width="0.1524" layer="91"/>
 <junction x="304.8" y="297.18"/>
-<pinref part="C8" gate="G$1" pin="2"/>
+<pinref part="C5" gate="G$1" pin="2"/>
 <wire x1="312.42" y1="297.18" x2="312.42" y2="292.1" width="0.1524" layer="91"/>
 <junction x="312.42" y="297.18"/>
 <pinref part="+5V" gate="G$1" pin="TP"/>
@@ -13893,33 +13932,33 @@ Swap R30 to R31 if driver is fixed.</text>
 <segment>
 <pinref part="P+2" gate="1" pin="+5V"/>
 <wire x1="119.38" y1="302.26" x2="119.38" y2="284.48" width="0.1524" layer="91"/>
-<pinref part="JP4" gate="A" pin="1"/>
+<pinref part="JP6" gate="A" pin="1"/>
 <wire x1="119.38" y1="284.48" x2="137.16" y2="284.48" width="0.1524" layer="91"/>
 <junction x="119.38" y="284.48"/>
 <wire x1="119.38" y1="284.48" x2="119.38" y2="276.86" width="0.1524" layer="91"/>
-<pinref part="JP5" gate="A" pin="1"/>
+<pinref part="JP7" gate="A" pin="1"/>
 <wire x1="119.38" y1="276.86" x2="119.38" y2="254" width="0.1524" layer="91"/>
 <wire x1="119.38" y1="254" x2="137.16" y2="254" width="0.1524" layer="91"/>
 <wire x1="119.38" y1="254" x2="119.38" y2="246.38" width="0.1524" layer="91"/>
 <junction x="119.38" y="254"/>
-<pinref part="R20" gate="G$1" pin="1"/>
+<pinref part="R16" gate="G$1" pin="1"/>
 <wire x1="119.38" y1="246.38" x2="121.92" y2="246.38" width="0.1524" layer="91"/>
-<pinref part="R19" gate="G$1" pin="1"/>
+<pinref part="R14" gate="G$1" pin="1"/>
 <wire x1="121.92" y1="276.86" x2="119.38" y2="276.86" width="0.1524" layer="91"/>
 <junction x="119.38" y="276.86"/>
-<pinref part="JP6" gate="A" pin="1"/>
+<pinref part="JP3" gate="A" pin="1"/>
 <wire x1="137.16" y1="220.98" x2="119.38" y2="220.98" width="0.1524" layer="91"/>
 <wire x1="119.38" y1="220.98" x2="119.38" y2="246.38" width="0.1524" layer="91"/>
 <junction x="119.38" y="246.38"/>
-<pinref part="R21" gate="G$1" pin="1"/>
+<pinref part="R12" gate="G$1" pin="1"/>
 <wire x1="121.92" y1="213.36" x2="119.38" y2="213.36" width="0.1524" layer="91"/>
 <wire x1="119.38" y1="213.36" x2="119.38" y2="220.98" width="0.1524" layer="91"/>
 <junction x="119.38" y="220.98"/>
-<pinref part="JP7" gate="A" pin="1"/>
+<pinref part="JP2" gate="A" pin="1"/>
 <wire x1="137.16" y1="187.96" x2="119.38" y2="187.96" width="0.1524" layer="91"/>
 <wire x1="119.38" y1="187.96" x2="119.38" y2="213.36" width="0.1524" layer="91"/>
 <junction x="119.38" y="213.36"/>
-<pinref part="R22" gate="G$1" pin="1"/>
+<pinref part="R10" gate="G$1" pin="1"/>
 <wire x1="121.92" y1="180.34" x2="119.38" y2="180.34" width="0.1524" layer="91"/>
 <wire x1="119.38" y1="180.34" x2="119.38" y2="187.96" width="0.1524" layer="91"/>
 <junction x="119.38" y="187.96"/>
@@ -13965,7 +14004,7 @@ Swap R30 to R31 if driver is fixed.</text>
 <net name="N$20" class="0">
 <segment>
 <pinref part="R4" gate="G$1" pin="1"/>
-<pinref part="JP2" gate="A" pin="1"/>
+<pinref part="JP5" gate="A" pin="1"/>
 <wire x1="53.34" y1="248.92" x2="35.56" y2="248.92" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -13974,7 +14013,7 @@ Swap R30 to R31 if driver is fixed.</text>
 <pinref part="R5" gate="G$1" pin="1"/>
 <wire x1="53.34" y1="236.22" x2="50.8" y2="236.22" width="0.1524" layer="91"/>
 <wire x1="50.8" y1="236.22" x2="50.8" y2="246.38" width="0.1524" layer="91"/>
-<pinref part="JP2" gate="A" pin="2"/>
+<pinref part="JP5" gate="A" pin="2"/>
 <wire x1="50.8" y1="246.38" x2="35.56" y2="246.38" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -13983,14 +14022,14 @@ Swap R30 to R31 if driver is fixed.</text>
 <pinref part="R6" gate="G$1" pin="1"/>
 <wire x1="53.34" y1="223.52" x2="48.26" y2="223.52" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="223.52" x2="48.26" y2="243.84" width="0.1524" layer="91"/>
-<pinref part="JP2" gate="A" pin="3"/>
+<pinref part="JP5" gate="A" pin="3"/>
 <wire x1="48.26" y1="243.84" x2="35.56" y2="243.84" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$23" class="0">
 <segment>
 <pinref part="R7" gate="G$1" pin="1"/>
-<pinref part="JP3" gate="A" pin="1"/>
+<pinref part="JP9" gate="A" pin="1"/>
 <wire x1="53.34" y1="205.74" x2="35.56" y2="205.74" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -13999,7 +14038,7 @@ Swap R30 to R31 if driver is fixed.</text>
 <pinref part="R8" gate="G$1" pin="1"/>
 <wire x1="53.34" y1="187.96" x2="50.8" y2="187.96" width="0.1524" layer="91"/>
 <wire x1="50.8" y1="187.96" x2="50.8" y2="203.2" width="0.1524" layer="91"/>
-<pinref part="JP3" gate="A" pin="2"/>
+<pinref part="JP9" gate="A" pin="2"/>
 <wire x1="50.8" y1="203.2" x2="35.56" y2="203.2" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -14008,19 +14047,19 @@ Swap R30 to R31 if driver is fixed.</text>
 <pinref part="R9" gate="G$1" pin="1"/>
 <wire x1="53.34" y1="175.26" x2="48.26" y2="175.26" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="175.26" x2="48.26" y2="200.66" width="0.1524" layer="91"/>
-<pinref part="JP3" gate="A" pin="3"/>
+<pinref part="JP9" gate="A" pin="3"/>
 <wire x1="48.26" y1="200.66" x2="35.56" y2="200.66" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$33" class="0">
 <segment>
-<pinref part="LED1" gate="G$1" pin="A"/>
-<pinref part="R13" gate="G$1" pin="1"/>
+<pinref part="LED4" gate="G$1" pin="A"/>
+<pinref part="R19" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$38" class="0">
 <segment>
-<pinref part="LED1" gate="G$1" pin="C"/>
+<pinref part="LED4" gate="G$1" pin="C"/>
 <pinref part="Q2" gate="G$1" pin="D"/>
 <wire x1="40.64" y1="137.16" x2="40.64" y2="134.62" width="0.1524" layer="91"/>
 <pinref part="JP8" gate="G$1" pin="2"/>
@@ -14032,16 +14071,16 @@ Swap R30 to R31 if driver is fixed.</text>
 </net>
 <net name="N$40" class="0">
 <segment>
-<pinref part="LED2" gate="G$1" pin="A"/>
-<pinref part="R14" gate="G$1" pin="1"/>
+<pinref part="LED7" gate="G$1" pin="A"/>
+<pinref part="R20" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$41" class="0">
 <segment>
-<pinref part="LED2" gate="G$1" pin="C"/>
+<pinref part="LED7" gate="G$1" pin="C"/>
 <pinref part="Q3" gate="G$1" pin="D"/>
 <wire x1="88.9" y1="137.16" x2="88.9" y2="134.62" width="0.1524" layer="91"/>
-<pinref part="JP9" gate="G$1" pin="2"/>
+<pinref part="JP10" gate="G$1" pin="2"/>
 <wire x1="106.68" y1="154.94" x2="101.6" y2="154.94" width="1.016" layer="91"/>
 <wire x1="101.6" y1="154.94" x2="101.6" y2="134.62" width="1.016" layer="91"/>
 <wire x1="101.6" y1="134.62" x2="88.9" y2="134.62" width="1.016" layer="91"/>
@@ -14051,7 +14090,7 @@ Swap R30 to R31 if driver is fixed.</text>
 <net name="N$39" class="0">
 <segment>
 <pinref part="LED3" gate="G$1" pin="A"/>
-<pinref part="R15" gate="G$1" pin="1"/>
+<pinref part="R18" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$42" class="0">
@@ -14059,7 +14098,7 @@ Swap R30 to R31 if driver is fixed.</text>
 <pinref part="LED3" gate="G$1" pin="C"/>
 <pinref part="Q1" gate="G$1" pin="D"/>
 <wire x1="137.16" y1="137.16" x2="137.16" y2="134.62" width="0.1524" layer="91"/>
-<pinref part="JP10" gate="G$1" pin="2"/>
+<pinref part="JP4" gate="G$1" pin="2"/>
 <wire x1="154.94" y1="154.94" x2="149.86" y2="154.94" width="1.016" layer="91"/>
 <wire x1="149.86" y1="154.94" x2="149.86" y2="134.62" width="1.016" layer="91"/>
 <wire x1="149.86" y1="134.62" x2="137.16" y2="134.62" width="1.016" layer="91"/>
@@ -14068,26 +14107,26 @@ Swap R30 to R31 if driver is fixed.</text>
 </net>
 <net name="N$10" class="0">
 <segment>
-<pinref part="LED4" gate="G$1" pin="A"/>
-<pinref part="R11" gate="G$1" pin="1"/>
+<pinref part="LED5" gate="G$1" pin="A"/>
+<pinref part="R15" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$11" class="0">
 <segment>
-<pinref part="LED5" gate="G$1" pin="A"/>
-<pinref part="R16" gate="G$1" pin="1"/>
+<pinref part="LED6" gate="G$1" pin="A"/>
+<pinref part="R17" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$12" class="0">
 <segment>
-<pinref part="LED6" gate="G$1" pin="A"/>
-<pinref part="R24" gate="G$1" pin="1"/>
+<pinref part="LED2" gate="G$1" pin="A"/>
+<pinref part="R13" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$13" class="0">
 <segment>
-<pinref part="LED7" gate="G$1" pin="A"/>
-<pinref part="R26" gate="G$1" pin="1"/>
+<pinref part="LED1" gate="G$1" pin="A"/>
+<pinref part="R11" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="I2C2_SCL" class="0">
@@ -14097,7 +14136,7 @@ Swap R30 to R31 if driver is fixed.</text>
 <label x="325.12" y="121.92" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R58" gate="G$1" pin="1"/>
+<pinref part="R25" gate="G$1" pin="1"/>
 <wire x1="96.52" y1="81.28" x2="96.52" y2="66.04" width="0.1524" layer="91"/>
 <pinref part="EEPROM" gate="G$1" pin="SCL"/>
 <wire x1="96.52" y1="66.04" x2="101.6" y2="66.04" width="0.1524" layer="91"/>
@@ -14109,7 +14148,7 @@ Swap R30 to R31 if driver is fixed.</text>
 <pinref part="DAC" gate="G$1" pin="SCL"/>
 <wire x1="248.92" y1="78.74" x2="185.42" y2="78.74" width="0.1524" layer="91"/>
 <label x="170.18" y="78.74" size="1.778" layer="95"/>
-<pinref part="R28" gate="G$1" pin="1"/>
+<pinref part="R36" gate="G$1" pin="1"/>
 <wire x1="185.42" y1="78.74" x2="175.26" y2="78.74" width="0.1524" layer="91"/>
 <wire x1="185.42" y1="83.82" x2="185.42" y2="78.74" width="0.1524" layer="91"/>
 <junction x="185.42" y="78.74"/>
@@ -14125,7 +14164,7 @@ Swap R30 to R31 if driver is fixed.</text>
 <pinref part="EEPROM" gate="G$1" pin="SDA"/>
 <wire x1="129.54" y1="58.42" x2="137.16" y2="58.42" width="0.1524" layer="91"/>
 <wire x1="137.16" y1="81.28" x2="137.16" y2="58.42" width="0.1524" layer="91"/>
-<pinref part="R59" gate="G$1" pin="1"/>
+<pinref part="R24" gate="G$1" pin="1"/>
 <junction x="137.16" y="58.42"/>
 <wire x1="137.16" y1="58.42" x2="152.4" y2="58.42" width="0.1524" layer="91"/>
 <label x="142.24" y="58.42" size="1.778" layer="95"/>
@@ -14134,7 +14173,7 @@ Swap R30 to R31 if driver is fixed.</text>
 <pinref part="DAC" gate="G$1" pin="SDA"/>
 <wire x1="248.92" y1="73.66" x2="193.04" y2="73.66" width="0.1524" layer="91"/>
 <label x="170.18" y="73.66" size="1.778" layer="95"/>
-<pinref part="R29" gate="G$1" pin="1"/>
+<pinref part="R37" gate="G$1" pin="1"/>
 <wire x1="193.04" y1="73.66" x2="175.26" y2="73.66" width="0.1524" layer="91"/>
 <wire x1="193.04" y1="83.82" x2="193.04" y2="73.66" width="0.1524" layer="91"/>
 <junction x="193.04" y="73.66"/>
@@ -14145,7 +14184,7 @@ Swap R30 to R31 if driver is fixed.</text>
 <pinref part="EEPROM" gate="G$1" pin="A0"/>
 <wire x1="43.18" y1="53.34" x2="101.6" y2="53.34" width="0.1524" layer="91"/>
 <wire x1="43.18" y1="53.34" x2="43.18" y2="81.28" width="0.1524" layer="91"/>
-<pinref part="R54" gate="G$1" pin="1"/>
+<pinref part="R29" gate="G$1" pin="1"/>
 <pinref part="S1" gate="G$1" pin="4"/>
 <wire x1="38.1" y1="53.34" x2="43.18" y2="53.34" width="0.1524" layer="91"/>
 <junction x="43.18" y="53.34"/>
@@ -14155,7 +14194,7 @@ Swap R30 to R31 if driver is fixed.</text>
 <segment>
 <pinref part="EEPROM" gate="G$1" pin="A1"/>
 <wire x1="101.6" y1="55.88" x2="50.8" y2="55.88" width="0.1524" layer="91"/>
-<pinref part="R55" gate="G$1" pin="1"/>
+<pinref part="R28" gate="G$1" pin="1"/>
 <wire x1="50.8" y1="81.28" x2="50.8" y2="55.88" width="0.1524" layer="91"/>
 <pinref part="S1" gate="G$1" pin="3"/>
 <wire x1="38.1" y1="55.88" x2="50.8" y2="55.88" width="0.1524" layer="91"/>
@@ -14167,57 +14206,57 @@ Swap R30 to R31 if driver is fixed.</text>
 <pinref part="EEPROM" gate="G$1" pin="A2"/>
 <wire x1="101.6" y1="58.42" x2="58.42" y2="58.42" width="0.1524" layer="91"/>
 <wire x1="58.42" y1="58.42" x2="58.42" y2="81.28" width="0.1524" layer="91"/>
-<pinref part="R56" gate="G$1" pin="1"/>
+<pinref part="R27" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$43" class="0">
 <segment>
-<pinref part="R57" gate="G$1" pin="1"/>
+<pinref part="R26" gate="G$1" pin="1"/>
 <pinref part="EEPROM" gate="G$1" pin="WP"/>
 <wire x1="66.04" y1="63.5" x2="101.6" y2="63.5" width="0.1524" layer="91"/>
 <wire x1="66.04" y1="81.28" x2="66.04" y2="76.2" width="0.1524" layer="91"/>
-<pinref part="EP_WP" gate="G$1" pin="TP"/>
+<pinref part="EPRWP" gate="G$1" pin="TP"/>
 <wire x1="66.04" y1="76.2" x2="66.04" y2="63.5" width="0.1524" layer="91"/>
 <junction x="66.04" y="76.2"/>
 </segment>
 </net>
 <net name="N$45" class="0">
 <segment>
-<pinref part="R27" gate="G$1" pin="1"/>
-<pinref part="REG1" gate="A" pin="EN"/>
+<pinref part="R21" gate="G$1" pin="1"/>
+<pinref part="REG" gate="A" pin="EN"/>
 <wire x1="398.78" y1="302.26" x2="396.24" y2="302.26" width="0.1524" layer="91"/>
 <wire x1="396.24" y1="302.26" x2="396.24" y2="299.72" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$34" class="0">
 <segment>
-<pinref part="R22" gate="G$1" pin="2"/>
+<pinref part="R10" gate="G$1" pin="2"/>
 <wire x1="132.08" y1="180.34" x2="132.08" y2="185.42" width="0.1524" layer="91"/>
-<pinref part="JP7" gate="A" pin="2"/>
+<pinref part="JP2" gate="A" pin="2"/>
 <wire x1="132.08" y1="185.42" x2="137.16" y2="185.42" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$35" class="0">
 <segment>
-<pinref part="R21" gate="G$1" pin="2"/>
+<pinref part="R12" gate="G$1" pin="2"/>
 <wire x1="132.08" y1="213.36" x2="132.08" y2="218.44" width="0.1524" layer="91"/>
-<pinref part="JP6" gate="A" pin="2"/>
+<pinref part="JP3" gate="A" pin="2"/>
 <wire x1="132.08" y1="218.44" x2="137.16" y2="218.44" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$36" class="0">
 <segment>
-<pinref part="R20" gate="G$1" pin="2"/>
+<pinref part="R16" gate="G$1" pin="2"/>
 <wire x1="132.08" y1="246.38" x2="132.08" y2="251.46" width="0.1524" layer="91"/>
-<pinref part="JP5" gate="A" pin="2"/>
+<pinref part="JP7" gate="A" pin="2"/>
 <wire x1="132.08" y1="251.46" x2="137.16" y2="251.46" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$37" class="0">
 <segment>
-<pinref part="R19" gate="G$1" pin="2"/>
+<pinref part="R14" gate="G$1" pin="2"/>
 <wire x1="132.08" y1="276.86" x2="132.08" y2="281.94" width="0.1524" layer="91"/>
-<pinref part="JP4" gate="A" pin="2"/>
+<pinref part="JP6" gate="A" pin="2"/>
 <wire x1="132.08" y1="281.94" x2="137.16" y2="281.94" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -14268,7 +14307,7 @@ Swap R30 to R31 if driver is fixed.</text>
 <label x="170.18" y="68.58" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$15" class="0">
+<net name="SPKL-" class="0">
 <segment>
 <pinref part="DAC" gate="G$1" pin="OUTL-"/>
 <wire x1="294.64" y1="91.44" x2="309.88" y2="91.44" width="0.1524" layer="91"/>
@@ -14277,14 +14316,14 @@ Swap R30 to R31 if driver is fixed.</text>
 <wire x1="309.88" y1="96.52" x2="314.96" y2="96.52" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$31" class="0">
+<net name="SPKR+" class="0">
 <segment>
 <pinref part="DAC" gate="G$1" pin="OUTR+"/>
 <pinref part="JP12" gate="G$1" pin="1"/>
 <wire x1="294.64" y1="78.74" x2="314.96" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$44" class="0">
+<net name="SPKR-" class="0">
 <segment>
 <pinref part="DAC" gate="G$1" pin="OUTR-"/>
 <wire x1="294.64" y1="71.12" x2="309.88" y2="71.12" width="0.1524" layer="91"/>
@@ -14295,26 +14334,26 @@ Swap R30 to R31 if driver is fixed.</text>
 </net>
 <net name="N$46" class="0">
 <segment>
-<pinref part="R12" gate="G$1" pin="2"/>
+<pinref part="R34" gate="G$1" pin="2"/>
 <pinref part="DAC" gate="G$1" pin="LRCLK"/>
 <wire x1="243.84" y1="99.06" x2="248.92" y2="99.06" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$47" class="0">
 <segment>
-<pinref part="R23" gate="G$1" pin="2"/>
+<pinref part="R33" gate="G$1" pin="2"/>
 <pinref part="DAC" gate="G$1" pin="SDATA"/>
 <wire x1="236.22" y1="93.98" x2="248.92" y2="93.98" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$49" class="0">
 <segment>
-<pinref part="R25" gate="G$1" pin="2"/>
+<pinref part="R35" gate="G$1" pin="2"/>
 <pinref part="DAC" gate="G$1" pin="MCLK"/>
 <wire x1="243.84" y1="88.9" x2="248.92" y2="88.9" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$14" class="0">
+<net name="SPKL+" class="0">
 <segment>
 <pinref part="DAC" gate="G$1" pin="OUTL+"/>
 <pinref part="JP11" gate="G$1" pin="1"/>
@@ -14332,7 +14371,7 @@ Swap R30 to R31 if driver is fixed.</text>
 </net>
 <net name="N$48" class="0">
 <segment>
-<pinref part="R10" gate="G$1" pin="2"/>
+<pinref part="R32" gate="G$1" pin="2"/>
 <pinref part="IC3" gate="A" pin="I1"/>
 <wire x1="215.9" y1="119.38" x2="218.44" y2="119.38" width="0.1524" layer="91"/>
 </segment>
@@ -14354,7 +14393,7 @@ Swap R30 to R31 if driver is fixed.</text>
 <wire x1="294.64" y1="127" x2="284.48" y2="127" width="0.1524" layer="91"/>
 <wire x1="284.48" y1="127" x2="276.86" y2="127" width="0.1524" layer="91"/>
 <wire x1="276.86" y1="127" x2="276.86" y2="111.76" width="0.1524" layer="91"/>
-<pinref part="C9" gate="G$1" pin="1"/>
+<pinref part="C11" gate="G$1" pin="1"/>
 <wire x1="284.48" y1="121.92" x2="284.48" y2="127" width="0.1524" layer="91"/>
 <junction x="284.48" y="127"/>
 <pinref part="C10" gate="G$1" pin="1"/>
