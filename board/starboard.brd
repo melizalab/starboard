@@ -3015,7 +3015,7 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="MF" value="" x="59.69" y="15.875" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="" x="59.69" y="15.875" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="R19" library="rcl" package="R0603" value="2k" x="62.865" y="15.875" smashed="yes">
+<element name="R19" library="rcl" package="R0603" value="2.2k" x="62.865" y="15.875" smashed="yes">
 <attribute name="NAME" x="64.4906" y="17.0688" size="0.8128" layer="25" rot="R270"/>
 <attribute name="OC_NEWARK" value="unknown" x="62.865" y="15.875" size="1.778" layer="27" display="off"/>
 <attribute name="MF" value="" x="62.865" y="15.875" size="1.778" layer="27" display="off"/>
@@ -3038,7 +3038,7 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="MF" value="" x="59.69" y="24.765" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="" x="59.69" y="24.765" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="R20" library="rcl" package="R0603" value="2k" x="62.865" y="24.765" smashed="yes">
+<element name="R20" library="rcl" package="R0603" value="2.2k" x="62.865" y="24.765" smashed="yes">
 <attribute name="NAME" x="65.405" y="23.8252" size="0.8128" layer="25" rot="R90"/>
 <attribute name="OC_NEWARK" value="unknown" x="62.865" y="24.765" size="1.778" layer="27" display="off"/>
 <attribute name="MF" value="" x="62.865" y="24.765" size="1.778" layer="27" display="off"/>
@@ -3061,7 +3061,7 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="MF" value="" x="59.69" y="6.985" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="" x="59.69" y="6.985" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="R18" library="rcl" package="R0603" value="2k" x="62.865" y="6.985" smashed="yes">
+<element name="R18" library="rcl" package="R0603" value="2.2k" x="62.865" y="6.985" smashed="yes">
 <attribute name="NAME" x="65.278" y="5.969" size="0.8128" layer="25" rot="R90"/>
 <attribute name="OC_NEWARK" value="unknown" x="62.865" y="6.985" size="1.778" layer="27" display="off"/>
 <attribute name="MF" value="" x="62.865" y="6.985" size="1.778" layer="27" display="off"/>
