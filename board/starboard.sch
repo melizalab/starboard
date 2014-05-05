@@ -11021,15 +11021,16 @@ Source: http://www.molex.com/pdm_docs/sd/026604100_sd.pdf</description>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="N-HEXFET_?-*" prefix="Q">
-<description>&lt;p&gt;HEXFET® Power MOSFET&lt;/b&gt;&lt;p&gt;</description>
+<deviceset name="N-HEXFET-2D_?-*" prefix="Q">
+<description>&lt;b&gt;HEXFET® Power MOSFET&lt;/b&gt; 2 Drain connects&lt;p&gt;
+http://www.irf.com/product-info/datasheets/data/irll014n.pdf</description>
 <gates>
 <gate name="G$1" symbol="HEXFET_N" x="0" y="0"/>
 </gates>
 <devices>
-<device name="SOT323" package="SOT223">
+<device name="SOT232" package="SOT223">
 <connects>
-<connect gate="G$1" pin="D" pad="4"/>
+<connect gate="G$1" pin="D" pad="2 4"/>
 <connect gate="G$1" pin="G" pad="1"/>
 <connect gate="G$1" pin="S" pad="3"/>
 </connects>
@@ -12917,24 +12918,24 @@ Source: DCJ0202.pdf</description>
 <part name="R10" library="adafruit" deviceset="R-US_" device="R0805" value="100"/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="+3V2" library="supply1" deviceset="+3V3" device=""/>
-<part name="Q2" library="transistor-power" deviceset="N-HEXFET_?-*" device="SOT323" value="ZXMS6004SGTA"/>
+<part name="Q2" library="transistor-power" deviceset="N-HEXFET-2D_?-*" device="SOT232" value="ZXMS6004SGTA"/>
 <part name="LED4" library="led" deviceset="LED" device="CHIPLED_0603" value="LBQ39"/>
 <part name="R19" library="rcl" deviceset="R-US_" device="R0603" value="2.2k"/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="VDD2" library="supply1" deviceset="VDD" device=""/>
-<part name="JP8" library="starboard" deviceset="PINHD-1X2" device="KK100" value="left hop"/>
-<part name="Q3" library="transistor-power" deviceset="N-HEXFET_?-*" device="SOT323" value="ZXMS6004SGTA"/>
+<part name="JP8" library="starboard" deviceset="PINHD-1X2" device="KK100" value="LHOP"/>
+<part name="Q3" library="transistor-power" deviceset="N-HEXFET-2D_?-*" device="SOT232" value="ZXMS6004SGTA"/>
 <part name="LED7" library="led" deviceset="LED" device="CHIPLED_0603" value="LBQ39"/>
 <part name="R20" library="rcl" deviceset="R-US_" device="R0603" value="2.2k"/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="VDD3" library="supply1" deviceset="VDD" device=""/>
-<part name="JP10" library="starboard" deviceset="PINHD-1X2" device="KK100" value="right hop"/>
-<part name="Q1" library="transistor-power" deviceset="N-HEXFET_?-*" device="SOT323" value="ZXMS6004SGTA"/>
+<part name="JP10" library="starboard" deviceset="PINHD-1X2" device="KK100" value="RHOP"/>
+<part name="Q1" library="transistor-power" deviceset="N-HEXFET-2D_?-*" device="SOT232" value="ZXMS6004SGTA"/>
 <part name="LED3" library="led" deviceset="LED" device="CHIPLED_0603" value="LBQ39"/>
 <part name="R18" library="rcl" deviceset="R-US_" device="R0603" value="2.2k"/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
 <part name="VDD4" library="supply1" deviceset="VDD" device=""/>
-<part name="JP4" library="starboard" deviceset="PINHD-1X2" device="KK100" value="lights"/>
+<part name="JP4" library="starboard" deviceset="PINHD-1X2" device="KK100" value="LIGHTS"/>
 <part name="LED5" library="led" deviceset="LED" device="CHIPLED_0603" value="LBQ39"/>
 <part name="R15" library="rcl" deviceset="R-US_" device="R0603" value="91"/>
 <part name="+3V5" library="supply1" deviceset="+3V3" device=""/>
@@ -13001,6 +13002,9 @@ Source: DCJ0202.pdf</description>
 <part name="FB1" library="starboard" deviceset="FBEAD" device="1206" value="3A"/>
 <part name="+3V3" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND22" library="supply1" deviceset="GND" device=""/>
+<part name="R38" library="rcl" deviceset="R-US_" device="R0603" value="1k"/>
+<part name="R39" library="rcl" deviceset="R-US_" device="R0603" value="1k"/>
+<part name="R40" library="rcl" deviceset="R-US_" device="R0603" value="1k"/>
 </parts>
 <sheets>
 <sheet>
@@ -13081,31 +13085,29 @@ Max current is 5 mA - safe to drive pins low</text>
 <instance part="R10" gate="G$1" x="127" y="180.34"/>
 <instance part="GND10" gate="1" x="144.78" y="170.18"/>
 <instance part="+3V2" gate="G$1" x="154.94" y="304.8"/>
-<instance part="Q2" gate="G$1" x="38.1" y="129.54" smashed="yes">
-<attribute name="NAME" x="44.45" y="127" size="1.778" layer="95"/>
-<attribute name="VALUE" x="44.45" y="124.46" size="1.778" layer="96"/>
+<instance part="Q2" gate="G$1" x="50.8" y="129.54" smashed="yes">
+<attribute name="NAME" x="57.15" y="127" size="1.778" layer="95"/>
+<attribute name="VALUE" x="57.15" y="134.62" size="1.778" layer="96"/>
 </instance>
 <instance part="LED4" gate="G$1" x="40.64" y="142.24"/>
 <instance part="R19" gate="G$1" x="40.64" y="149.86" rot="R90"/>
-<instance part="GND1" gate="1" x="40.64" y="116.84"/>
+<instance part="GND1" gate="1" x="53.34" y="116.84"/>
 <instance part="VDD2" gate="G$1" x="40.64" y="160.02"/>
 <instance part="JP8" gate="G$1" x="60.96" y="154.94"/>
-<instance part="Q3" gate="G$1" x="86.36" y="129.54" smashed="yes">
-<attribute name="NAME" x="92.71" y="127" size="1.778" layer="95"/>
-<attribute name="VALUE" x="92.71" y="124.46" size="1.778" layer="96"/>
+<instance part="Q3" gate="G$1" x="99.06" y="129.54" smashed="yes">
+<attribute name="NAME" x="105.41" y="127" size="1.778" layer="95"/>
 </instance>
 <instance part="LED7" gate="G$1" x="88.9" y="142.24"/>
 <instance part="R20" gate="G$1" x="88.9" y="149.86" rot="R90"/>
-<instance part="GND2" gate="1" x="88.9" y="116.84"/>
+<instance part="GND2" gate="1" x="101.6" y="116.84"/>
 <instance part="VDD3" gate="G$1" x="88.9" y="160.02"/>
 <instance part="JP10" gate="G$1" x="109.22" y="154.94"/>
-<instance part="Q1" gate="G$1" x="134.62" y="129.54" smashed="yes">
-<attribute name="NAME" x="140.97" y="127" size="1.778" layer="95"/>
-<attribute name="VALUE" x="140.97" y="124.46" size="1.778" layer="96"/>
+<instance part="Q1" gate="G$1" x="147.32" y="129.54" smashed="yes">
+<attribute name="NAME" x="153.67" y="127" size="1.778" layer="95"/>
 </instance>
 <instance part="LED3" gate="G$1" x="137.16" y="142.24"/>
 <instance part="R18" gate="G$1" x="137.16" y="149.86" rot="R90"/>
-<instance part="GND11" gate="1" x="137.16" y="116.84"/>
+<instance part="GND11" gate="1" x="149.86" y="116.84"/>
 <instance part="VDD4" gate="G$1" x="137.16" y="160.02"/>
 <instance part="JP4" gate="G$1" x="157.48" y="154.94"/>
 <instance part="LED5" gate="G$1" x="154.94" y="284.48"/>
@@ -13176,6 +13178,9 @@ Max current is 5 mA - safe to drive pins low</text>
 <instance part="IC3" gate="P" x="233.68" y="121.92"/>
 <instance part="+3V3" gate="G$1" x="233.68" y="144.78"/>
 <instance part="GND22" gate="1" x="233.68" y="109.22"/>
+<instance part="R38" gate="G$1" x="43.18" y="127"/>
+<instance part="R39" gate="G$1" x="91.44" y="127"/>
+<instance part="R40" gate="G$1" x="139.7" y="127"/>
 </instances>
 <busses>
 </busses>
@@ -13344,17 +13349,17 @@ Max current is 5 mA - safe to drive pins low</text>
 <segment>
 <pinref part="Q2" gate="G$1" pin="S"/>
 <pinref part="GND1" gate="1" pin="GND"/>
-<wire x1="40.64" y1="119.38" x2="40.64" y2="124.46" width="1.016" layer="91"/>
+<wire x1="53.34" y1="119.38" x2="53.34" y2="124.46" width="1.016" layer="91"/>
 </segment>
 <segment>
 <pinref part="Q3" gate="G$1" pin="S"/>
 <pinref part="GND2" gate="1" pin="GND"/>
-<wire x1="88.9" y1="119.38" x2="88.9" y2="124.46" width="1.016" layer="91"/>
+<wire x1="101.6" y1="119.38" x2="101.6" y2="124.46" width="1.016" layer="91"/>
 </segment>
 <segment>
 <pinref part="Q1" gate="G$1" pin="S"/>
 <pinref part="GND11" gate="1" pin="GND"/>
-<wire x1="137.16" y1="119.38" x2="137.16" y2="124.46" width="1.016" layer="91"/>
+<wire x1="149.86" y1="119.38" x2="149.86" y2="124.46" width="1.016" layer="91"/>
 </segment>
 <segment>
 <pinref part="BBB" gate="G$1" pin="GND@7"/>
@@ -13679,14 +13684,14 @@ Max current is 5 mA - safe to drive pins low</text>
 </net>
 <net name="HOUSE_LGHT" class="0">
 <segment>
-<pinref part="Q1" gate="G$1" pin="G"/>
-<wire x1="132.08" y1="127" x2="116.84" y2="127" width="0.1524" layer="91"/>
-<label x="114.3" y="127" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="BBB" gate="G$1" pin="EHRPWM2B"/>
 <wire x1="345.44" y1="195.58" x2="327.66" y2="195.58" width="0.1524" layer="91"/>
 <label x="322.58" y="195.58" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R40" gate="G$1" pin="1"/>
+<wire x1="134.62" y1="127" x2="114.3" y2="127" width="0.1524" layer="91"/>
+<label x="114.3" y="129.54" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="LEFT_FEED" class="0">
@@ -13696,9 +13701,9 @@ Max current is 5 mA - safe to drive pins low</text>
 <label x="414.02" y="198.12" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="Q2" gate="G$1" pin="G"/>
-<wire x1="35.56" y1="127" x2="20.32" y2="127" width="0.1524" layer="91"/>
-<label x="17.78" y="127" size="1.778" layer="95"/>
+<pinref part="R38" gate="G$1" pin="1"/>
+<wire x1="38.1" y1="127" x2="17.78" y2="127" width="0.1524" layer="91"/>
+<label x="17.78" y="129.54" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RGHT_RED" class="0">
@@ -13806,14 +13811,14 @@ Max current is 5 mA - safe to drive pins low</text>
 </net>
 <net name="RGHT_FEED" class="0">
 <segment>
-<pinref part="Q3" gate="G$1" pin="G"/>
-<wire x1="83.82" y1="127" x2="68.58" y2="127" width="0.1524" layer="91"/>
-<label x="66.04" y="127" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="BBB" gate="G$1" pin="GPIO1_13"/>
 <wire x1="345.44" y1="198.12" x2="327.66" y2="198.12" width="0.1524" layer="91"/>
 <label x="322.58" y="198.12" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R39" gate="G$1" pin="1"/>
+<wire x1="86.36" y1="127" x2="68.58" y2="127" width="0.1524" layer="91"/>
+<label x="68.58" y="129.54" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="VDD" class="0">
@@ -14057,16 +14062,16 @@ Max current is 5 mA - safe to drive pins low</text>
 <pinref part="R19" gate="G$1" pin="1"/>
 </segment>
 </net>
-<net name="N$38" class="0">
+<net name="LHOP_DRAIN" class="0">
 <segment>
-<pinref part="LED4" gate="G$1" pin="C"/>
 <pinref part="Q2" gate="G$1" pin="D"/>
-<wire x1="40.64" y1="137.16" x2="40.64" y2="134.62" width="0.1524" layer="91"/>
 <pinref part="JP8" gate="G$1" pin="2"/>
 <wire x1="58.42" y1="154.94" x2="53.34" y2="154.94" width="1.016" layer="91"/>
 <wire x1="53.34" y1="154.94" x2="53.34" y2="134.62" width="1.016" layer="91"/>
-<wire x1="53.34" y1="134.62" x2="40.64" y2="134.62" width="1.016" layer="91"/>
-<junction x="40.64" y="134.62"/>
+<pinref part="LED4" gate="G$1" pin="C"/>
+<wire x1="53.34" y1="134.62" x2="40.64" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="134.62" x2="40.64" y2="137.16" width="0.1524" layer="91"/>
+<junction x="53.34" y="134.62"/>
 </segment>
 </net>
 <net name="N$40" class="0">
@@ -14075,16 +14080,16 @@ Max current is 5 mA - safe to drive pins low</text>
 <pinref part="R20" gate="G$1" pin="1"/>
 </segment>
 </net>
-<net name="N$41" class="0">
+<net name="RHOP_DRAIN" class="0">
 <segment>
-<pinref part="LED7" gate="G$1" pin="C"/>
 <pinref part="Q3" gate="G$1" pin="D"/>
-<wire x1="88.9" y1="137.16" x2="88.9" y2="134.62" width="0.1524" layer="91"/>
 <pinref part="JP10" gate="G$1" pin="2"/>
 <wire x1="106.68" y1="154.94" x2="101.6" y2="154.94" width="1.016" layer="91"/>
 <wire x1="101.6" y1="154.94" x2="101.6" y2="134.62" width="1.016" layer="91"/>
-<wire x1="101.6" y1="134.62" x2="88.9" y2="134.62" width="1.016" layer="91"/>
-<junction x="88.9" y="134.62"/>
+<pinref part="LED7" gate="G$1" pin="C"/>
+<wire x1="101.6" y1="134.62" x2="88.9" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="88.9" y1="134.62" x2="88.9" y2="137.16" width="0.1524" layer="91"/>
+<junction x="101.6" y="134.62"/>
 </segment>
 </net>
 <net name="N$39" class="0">
@@ -14093,16 +14098,16 @@ Max current is 5 mA - safe to drive pins low</text>
 <pinref part="R18" gate="G$1" pin="1"/>
 </segment>
 </net>
-<net name="N$42" class="0">
+<net name="HOUSEL_DRAIN" class="0">
 <segment>
-<pinref part="LED3" gate="G$1" pin="C"/>
 <pinref part="Q1" gate="G$1" pin="D"/>
-<wire x1="137.16" y1="137.16" x2="137.16" y2="134.62" width="0.1524" layer="91"/>
 <pinref part="JP4" gate="G$1" pin="2"/>
 <wire x1="154.94" y1="154.94" x2="149.86" y2="154.94" width="1.016" layer="91"/>
 <wire x1="149.86" y1="154.94" x2="149.86" y2="134.62" width="1.016" layer="91"/>
-<wire x1="149.86" y1="134.62" x2="137.16" y2="134.62" width="1.016" layer="91"/>
-<junction x="137.16" y="134.62"/>
+<pinref part="LED3" gate="G$1" pin="C"/>
+<wire x1="149.86" y1="134.62" x2="137.16" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="134.62" x2="137.16" y2="137.16" width="0.1524" layer="91"/>
+<junction x="149.86" y="134.62"/>
 </segment>
 </net>
 <net name="N$10" class="0">
@@ -14405,6 +14410,24 @@ Max current is 5 mA - safe to drive pins low</text>
 <wire x1="274.32" y1="111.76" x2="274.32" y2="127" width="0.1524" layer="91"/>
 <wire x1="274.32" y1="127" x2="276.86" y2="127" width="0.1524" layer="91"/>
 <junction x="276.86" y="127"/>
+</segment>
+</net>
+<net name="N$14" class="0">
+<segment>
+<pinref part="Q2" gate="G$1" pin="G"/>
+<pinref part="R38" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="N$15" class="0">
+<segment>
+<pinref part="Q3" gate="G$1" pin="G"/>
+<pinref part="R39" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="N$31" class="0">
+<segment>
+<pinref part="Q1" gate="G$1" pin="G"/>
+<pinref part="R40" gate="G$1" pin="2"/>
 </segment>
 </net>
 </nets>

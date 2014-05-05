@@ -46,6 +46,7 @@ Date: 2014-05-01
 | R10                        |        1 | 100     | Panasonic         | ERJ-6ENF1000V       | NK     |                   |       |                                                 |
 | R12,R14,R16                |        3 | 120     | Panasonic         | ERJ-3EKF1200V       | NK     |                   |       |                                                 |
 | R1,R4,R7                   |        3 | 140     | Panasonic         | ERJ-3EKF1400V       | NK     |                   |       |                                                 |
+| R38,R39,R40                |        3 | 1k      | Panasonic         | ERJ-3EKF1001V       | NK     |                   |       |                                                 |
 | R18-R20,R36,R37            |        5 | 2.2k    | Panasonic         | ERJ-3EKF2201V       | NK     |                   |       |                                                 |
 | R27-R29                    |        3 | 4.7k    | Panasonic         | ERJ-3EKF4701V       | NK     |                   |       |                                                 |
 | R24,R25                    |        2 | 5.6k    | Panasonic         | ERJ-3EKF5601V       | NK     |                   |       |                                                 |
