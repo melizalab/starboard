@@ -40,8 +40,10 @@
       };
       hopper_pru: pinmux_hopper_pru_pins {
         pinctrl-single,pins = <
-             0x034 0x06 /* P8.11 - right hopper PRU0 output pulldown */
-             0x030 0x06 /* P8.12 - left hopper PRU0 output pulldown */
+             /* NB: pull up/down state not documented well. 0x06 seems to leave pins in an
+                undefined state; 0x26 pulls them down. */
+             0x034 0x26 /* P8.11 - right hopper PRU0 output pulldown */
+             0x030 0x26 /* P8.12 - left hopper PRU0 output pulldown */
         >;
       };
       led_gpio: pinmux_led_gpio_pins {

@@ -25,8 +25,8 @@
                 __overlay__ {
                 pru_gpio_pins: pinmux_gpio_pins {
                                 pinctrl-single,pins = <
-                                        0x34 0x06 /* P8.11 GPIO1_13: MODE6 | OUTPUT */
-                                        0x30 0x06 /* P8.12 GPIO1_12: MODE6 | OUTPUT */
+                                        0x34 0x26 /* P8.11 GPIO1_13: MODE6 | OUTPUT */
+                                        0x30 0x26 /* P8.12 GPIO1_12: MODE6 | OUTPUT */
                                 >;
                         };
                 };
