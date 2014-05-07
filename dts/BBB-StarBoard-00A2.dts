@@ -38,12 +38,17 @@
              0x024 0x4 /* P8.13 - house lights output pulldown */
         >;
       };
+      /* some j-p to avoid muxing to PRU in its undefined startup state */
+      hopper_gpio: pinmux_hopper_gpio_pins {
+        pinctrl-single,pins = <
+             0x34 0x27
+             0x30 0x27
+        >;
+      };
       hopper_pru: pinmux_hopper_pru_pins {
         pinctrl-single,pins = <
-             /* NB: pull up/down state not documented well. 0x06 seems to leave pins in an
-                undefined state; 0x26 pulls them down. */
-             0x034 0x26 /* P8.11 - right hopper PRU0 output pulldown */
-             0x030 0x26 /* P8.12 - left hopper PRU0 output pulldown */
+             0x34 0x26
+             0x30 0x26
         >;
       };
       led_gpio: pinmux_led_gpio_pins {
@@ -147,17 +152,7 @@
    fragment@5 {
        target = <&pruss>;
        __overlay__ {
-           pinctrl-names = "default";
-           pinctrl-0 = <&hopper_pru>;
            status = "okay";
-           sbd-hopper-left {
-               pin-names = "starboard:hopper:left";
-               gpios = <&gpio2 12 0>;
-           };
-           sbd-hopper-right {
-               pin-names = "starboard:hopper:right";
-               gpios = <&gpio2 13 0>;
-           };
        };
    };
 
@@ -176,6 +171,13 @@
                          /* pwm-names = "lights"; */
                          max-brightness = <255>;
                  };
+         };
+         sbd-hoppers {
+                 compatible = "bone-pinmux-helper";
+                 status = "okay";
+                 pinctrl-names = "default", "pruout";
+                 pinctrl-0 = <&hopper_gpio>;
+                 pinctrl-1 = <&hopper_pru>;
          };
          sbd-cues {
                  compatible = "gpio-leds";
