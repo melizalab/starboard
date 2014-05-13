@@ -9,7 +9,7 @@
 <grid distance="0.025" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.00675" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="yes"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="3" fill="1" visible="yes" active="yes"/>
@@ -4501,6 +4501,7 @@ Please make sure your boards conform to these design rules.</description>
 <approved hash="19,1,47a228362c8d4319"/>
 <approved hash="19,1,207fb0ebb0142080"/>
 <approved hash="19,1,27ec69786a8f241b"/>
+<approved hash="3,16,0f5fbb5653e0e7e9"/>
 <approved hash="19,1,d8ccda38d6c1d435"/>
 <approved hash="19,1,eb27cf7d6a43f4f6"/>
 <approved hash="19,1,a4ccfa38f6c4a830"/>
