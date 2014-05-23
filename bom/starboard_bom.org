@@ -2,6 +2,8 @@ BOM for starboard
 Revision: A2
 Date: 2014-05-01
 
+** Parts
+
 | Parts                      | Quantity | Value   | Manufacturer      | Manuf. Code         | Vendor | Order code       | Price | Description                                       |
 |----------------------------+----------+---------+-------------------+---------------------+--------+------------------+-------+---------------------------------------------------|
 | BBB                        |        1 |         | CircuitCo         |                     | NK     | BB-BBLK-000      | 45.00 | Beaglebone Black                                  |
@@ -63,11 +65,19 @@ AL - allied electronics
 
 DNF - do not fit
 
-Notes:
+** Recommended wire
+
+- connections to speakers, LEDs, solenoids: 2-conductor shielded cable, 20AWG.
+  Speaker wire of similar gauge is also acceptable. If using PWM to dim LEDs,
+  shielding may help reduce RF emissions. Keep connections to speakers short.
+
+- connections to LEDs and beam break detectors: 6-conductor telephone wire, 28AWG
+
+** Notes
 
 [1] Any MOSFET or integrated driver/MOSFET IC in a SOT-223 package will work
 here, as long as drain is connected to the large tab, and the small tabs are
-input, drain, and source. Diodes Inc ZXMS6004SGTA should work but does not
-appear to match its datasheet.
+input, drain, and source. Diodes Inc ZXMS6004SGTA ought to work but did not
+appear to match its datasheet on the parts we ordered most recently.
 
 [2] New in revision A2
