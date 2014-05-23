@@ -1,2 +1,5 @@
 *.b#?
 *.s#?
+.DS_Store
+/attic/
+/dist/
