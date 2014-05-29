@@ -327,12 +327,12 @@ Digi-Key 475-2900-1-ND</description>
 <devices>
 <device name="" package="LRTB-GFTM">
 <connects>
-<connect gate="G$1" pin="B+" pad="C1"/>
-<connect gate="G$1" pin="B-" pad="A1"/>
-<connect gate="G$1" pin="G+" pad="C2"/>
-<connect gate="G$1" pin="G-" pad="A2"/>
-<connect gate="G$1" pin="R+" pad="C3"/>
-<connect gate="G$1" pin="R-" pad="A3"/>
+<connect gate="G$1" pin="B+" pad="A1"/>
+<connect gate="G$1" pin="B-" pad="C1"/>
+<connect gate="G$1" pin="G+" pad="A2"/>
+<connect gate="G$1" pin="G-" pad="C2"/>
+<connect gate="G$1" pin="R+" pad="A3"/>
+<connect gate="G$1" pin="R-" pad="C3"/>
 </connects>
 <technologies>
 <technology name=""/>
