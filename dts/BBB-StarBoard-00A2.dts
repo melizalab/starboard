@@ -1,0 +1,141 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+  compatible = "ti,beaglebone-black";
+
+  /* identification */
+  part-number = "BBB-StarBoard";
+  version = "00A2";
+
+  exclusive-use =
+      "P8.11", "gpio1_13",
+      "P8.12", "gpio1_12",
+      "P8.13", "gpio0_23",
+      "P8.14", "gpio0_26",
+      "P8.15", "gpio1_15",
+      "P8.16", "gpio1_14",
+      "P8.17", "gpio0_27",
+      "P8.18", "gpio2_1",
+      "P8.19", "gpio0_22",
+      "P8.26", "gpio1_29",
+      "P8.41", "gpio2_10",
+      "P8.42", "gpio2_11",
+      "P8.43", "gpio2_8",
+      "P8.44", "gpio2_9",
+      "P8.45", "gpio2_6",
+      "P8.46", "gpio2_7",
+      "P9.25", "P9.28", "P9.29", "P9.31", "mcasp0", "ssm2518",
+      "P9.27", "gpio3_19";
+
+  /* sets pin mux */
+  fragment@0 {
+    target = <&am33xx_pinmux>;
+    __overlay__ {
+      lights_gpio: pinmux_lights_gpio_pins {
+        pinctrl-single,pins = <
+             0x024 0x07 /* P8.13 - house lights output pulldown */
+        >;
+      };
+      hopper_gpio: pinmux_hopper_gpio_pins {
+        pinctrl-single,pins = <
+             0x034 0x07 /* P8.11 - right hopper GPIO output pulldown */
+             0x030 0x07 /* P8.12 - left hopper GPIO output pulldown */
+        >;
+      };
+      led_gpio: pinmux_led_gpio_pins {
+        pinctrl-single,pins = <
+             0x08c 0x07 /* P8.18 - right green */
+             0x020 0x07 /* P8.19 - right blue */
+             0x07c 0x07 /* P8.26 - right red */
+             0x0b0 0x07 /* P8.41 - center green */
+             0x0b4 0x07 /* P8.42 - center blue */
+             0x0a8 0x07 /* P8.43 - left blue */
+             0x0ac 0x07 /* P8.44 - center red */
+             0x0a0 0x07 /* P8.45 - left red */
+             0x0a4 0x07 /* P8.46 - left green */
+        >;
+      };
+      switch_gpio: pinmux_switch_gpio_pins {
+        pinctrl-single,pins = <
+             0x028 0x37 /* P8.14 - right peck */
+             0x03c 0x37 /* P8.15 - center peck */
+             0x038 0x37 /* P8.16 - hopper up */
+             0x02c 0x37 /* P8.17 - left peck */
+        >;
+      };
+      dac_gpio: pinmux_dac_gpio_pins {
+        pinctrl-single,pins = <
+             0x024 0x17    /* P9.27 - enable/disable SSM2518 dac - active low */
+        >;
+      };
+      mcasp0_pins: mcasp0_pins {
+        pinctrl-single,pins = <
+          0x190 0x20    /* P9.31 mode 2: mcasp0_aclkx */
+          0x194 0x20    /* P9.29 mcasp0_fsx */
+          0x198 0x20    /* P9.30 mcasp0_axr0 (not used) */
+          0x19c 0x22    /* P9.28 mcasp0_axr2 (tx) */
+          0x1ac 0x30    /* P9.25 mcasp0_ahclkx (input?) */
+        >;
+      };
+    };
+  };
+
+  /* creates user interface */
+  fragment@1 {
+       target = <&ocp>;
+       __overlay__ {
+         sbd-lights {
+                 compatible = "bone-pinmux-helper";
+                 pinctrl-names = "default";
+                 pinctrl-0 = <&lights_gpio>;
+                 status = "okay";
+         };
+         sbd-hoppers {
+                 compatible = "bone-pinmux-helper";
+                 pinctrl-names = "default";
+                 pinctrl-0 = <&hopper_gpio>;
+                 status = "okay";
+         };
+         sbd-cues {
+                 compatible = "bone-pinmux-helper";
+                 pinctrl-names = "default";
+                 pinctrl-0 = <&led_gpio>;
+                 status = "okay";
+         };
+         sbd-switches {
+                 compatible = "bone-pinmux-helper";
+                 pinctrl-names = "default";
+                 pinctrl-0 = <&switch_gpio>;
+                 status = "okay";
+         };
+       };
+    };
+
+  fragment@2 {
+    target = <&mcasp0>;
+    __overlay__ {
+      pinctrl-names = "default";
+      pinctrl-0 = <&mcasp0_pins>;
+      status = "okay";
+
+      op-mode = <0>;   /* MCASP_I2S_MODE */
+      tdm-slots = <2>;
+      num-serializer = <4>;
+      serial-dir = <
+        1 0 0 0
+      >;
+      tx-num-evt = <1>;
+      rx-num-evt = <1>;
+    };
+  };
+
+  /* fragment@4 { */
+  /*   target = <&ssm2518>; */
+  /*   __overlay__ { */
+  /*     reg = <0x34>; */
+  /*     gpios = <&gpio 3 19>; */
+  /*     status = "okay"; */
+  /*   }; */
+  /* }; */
+};
