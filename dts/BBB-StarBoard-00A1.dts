@@ -1,0 +1,100 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+  compatible = "ti,beaglebone-black";
+
+  /* identification */
+  part-number = "BB-StarBoard";
+  version = "00A1";
+
+  exclusive-use =
+      "P8.11", "GPIO1_13",
+      "P8.12", "GPIO1_12",
+      "P8.13", "EHRPWM2B",
+      "P8.14", "GPIO0_26",
+      "P8.15", "GPIO1_15",
+      "P8.16", "GPIO1_14",
+      "P8.17", "GPIO0_27",
+      "P8.18", "GPIO2_1",
+      "P8.19", "EHRPWM2A",
+      "P8.26", "GPIO1_29",
+      "P8.41", "GPIO2_10",
+      "P8.42", "GPIO2_11",
+      "P8.43", "GPIO2_8",
+      "P8.44", "GPIO2_9",
+      "P8.45", "GPIO2_6",
+      "P8.46", "GPIO2_7";
+
+  /* sets pin mux */
+  fragment@0 {
+    target = <&am33xx_pinmux>;
+    __overlay__ {
+      /* mosfet_pwm: mosfet_pwm_pins { */
+      /*   pinctrl-single,pins = < */
+      /* 	  0x024 0x4  /\* P8.13 PWM output *\/ */
+      /*   >; */
+      /* }; */
+      mosfet_gpio: pinmux_mosfet_gpio_pins {
+        pinctrl-single,pins = <
+             0x034 0x07 /* P8.11 - right hopper GPIO output pulldown */
+             0x030 0x07 /* P8.12 - left hopper GPIO output pulldown */
+	>;
+      };
+      led_gpio: pinmux_led_gpio_pins {
+        pinctrl-single,pins = <
+             0x028 0x07 /* P8.14 - right blue */
+             0x03c 0x07 /* P8.15 - right green */
+             0x038 0x07 /* P8.16 - right red */
+             0x02c 0x07 /* P8.17 - center blue */
+             0x08c 0x07 /* P8.18 - center green */
+             0x020 0x07 /* P8.19 - center red - consider pwm? */
+             0x07c 0x07 /* P8.26 - left blue */
+             0x0b0 0x07 /* P8.41 - left red */
+             0x0b4 0x07 /* P8.42 - left green */
+        >;
+      };
+      switch_gpio: pinmux_switch_gpio_pins {
+        pinctrl-single,pins = <
+             0x0a8 0x37 /* P8.43 - center peck GPIO input pullup */
+             0x0ac 0x37 /* P8.44 - right peck */
+             0x0a0 0x37 /* P8.45 - hopper detector */
+             0x0a4 0x37 /* P8.46 - left peck */
+        >;
+      };
+    };
+  };
+
+  /* enables pwm outputs */
+  /* fragment@2 { */
+  /*   target = <&ehrpwm2>; */
+  /*   __overlay__ { */
+  /*     status = "okay"; */
+  /*   }; */
+  /* }; */
+
+  /* creates user interface */
+  fragment@1 {
+       target = <&ocp>;
+       __overlay__ {
+         hoppers {
+                 compatible = "bone-pinmux-helper";
+                 pinctrl-names = "default";
+                 pinctrl-0 = <&mosfet_gpio>;
+                 status = "okay";
+         };
+         leds {
+                 compatible = "bone-pinmux-helper";
+                 pinctrl-names = "default";
+                 pinctrl-0 = <&led_gpio>;
+                 status = "okay";
+         };
+         switches {
+                 compatible = "bone-pinmux-helper";
+                 pinctrl-names = "default";
+                 pinctrl-0 = <&switch_gpio>;
+                 status = "okay";
+         };
+       };
+    };
+};
