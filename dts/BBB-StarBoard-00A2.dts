@@ -11,7 +11,7 @@
   exclusive-use =
       "P8.11", "gpio1_13",
       "P8.12", "gpio1_12",
-      "P8.13", "gpio0_23",
+      "P8.13", "ehrpwm2b", /* "gpio0_23", */
       "P8.14", "gpio0_26",
       "P8.15", "gpio1_15",
       "P8.16", "gpio1_14",
@@ -32,9 +32,9 @@
   fragment@0 {
     target = <&am33xx_pinmux>;
     __overlay__ {
-      lights_gpio: pinmux_lights_gpio_pins {
+      lights_pwm: pinmux_lights_pwm_pins {
         pinctrl-single,pins = <
-             0x024 0x07 /* P8.13 - house lights output pulldown */
+             0x024 0x4 /* P8.13 - house lights output pulldown */
         >;
       };
       hopper_gpio: pinmux_hopper_gpio_pins {
@@ -64,11 +64,10 @@
              0x02c 0x37 /* P8.17 - left peck */
         >;
       };
-      dac_gpio: pinmux_dac_gpio_pins {
-        pinctrl-single,pins = <
-             0x024 0x17    /* P9.27 - enable/disable SSM2518 dac - active low */
-        >;
-      };
+      /* dac_gpio: pinmux_dac_gpio_pins { */
+      /*   pinctrl-single,pins = < */
+      /*   >; */
+      /* }; */
       mcasp0_pins: mcasp0_pins {
         pinctrl-single,pins = <
           0x190 0x20    /* P9.31 mode 2: mcasp0_aclkx */
@@ -76,19 +75,78 @@
           0x198 0x20    /* P9.30 mcasp0_axr0 (not used) */
           0x19c 0x22    /* P9.28 mcasp0_axr2 (tx) */
           0x1ac 0x30    /* P9.25 mcasp0_ahclkx (input?) */
+          0x1a4 0x17    /* P9.27 - enable/disable SSM2518 dac - active low */
         >;
       };
     };
   };
 
-  /* creates user interface */
+  /* enables pwm outputs - not sure what first device is but it's needed */
   fragment@1 {
+    target = <&epwmss2>;
+    __overlay__ {
+      status = "okay";
+    };
+  };
+
+  fragment@2 {
+    target = <&ehrpwm2>;
+    __overlay__ {
+      status = "okay";
+    };
+  };
+
+
+  fragment@3 {
+    target = <&mcasp0>;
+    __overlay__ {
+      pinctrl-names = "default";
+      pinctrl-0 = <&mcasp0_pins>;
+      status = "okay";
+
+      op-mode = <0>;   /* MCASP_I2S_MODE */
+      tdm-slots = <2>;
+      num-serializer = <16>;
+      serial-dir = <
+        0 0 2 1
+        0 0 0 0
+        0 0 0 0
+        0 0 0 0
+      >;
+      tx-num-evt = <1>;
+      rx-num-evt = <1>;
+    };
+  };
+
+   fragment@4 {
+     target = <&i2c2>;
+     __overlay__ {
+       #address-cells = <1>;
+       #size-cells = <0>;
+
+       ssm2518: ssm2518@34 {
+                compatible = "adi,ssm2518";
+                reg = <0x34>;
+                gpios = <&gpio4 19 0>;
+                /* gpios = <&gpio3 19 0>; */
+                status = "okay";
+        };
+     };
+   };
+
+  /* creates user interface */
+  fragment@5 {
        target = <&ocp>;
+       /* target = <&baseboard_beaglebone_black>; */
        __overlay__ {
          sbd-lights {
-                 compatible = "bone-pinmux-helper";
+                 compatible = "pwm_test";
                  pinctrl-names = "default";
-                 pinctrl-0 = <&lights_gpio>;
+                 pinctrl-0 = <&lights_pwm>;
+                 pwms = <&ehrpwm2 1 500000 0>; /*channel, period (ns), polarity */
+                 pwm-names = "lights";
+                 enabled = <1>;
+                 duty = <0>;  /* duty in ns */
                  status = "okay";
          };
          sbd-hoppers {
@@ -109,33 +167,16 @@
                  pinctrl-0 = <&switch_gpio>;
                  status = "okay";
          };
+         sound {
+                 compatible = "ti,da830-evm-audio";
+                 ti,model = "DA830 EVM";
+                 ti,audio-codec = <&ssm2518>;
+                 ti,mcasp-controller = <&mcasp0>;
+                 ti,codec-clock-rate = <12000000>;
+                 ti,audio-routing =
+                         "Headphone Jack",       "HPLOUT",
+                         "Headphone Jack",       "HPROUT";
+         };
        };
     };
-
-  fragment@2 {
-    target = <&mcasp0>;
-    __overlay__ {
-      pinctrl-names = "default";
-      pinctrl-0 = <&mcasp0_pins>;
-      status = "okay";
-
-      op-mode = <0>;   /* MCASP_I2S_MODE */
-      tdm-slots = <2>;
-      num-serializer = <4>;
-      serial-dir = <
-        1 0 0 0
-      >;
-      tx-num-evt = <1>;
-      rx-num-evt = <1>;
-    };
-  };
-
-  /* fragment@4 { */
-  /*   target = <&ssm2518>; */
-  /*   __overlay__ { */
-  /*     reg = <0x34>; */
-  /*     gpios = <&gpio 3 19>; */
-  /*     status = "okay"; */
-  /*   }; */
-  /* }; */
 };
