@@ -75,7 +75,7 @@
           0x198 0x20    /* P9.30 mcasp0_axr0 (not used) */
           0x19c 0x22    /* P9.28 mcasp0_axr2 (tx) */
           0x1ac 0x30    /* P9.25 mcasp0_ahclkx (input?) */
-          0x1a4 0x17    /* P9.27 - enable/disable SSM2518 dac - active low */
+          /* 0x1a4 0x17    /\* P9.27 - enable/disable SSM2518 dac - active low *\/ */
         >;
       };
     };
@@ -107,8 +107,9 @@
       op-mode = <0>;   /* MCASP_I2S_MODE */
       tdm-slots = <2>;
       num-serializer = <16>;
+      /* this corresponds to the axrN channels and what we're using them for */
       serial-dir = <
-        0 0 2 1
+        0 0 1 0
         0 0 0 0
         0 0 0 0
         0 0 0 0
@@ -168,14 +169,14 @@
                  status = "okay";
          };
          sound {
-                 compatible = "ti,da830-evm-audio";
-                 ti,model = "DA830 EVM";
+                 compatible = "ti,ssm2518-evm-audio";
+                 ti,model = "PMOD AMP3 SSM2518";
                  ti,audio-codec = <&ssm2518>;
                  ti,mcasp-controller = <&mcasp0>;
-                 ti,codec-clock-rate = <12000000>;
+                 ti,codec-clock-rate = <12288000>;
                  ti,audio-routing =
-                         "Headphone Jack",       "HPLOUT",
-                         "Headphone Jack",       "HPROUT";
+                         "Speaker Out",       "OUTL",
+                         "Speaker Out",       "OUTR";
          };
        };
     };
