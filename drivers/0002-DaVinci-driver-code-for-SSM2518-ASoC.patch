@@ -1,7 +1,7 @@
 From 092d11141ffd56b405980e678e4157b529d44203 Mon Sep 17 00:00:00 2001
 From: Dan Meliza <cdm8j@virginia.edu>
 Date: Fri, 6 Jun 2014 13:16:06 -0400
-Subject: [PATCH 2/2] DaVinci driver code for SSM2518 ASoC
+Subject: [PATCH 2/3] DaVinci driver code for SSM2518 ASoC
 
 ---
  sound/soc/davinci/davinci-evm.c | 526 ++++++++++++++++++++++++++++++----------

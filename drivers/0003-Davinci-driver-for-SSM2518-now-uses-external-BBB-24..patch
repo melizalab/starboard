@@ -1,0 +1,165 @@
+From 2f52205724c0e6e3f63960fdae488925c03bcfde Mon Sep 17 00:00:00 2001
+From: Dan Meliza <cdm8j@virginia.edu>
+Date: Sat, 7 Jun 2014 18:36:49 -0400
+Subject: [PATCH 3/3] Davinci driver for SSM2518 now uses external BBB 24.576
+ MHz clock
+
+---
+ sound/soc/davinci/davinci-evm.c | 110 +++++++++++++++++++++++++---------------
+ 1 file changed, 69 insertions(+), 41 deletions(-)
+
+diff --git a/sound/soc/davinci/davinci-evm.c b/sound/soc/davinci/davinci-evm.c
+index 668afb5..21df97f 100644
+--- a/sound/soc/davinci/davinci-evm.c
++++ b/sound/soc/davinci/davinci-evm.c
+@@ -529,52 +529,78 @@ static const struct snd_soc_dapm_route ssm2518_routes[] = {
+ static int evm_ssm2518_init(struct snd_soc_pcm_runtime *rtd)
+ {
+ 	struct snd_soc_codec *codec = rtd->codec;
++	struct snd_soc_dai *codec_dai = rtd->codec_dai;
++	struct snd_soc_dai *cpu_dai = rtd->cpu_dai;
+ 	struct snd_soc_dapm_context *dapm = &codec->dapm;
++	struct snd_soc_card *soc_card = codec->card;
++	struct platform_device *pdev = to_platform_device(soc_card->dev);
++	unsigned sysclk = ((struct snd_soc_card_drvdata_davinci *)
++			   snd_soc_card_get_drvdata(soc_card))->sysclk;
++        int ret = 0;
+ 
+ 	snd_soc_dapm_new_controls(dapm, ssm2518_widgets,
+ 				  ARRAY_SIZE(ssm2518_widgets));
+-
+         snd_soc_dapm_add_routes(dapm, ssm2518_routes, ARRAY_SIZE(ssm2518_routes));
+ 
+-        /* using separate MCLK and BCLK */
+-        return snd_soc_codec_set_sysclk(codec, SSM2518_SYSCLK,
+-                                        SSM2518_SYSCLK_SRC_MCLK, 12288000, SND_SOC_CLOCK_IN);
++        /* get mcasp sysclk from an external 24.576 oscillator on BBB */
++	ret = snd_soc_dai_set_sysclk(cpu_dai, 0, 0, SND_SOC_CLOCK_IN);
++        if (ret < 0) {
++                dev_err(&pdev->dev, "can't set mcasp sysclk (%d)\n", ret);
++                return ret;
++        }
++
++        /* auxclk is 24 MHz - this would set divider */
++        /* ret = snd_soc_dai_set_clkdiv(cpu_dai, 0, 1); */
++        /* if (ret < 0) { */
++        /*         dev_err(&pdev->dev, "can't set mcasp ahclk divider (%d)\n", ret); */
++        /*         return ret; */
++        /* } */
++
++        /* codec mclk is also connected to 24.576 */
++        ret = snd_soc_codec_set_sysclk(codec, SSM2518_SYSCLK,
++                                       SSM2518_SYSCLK_SRC_MCLK, 24576000, SND_SOC_CLOCK_IN);
++        if (ret < 0) {
++                dev_err(&pdev->dev, "can't set codec sysclk (%d)\n", ret);
++                return ret;
++        }
++
++	/* set codec DAI configuration */
++	ret = snd_soc_dai_set_fmt(codec_dai, (SND_SOC_DAIFMT_CBS_CFS | SND_SOC_DAIFMT_I2S |
++                                              SND_SOC_DAIFMT_IB_NF));
++	if (ret < 0) {
++                dev_err(&pdev->dev, "can't set codec format (%d)\n", ret);
++		return ret;
++        }
++
++	/* set cpu DAI configuration */
++	ret = snd_soc_dai_set_fmt(cpu_dai, (SND_SOC_DAIFMT_CBS_CFS | SND_SOC_DAIFMT_I2S |
++                                            SND_SOC_DAIFMT_IB_NF));
++	if (ret < 0) {
++                dev_err(&pdev->dev, "can't set mcasp format (%d)\n", ret);
++		return ret;
++        }
++        return ret;
++
+ }
+ 
+ static int ssm2518_hw_params(struct snd_pcm_substream *substream,
+ 				 struct snd_pcm_hw_params *params)
+ {
+ 	struct snd_soc_pcm_runtime *rtd = substream->private_data;
+-	struct snd_soc_dai *codec_dai = rtd->codec_dai;
+ 	struct snd_soc_dai *cpu_dai = rtd->cpu_dai;
+ 	struct snd_soc_codec *codec = rtd->codec;
+ 	struct snd_soc_card *soc_card = codec->card;
+-	unsigned sysclk = ((struct snd_soc_card_drvdata_davinci *)
++	struct platform_device *pdev = to_platform_device(soc_card->dev);
++        unsigned sysclk = ((struct snd_soc_card_drvdata_davinci *)
+ 			   snd_soc_card_get_drvdata(soc_card))->sysclk;
+-	int ret = 0;
+-
+-	printk("SSM2518 hw params\n");
+-	printk("sysclk=%d\n", sysclk);
+-
+-	/* set codec DAI configuration */
+-	/* ret = snd_soc_dai_set_fmt(codec_dai, AUDIO_FORMAT); */
+-	/* if (ret < 0) */
+-	/* 	return ret; */
+-
+-	/* set cpu DAI configuration */
+-	/* ret = snd_soc_dai_set_fmt(cpu_dai, AUDIO_FORMAT); */
+-	/* if (ret < 0) */
+-	/* 	return ret; */
+-
+-	/* set the codec system clock */
+-	ret = snd_soc_dai_set_sysclk(codec_dai, 0, sysclk, SND_SOC_CLOCK_OUT);
+-	if (ret < 0)
+-		return ret;
++	unsigned int bclk_freq = evm_get_bclk(params, 2);
++        int ret = 0;
+ 
+-	/* set the CPU system clock */
+-	ret = snd_soc_dai_set_sysclk(cpu_dai, 0, sysclk, SND_SOC_CLOCK_OUT);
+-	if (ret < 0)
+-		return ret;
++        ret = snd_soc_dai_set_clkdiv(cpu_dai, 1, sysclk/bclk_freq);
++        if (ret < 0) {
++                dev_err(&pdev->dev, "can't set CPU DAI bitclock divider (%d)\n", ret);
++                return ret;
++        }
+ 
+ 	return ret;
+ }
+@@ -597,18 +623,6 @@ static struct snd_soc_dai_link evm_dai_ssm2518 = {
+                                                   // removing bitclock inverter
+ };
+ 
+-/* static struct snd_soc_card_drvdata_davinci ssm2518_snd_soc_card_drvdata = { */
+-/* 	.sysclk = 12288000, */
+-/* }; */
+-
+-/* static struct snd_soc_card ssm2518_snd_soc_card_evm = { */
+-/*     .name = "PMOD AMP3 SSM2518", */
+-/*     .owner = THIS_MODULE, */
+-/*     .dai_link = &evm_dai_ssm2518, */
+-/*     .num_links = 1, */
+-/*     .drvdata = &ssm2518_snd_soc_card_drvdata, */
+-/* }; */
+-
+ #if defined(CONFIG_OF)
+ 
+ /*
+@@ -666,6 +680,20 @@ static int davinci_evm_probe(struct platform_device *pdev)
+ 	struct clk *mclk;
+ 	int ret = 0;
+ 
++        clk_gpio = of_get_named_gpio(np, "mcasp_clock_enable", 0);
++        if (clk_gpio < 0) {
++                dev_err(&pdev->dev, "failed to find mcasp_clock enable GPIO!\n");
++                return -EINVAL;
++        }
++        ret = gpio_request_one(clk_gpio, GPIOF_OUT_INIT_HIGH,
++                               "McASP Clock Enable Pin");
++        if (ret < 0) {
++                dev_err(&pdev->dev, "Failed to claim McASP Clock Enable pin\n");
++                return -EINVAL;
++        }
++        gpio_set_value(clk_gpio, 1);
++        break;
++
+ 	evm_soc_card.dai_link = dai;
+ 
+ 	dai->codec_of_node = of_parse_phandle(np, "ti,audio-codec", 0);
+-- 
+2.0.0.rc2
+
