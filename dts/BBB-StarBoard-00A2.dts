@@ -26,7 +26,7 @@
       "P8.45", "gpio2_6",
       "P8.46", "gpio2_7",
       "P9.25", "P9.28", "P9.29", "P9.31", "mcasp0", "ssm2518",
-      "P9.27", "gpio3_19";
+      "P9.27", "gpio3_19", "gpio1_27";
 
   /* sets pin mux */
   fragment@0 {
@@ -75,7 +75,8 @@
           0x198 0x20    /* P9.30 mcasp0_axr0 (not used) */
           0x19c 0x22    /* P9.28 mcasp0_axr2 (tx) */
           0x1ac 0x30    /* P9.25 mcasp0_ahclkx (input?) */
-          /* 0x1a4 0x17    /\* P9.27 - enable/disable SSM2518 dac - active low *\/ */
+          0x1a8 0x1f    /* GPIO1_27 - enable clock on P9.25 */
+          0x1a4 0x17    /* P9.27 - enable/disable SSM2518 dac - active low */
         >;
       };
     };
@@ -173,7 +174,9 @@
                  ti,model = "PMOD AMP3 SSM2518";
                  ti,audio-codec = <&ssm2518>;
                  ti,mcasp-controller = <&mcasp0>;
-                 ti,codec-clock-rate = <12288000>;
+                 ti,codec-clock-rate = <24576000>;
+                 /* enable 24.576 MHz clock from BBB */
+                 mcasp_clock_enable = <&gpio2 27 0>; 
                  ti,audio-routing =
                          "Speaker Out",       "OUTL",
                          "Speaker Out",       "OUTR";
