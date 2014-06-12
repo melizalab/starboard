@@ -11,8 +11,12 @@ A Beaglebone Black cape for controlling auditory operant experiments
 - dts : BeagleBone Black device tree files and eeprom data
 - datasheets : datasheets for all parts
 - sketchup : sketchup for part to hold beam-break detector and cue LED
+- drivers : patches to add audio support to the linux kernel
 
 ## Assembly
+
+You can obtain printed circuit boards from a number of fabrication companies. We
+recommend OSHpark for small runs.
 
 PCB assembly is relatively straightforward. You can reflow SMD components with
 an oven or a lab hot plate. Headers and pin connectors have to be
@@ -30,5 +34,15 @@ Suggested connections:
 |         4 | black  | GND                  | OPL820 GND (furthest from tab)      |
 |         5 | white  | GND                  | OP133 cathode (pin nearest tab)     |
 
+### RGB LED
 
+Suggested connections. Note that the red and blue wires cross between the
+cape and the breakout board.
+
+| Board Pin | Wire  | Signal    | Breakout board pin |
+|-----------+-------+-----------+--------------------|
+|         1 | black | GND       | +                  |
+|         2 | blue  | blue LED  | b                  |
+|         3 | green | green LED | g                  |
+|         4 | red   | red LED   | r                  |
 
