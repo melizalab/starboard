@@ -38,3 +38,26 @@ Note that the address `1-0054` is only correct if the DIP switches on the board 
 
     hexdump -C /sys/bus/i2c/1-0054/eeprom
 
+## Pin configuration
+
+The device tree overlays for the StarBoard cape make use of the linux led and gpio-keys subsystems. This allows pins to be given abstract names and thus manipulated in a revision-independent manner.
+
+The leds can be manipulated under /sys/class/leds. The following directories are created:
+
+starboard:left:red
+starboard:left:green
+starboard:left:blue
+starboard:center:red
+...
+starboard:right:red
+...
+starboard:hopper:left
+starboard:hopper:right
+
+We can use the linux gpio-led driver to turn these lines on continuously, flash the LED at specified intervals (timer trigger), or to generate on events of a fixed duration (oneshot trigger). The last trigger mode is especially useful for raising the hopper.
+
+In addition, the following LED is configured using PWM, which allows its brightness to be changed:
+
+starboard::lights
+
+The inputs are configured using gpio-keys. The dts overlay creates an input device. This will usually be `/dev/input/event1`. You can watch for events using `evtest`.

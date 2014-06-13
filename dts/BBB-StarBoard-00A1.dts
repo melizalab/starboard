@@ -90,7 +90,7 @@
                  compatible = "pwm-leds";
                  status = "okay";
                  sbd-lights-pwm {
-                         label = "starboard:lights";
+                         label = "starboard::lights";
                          /*channel, period (ns), polarity */
                          pwms = <&ehrpwm2 1 500000 0>;
                          /* pwm-names = "lights"; */
@@ -98,10 +98,20 @@
                  };
          };
          sbd-hoppers {
-                 compatible = "bone-pinmux-helper";
+                 compatible = "gpio-leds";
                  pinctrl-names = "default";
                  pinctrl-0 = <&mosfet_gpio>;
                  status = "okay";
+                 sbd-hopper-left {
+                         label = "starboard:hopper:left";
+                         gpios = <&gpio2 12 0>;
+                         default-state = "off";
+                 }
+                 sbd-hopper-right {
+                         label = "starboard:hopper:right";
+                         gpios = <&gpio2 13 0>;
+                         default-state = "off";
+                 }
          };
          sbd-cues {
                  compatible = "gpio-leds";
@@ -159,10 +169,18 @@
                  pinctrl-names = "default";
                  pinctrl-0 = <&switch_gpio>;
                  status = "okay";
+                 /* these need to be in gpio order for some reason */
+                 hopper-up {
+                   label = "starboard::hopper-up";
+                   debounce_interval = <5>;
+                   linux,code = <1>;
+                   gpios = <&gpio3 6 0x5>;
+                   gpio-key,wakeup;
+                 };
                  peck-left {
                    label = "starboard::left-peck";
                    debounce_interval = <5>;
-                   linux,code = <1>;
+                   linux,code = <2>;
                    /* 0x5 should be input pullup */
                    gpios = <&gpio3 7 0x5>;
                    gpio-key,wakeup;
@@ -170,25 +188,17 @@
                  peck-center {
                    label = "starboard::center-peck";
                    debounce_interval = <5>;
-                   linux,code = <2>;
+                   linux,code = <3>;
                    gpios = <&gpio3 8 0x5>;
                    gpio-key,wakeup;
                  };
                  peck-right {
                    label = "starboard::right-peck";
                    debounce_interval = <5>;
-                   linux,code = <3>;
+                   linux,code = <4>;
                    gpios = <&gpio3 9 0x5>;
                    gpio-key,wakeup;
                  };
-                 hopper-up {
-                   label = "starboard::hopper-up";
-                   debounce_interval = <5>;
-                   linux,code = <4>;
-                   gpios = <&gpio3 6 0x5>;
-                   gpio-key,wakeup;
-                 };
-
          };
        };
     };
