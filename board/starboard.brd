@@ -1170,21 +1170,6 @@ Source: http://www.nxp.com/documents/data_sheet/74ABT125.pdf</description>
 <rectangle x1="-1.525" y1="2.425" x2="-1.075" y2="3.425" layer="29" rot="R180"/>
 <rectangle x1="-2.175" y1="2.425" x2="-1.725" y2="3.425" layer="29" rot="R180"/>
 </package>
-<package name="KK-100-2">
-<pad name="1" x="-1.27" y="0" drill="0.8" shape="long" rot="R90"/>
-<pad name="2" x="1.27" y="0" drill="0.8" shape="long" rot="R90"/>
-<wire x1="-2.465" y1="-3.175" x2="-2.465" y2="3.175" width="0.127" layer="21"/>
-<wire x1="-2.465" y1="3.175" x2="-1.27" y2="3.175" width="0.127" layer="21"/>
-<wire x1="-1.27" y1="3.175" x2="1.27" y2="3.175" width="0.127" layer="21"/>
-<wire x1="1.27" y1="3.175" x2="2.465" y2="3.175" width="0.127" layer="21"/>
-<wire x1="2.465" y1="3.175" x2="2.465" y2="-3.175" width="0.127" layer="21"/>
-<wire x1="2.465" y1="-3.175" x2="-2.465" y2="-3.175" width="0.127" layer="21"/>
-<wire x1="-1.27" y1="3.175" x2="-1.27" y2="1.07" width="0.127" layer="21"/>
-<wire x1="-1.27" y1="1.07" x2="1.27" y2="1.07" width="0.127" layer="21"/>
-<wire x1="1.27" y1="1.07" x2="1.27" y2="3.175" width="0.127" layer="21"/>
-<text x="-2.54" y="3.81" size="1.27" layer="25">&gt;NAME</text>
-<text x="-2.54" y="-5.08" size="1.27" layer="27">&gt;VALUE</text>
-</package>
 </packages>
 </library>
 <library name="rcl">
@@ -3225,10 +3210,10 @@ Please make sure your boards conform to these design rules.</description>
 <element name="DAC" library="starboard" package="QFN20" value="SSM2518CPZ" x="12.7" y="41.91" smashed="yes">
 <attribute name="NAME" x="15.24" y="43.35145" size="0.8128" layer="25" font="vector"/>
 </element>
-<element name="JP11" library="dmeliza_custom" package="KK-100-2" value="SPKL" x="4.445" y="43.18" smashed="yes" rot="R270">
+<element name="JP11" library="starboard" package="KK-100-2" value="SPKL" x="4.445" y="43.18" smashed="yes" rot="R270">
 <attribute name="VALUE" x="1.9431" y="45.82795" size="1.27" layer="27" ratio="15"/>
 </element>
-<element name="JP12" library="dmeliza_custom" package="KK-100-2" value="SPKR" x="21.59" y="43.18" smashed="yes" rot="R270">
+<element name="JP12" library="starboard" package="KK-100-2" value="SPKR" x="21.59" y="43.18" smashed="yes" rot="R270">
 <attribute name="VALUE" x="19.431" y="38.96995" size="1.27" layer="27" ratio="15"/>
 </element>
 <element name="C9" library="rcl" package="C0603" value="0.1uF" x="17.145" y="40.005" smashed="yes" rot="R180">
