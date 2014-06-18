@@ -156,18 +156,18 @@
          sbd-hoppers {
                  compatible = "gpio-leds";
                  pinctrl-names = "default";
-                 pinctrl-0 = <&mosfet_gpio>;
+                 pinctrl-0 = <&hopper_gpio>;
                  status = "okay";
                  sbd-hopper-left {
                          label = "starboard:hopper:left";
                          gpios = <&gpio2 12 0>;
                          default-state = "off";
-                 }
+                 };
                  sbd-hopper-right {
                          label = "starboard:hopper:right";
                          gpios = <&gpio2 13 0>;
                          default-state = "off";
-                 }
+                 };
          };
          sbd-cues {
                  compatible = "gpio-leds";
