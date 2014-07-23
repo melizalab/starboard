@@ -12895,6 +12895,8 @@ Source: DCJ0202.pdf</description>
 <part name="R38" library="rcl" deviceset="R-US_" device="R0603" value="1k"/>
 <part name="R39" library="rcl" deviceset="R-US_" device="R0603" value="1k"/>
 <part name="R40" library="rcl" deviceset="R-US_" device="R0603" value="1k"/>
+<part name="+3V14" library="supply1" deviceset="+3V3" device=""/>
+<part name="P+3" library="supply1" deviceset="+5V" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -13071,6 +13073,8 @@ Max current is 5 mA - safe to drive pins low</text>
 <instance part="R38" gate="G$1" x="43.18" y="127"/>
 <instance part="R39" gate="G$1" x="91.44" y="127"/>
 <instance part="R40" gate="G$1" x="139.7" y="127"/>
+<instance part="+3V14" gate="G$1" x="335.28" y="147.32"/>
+<instance part="P+3" gate="1" x="327.66" y="147.32"/>
 </instances>
 <busses>
 </busses>
@@ -13475,6 +13479,12 @@ Max current is 5 mA - safe to drive pins low</text>
 <pinref part="+3V3" gate="G$1" pin="+3V3"/>
 <wire x1="233.68" y1="129.54" x2="233.68" y2="142.24" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="BBB" gate="G$1" pin="VDD_3V3EXP@1"/>
+<wire x1="345.44" y1="142.24" x2="335.28" y2="142.24" width="0.1524" layer="91"/>
+<pinref part="+3V14" gate="G$1" pin="+3V3"/>
+<wire x1="335.28" y1="142.24" x2="335.28" y2="144.78" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="LEFT_RED" class="0">
 <segment>
@@ -13869,6 +13879,12 @@ Max current is 5 mA - safe to drive pins low</text>
 <pinref part="P+5" gate="1" pin="+5V"/>
 <wire x1="307.34" y1="127" x2="309.88" y2="127" width="0.1524" layer="91"/>
 <wire x1="309.88" y1="127" x2="309.88" y2="132.08" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="BBB" gate="G$1" pin="VDD_5V@1"/>
+<wire x1="345.44" y1="139.7" x2="327.66" y2="139.7" width="0.1524" layer="91"/>
+<pinref part="P+3" gate="1" pin="+5V"/>
+<wire x1="327.66" y1="139.7" x2="327.66" y2="144.78" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$17" class="0">
