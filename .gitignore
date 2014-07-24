@@ -1,5 +1,6 @@
 *.b#?
 *.s#?
+*~.skp
 .DS_Store
 /attic/
 /dist/
