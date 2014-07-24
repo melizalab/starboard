@@ -12790,15 +12790,13 @@ Source: DCJ0202.pdf</description>
 <plain>
 <text x="337.82" y="63.5" size="2.54" layer="94">Meliza Lab - University of Virginia</text>
 <text x="109.22" y="271.78" size="2.54" layer="94" rot="R90">Response Ports</text>
-<text x="426.72" y="43.18" size="2.54" layer="94">A2</text>
+<text x="426.72" y="43.18" size="2.54" layer="94">A2A</text>
 <text x="25.4" y="101.6" size="1.778" layer="97">EEPROM</text>
 <text x="309.88" y="307.34" size="1.778" layer="97">POWER</text>
 <text x="30.48" y="304.8" size="1.778" layer="97">CUE LEDS</text>
 <text x="25.4" y="165.1" size="1.778" layer="97">POWER OUTPUTS</text>
 <text x="127" y="304.8" size="1.778" layer="94">INPUTS</text>
 <text x="180.34" y="147.32" size="1.778" layer="97">AUDIO</text>
-<text x="180.34" y="132.08" size="1.778" layer="97">BCLK is inverted in McASP driver
-Swap R30 to R31 if driver is fixed.</text>
 <text x="165.1" y="294.64" size="1.778" layer="97">Connect pins 2 and 4 to IR LED (OP133)
 Connect pins 1,3,5 to IR detector (OPL820-OC)
 LED lights when beam is interrupted (pin is low)
