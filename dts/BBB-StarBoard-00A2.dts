@@ -56,12 +56,16 @@
              0x0a4 0x07 /* P8.46 - left green */
         >;
       };
-      switch_gpio: pinmux_switch_gpio_pins {
+      keys_gpio: pinmux_keys_gpio_pins {
         pinctrl-single,pins = <
              0x028 0x37 /* P8.14 - right peck */
              0x03c 0x37 /* P8.15 - center peck */
-             0x038 0x37 /* P8.16 - hopper up */
              0x02c 0x37 /* P8.17 - left peck */
+        >;
+      };
+      hopdet_gpio: pinmux_hopdet_gpio_pins {
+        pinctrl-single,pins = <
+             0x038 0x37 /* P8.16 - hopper up */
         >;
       };
       /* dac_gpio: pinmux_dac_gpio_pins { */
@@ -220,10 +224,23 @@
                          default-state = "off";
                  };
          };
-         sbd-switches {
+         sbd-hopdet {
                  compatible = "gpio-keys";
                  pinctrl-names = "default";
-                 pinctrl-0 = <&switch_gpio>;
+                 pinctrl-0 = <&hopdet_gpio>;
+                 status = "okay";
+                 hopper-up {
+                   label = "starboard::hopper-up";
+                   debounce_interval = <100>;
+                   linux,code = <1>;
+                   gpios = <&gpio2 14 0x5>; /* P8.16 */
+                   gpio-key,wakeup;
+                 };
+         };
+         sbd-keys {
+                 compatible = "gpio-keys";
+                 pinctrl-names = "default";
+                 pinctrl-0 = <&keys_gpio>;
                  status = "okay";
                  /* these need to be in gpio order for some reason */
                  peck-right {
@@ -239,13 +256,6 @@
                    linux,code = <2>;
                    /* 0x5 should be input pullup */
                    gpios = <&gpio1 27 0x5>; /* P8.17 */
-                   gpio-key,wakeup;
-                 };
-                 hopper-up {
-                   label = "starboard::hopper-up";
-                   debounce_interval = <5>;
-                   linux,code = <1>;
-                   gpios = <&gpio2 14 0x5>; /* P8.16 */
                    gpio-key,wakeup;
                  };
                  peck-center {
