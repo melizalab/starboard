@@ -30,7 +30,7 @@ Date: 2014-05-01
 |                            |       42 |        | Molex             | 08-50-0113          | DK     | WM1114CT-ND             |  0.03 | CONTACT, FEMALE, 30-22AWG, CRIMP, FULL REEL       |
 | LED1-7                     |        7 |        | OSRAM             | LB Q39G-L2N2-35-1   | DK     | 475-2816-1-ND           |  0.93 | LED CHIPLED BLUE 470NM 0603 SMD                   |
 | solenoid                   |        2 |        | Guardian          | 11HD-I-12D          | AL     |                         | 17.00 | Solenoid, 1" stroke, int 12VDC, 20W, 7 oz@3/4"    |
-|                            |          |        | Pontiac           | L-90PL012D-C        | DK     |                         | 27.00 | Solenoid, 1.25" stroke, cont 12VDC, 13W 8 oz@1"   |
+| flyback diode              |        2 |        |                   |                     | DK     | 1N4007-TPMSCT-ND        |  0.07 | 1N4007 diode (protects mosfets)                   |
 | P8,P9                      |        5 |        | FCI               | 67997-210HLF        | DK     | 609-3236-ND             |  0.40 | CONN HEADER 10POS .100 STR 15AU                   |
 |                            |          |        |                   |                     |        |                         |       |                                                   |
 | 12V                        |        1 |        | Multcomp          | SPC21365            | NK     | 11M0560                 |  1.13 | CONNECTOR, DC POWER, JACK, 5A                     |
