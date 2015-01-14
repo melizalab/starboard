@@ -10,7 +10,7 @@ A Beaglebone Black cape for controlling auditory operant experiments
 - bom : parts you need
 - dts : BeagleBone Black device tree files and eeprom data
 - datasheets : datasheets for all parts
-- sketchup : sketchup for part to hold beam-break detector and cue LED
+- sketchup : sketchup for parts to hold beam-break detectors and cue LED
 - drivers : patches to add audio support to the linux kernel
 
 ## Assembly
@@ -45,4 +45,3 @@ cape and the breakout board.
 |         2 | blue  | blue LED  | b                  |
 |         3 | green | green LED | g                  |
 |         4 | red   | red LED   | r                  |
-
