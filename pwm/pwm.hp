@@ -18,14 +18,20 @@
 #define CONST_PRUSHAREDRAM   C28
 #define CONST_DDR            C31
 
-// Address for the Constant table Block Index Register (CTBIR)
-#define CTBIR          0x24020
+// Offsets for setting up programmable registers
+#define PRU0_CTRL            0x22000
+#define PRU1_CTRL            0x24000
 
-// Address for the Constant table Programmable Pointer Register 0(CTPPR_0)
-#define CTPPR_0         0x24028
+// Address for the Constant table Block Index Register (CTBIR) (C24)
+#define CTBIR                0x20
+// Address for the Constant table Programmable Pointer Register 0(CTPPR_0) (C28)
+#define CTPPR0               0x28
+// Address for the Constant table Programmable Pointer Register 1(CTPPR_1) (C31)
+#define CTPPR1               0x2C
 
-// Address for the Constant table Programmable Pointer Register 1(CTPPR_1)
-#define CTPPR_1         0x2402C
+#define OWN_RAM              0x000
+#define OTHER_RAM            0x020
+#define SHARED_RAM           0x100
 
 // Macros
 
@@ -76,8 +82,3 @@
 .assign Global, r2, *, global
 
 #endif // __PRUCODE_PWM_HP__
-
-
-
-
-

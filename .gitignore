@@ -1,6 +1,12 @@
 *.b#?
 *.s#?
 *~.skp
+*.dtbo
+*.bin
+*.dbg
+*.lst
 .DS_Store
 /attic/
 /dist/
+/pwm/pwm
+/pwm/pwm_bin.h

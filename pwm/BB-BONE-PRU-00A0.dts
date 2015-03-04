@@ -35,20 +35,20 @@
         fragment@1 {
                 target = <&pruss>;
                 __overlay__ {
-                        /* pinctrl-names = "default"; */
-                        /* pinctrl-0 = <&pru_gpio_pins>; */
+                        pinctrl-names = "default";
+                        pinctrl-0 = <&pru_gpio_pins>;
                         status = "okay";
                 };
         };
 
-        fragment@2{
-                target = <&ocp>;
-                __overlay__ {
-                        sbd-hoppers {
-                                compatible = "bone-pinmux-helper";
-                                pinctrl-names = "default";
-                                pinctrl-0 = <&pru_gpio_pins>;
-                        };
-                };
-        };
+        /* fragment@2{ */
+        /*         target = <&ocp>; */
+        /*         __overlay__ { */
+        /*                 sbd-hoppers { */
+        /*                         compatible = "bone-pinmux-helper"; */
+        /*                         pinctrl-names = "default"; */
+        /*                         pinctrl-0 = <&pru_gpio_pins>; */
+        /*                 }; */
+        /*         }; */
+        /* }; */
  };
