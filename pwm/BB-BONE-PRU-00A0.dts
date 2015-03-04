@@ -38,6 +38,14 @@
                         pinctrl-names = "default";
                         pinctrl-0 = <&pru_gpio_pins>;
                         status = "okay";
+                        sbd-hopper-left {
+                                pin-names = "starboard:hopper:left";
+                                gpios = <&gpio2 12 0>;
+                        };
+                        sbd-hopper-right {
+                                pin-names = "starboard:hopper:right";
+                                gpios = <&gpio2 13 0>;
+                        };
                 };
         };
 
