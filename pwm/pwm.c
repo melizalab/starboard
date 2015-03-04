@@ -39,6 +39,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. *
 #include <errno.h>
 #include <unistd.h>
 #include <string.h>
+#include <signal.h>
 //#include <math.h>
 // Driver header file
 #include "prussdrv.h"
@@ -53,26 +54,38 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. *
 static void *pruDataMem;
 static unsigned int *pruDataMem0; //AM33XX_DATA 8KB RAM1
 
+void
+signal_handler(int sig)
+{
+        // tell PRU to exit PWM loop
+        pruDataMem0[0] = 0;
+        usleep(1000);
+        prussdrv_pru_clear_event(PRU_EVTOUT_0, PRU0_ARM_INTERRUPT);
+        prussdrv_pru_disable(PRU_NUM);
+        prussdrv_exit();
+        exit(sig);
+}
 
-int main(void){
-
-        unsigned int ret;
-        unsigned int value;
-        unsigned int pwms;
-        unsigned int delays;
-        unsigned int start;
+int main(void)
+{
+        int i;
+        int ret;
 
         tpruss_intc_initdata pruss_intc_initdata = PRUSS_INTC_INITDATA;
         printf("\nINFO: Starting %s example.\r\n", "PWM Demo with PRU");
         // Initialize the PRU
         prussdrv_init();
-        // Open PRU Interrupt
+        // Open PRU Interrupt - allows PRU to terminate program
         ret = prussdrv_open(PRU_EVTOUT_0);
         if (ret)
         {
                 printf("prussdrv_open open failed\n");
                 return (ret);
         }
+
+        signal(SIGINT,  signal_handler);
+        signal(SIGTERM, signal_handler);
+        signal(SIGHUP,  signal_handler);
 
         // Initialize interrupt
         prussdrv_pruintc_init(&pruss_intc_initdata);
@@ -82,19 +95,17 @@ int main(void){
         pruDataMem0 = (unsigned int*)pruDataMem;
 
         // set values
-        pruDataMem0[0] = 1000;
-        pruDataMem0[1] = 900;
+        pruDataMem0[0] = 1;
+        pruDataMem0[1] = 10;
+        pruDataMem0[2] = 2;
 
         printf("\tINFO: Executing example.\r\n");
         prussdrv_exec_program(PRU_NUM, "./pwm.bin");
-
         // Wait until PRU0 has finished execution
-        printf("\tINFO: Waiting for HALT command.\r\n");
+        printf("\t Ctrl-C to terminate.\r\n");
         prussdrv_pru_wait_event(PRU_EVTOUT_0);
         printf("\tINFO: PRU completed transfer.\r\n");
         prussdrv_pru_clear_event(PRU_EVTOUT_0, PRU0_ARM_INTERRUPT);
-
-        printf("result: 0x%x\n", pruDataMem0[1]);
 
         // Disable PRU and close memory mapping
         prussdrv_pru_disable(PRU_NUM);

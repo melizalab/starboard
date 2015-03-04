@@ -24,10 +24,10 @@ START:
         MOV  r1, PRU0_CTRL + CTBIR
         SBBO r0, r1, 0, 4
 
-        MOV  r0, 0x00100000
+        LBCO r0, CONST_PRUDRAM, 0, 4
 LOOP1:
-        LBCO r1, CONST_PRUDRAM, 0, 4
-        LBCO r2, CONST_PRUDRAM, 4, 4
+        LBCO r1, CONST_PRUDRAM, 4, 4
+        LBCO r2, CONST_PRUDRAM, 8, 4
         MIN  r2, r1, r2
 
         SET  r30, PWM1
@@ -35,7 +35,7 @@ DELAY1:
         SUB  r2, r2, 1
         QBNE DELAY1, r2, 0
 
-        LBCO r2, CONST_PRUDRAM, 4, 4
+        LBCO r2, CONST_PRUDRAM, 8, 4
         MIN  r2, r1, r2
         RSB  r2, r2, r1
 
@@ -45,7 +45,7 @@ DELAY2:
         SUB  r2, r2, 1
         QBNE DELAY2, r2, 0
 
-        SUB  r0, r0, 1
+        LBCO r0, CONST_PRUDRAM, 0, 4
         QBNE LOOP1, r0, 0
 
         // tell handler we're done
