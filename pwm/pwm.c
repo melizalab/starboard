@@ -82,7 +82,8 @@ int main(void){
         pruDataMem0 = (unsigned int*)pruDataMem;
 
         // set values
-        pruDataMem0[0] = 128;
+        pruDataMem0[0] = 1000;
+        pruDataMem0[1] = 900;
 
         printf("\tINFO: Executing example.\r\n");
         prussdrv_exec_program(PRU_NUM, "./pwm.bin");
