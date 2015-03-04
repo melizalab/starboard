@@ -68,7 +68,6 @@ signal_handler(int sig)
 
 int main(void)
 {
-        int i;
         int ret;
 
         tpruss_intc_initdata pruss_intc_initdata = PRUSS_INTC_INITDATA;
@@ -96,19 +95,15 @@ int main(void)
 
         // set values
         pruDataMem0[0] = 1;
-        pruDataMem0[1] = 10;
-        pruDataMem0[2] = 2;
+        pruDataMem0[1] = 1000;
+        pruDataMem0[2] = 250;
+        pruDataMem0[3] = 250;
 
         printf("\tINFO: Executing example.\r\n");
         prussdrv_exec_program(PRU_NUM, "./pwm.bin");
         // Wait until PRU0 has finished execution
         printf("\t Ctrl-C to terminate.\r\n");
         prussdrv_pru_wait_event(PRU_EVTOUT_0);
-        printf("\tINFO: PRU completed transfer.\r\n");
-        prussdrv_pru_clear_event(PRU_EVTOUT_0, PRU0_ARM_INTERRUPT);
-
-        // Disable PRU and close memory mapping
-        prussdrv_pru_disable(PRU_NUM);
-        prussdrv_exit();
+        signal_handler(0);
         return(0);
 }
