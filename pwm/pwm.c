@@ -82,9 +82,10 @@ int main(void){
         pruDataMem0 = (unsigned int*)pruDataMem;
 
         // set values
-        pruDataMem0[0] = 1000;                    // period
-        pruDataMem0[1] = 128;                     // duty cycle P8.11
-        pruDataMem0[2] = 128;                     // duty cycle P8.12
+        pruDataMem0[0]  = 1;                       // running
+        pruDataMem0[1] = 100;                    // period
+        pruDataMem0[2] = 128;                     // duty cycle P8.11
+        pruDataMem0[3] = 128;                     // duty cycle P8.12
 
         printf("\tINFO: Executing example.\r\n");
         prussdrv_exec_program(PRU_NUM, "./pwm.bin");

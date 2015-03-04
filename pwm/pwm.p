@@ -25,37 +25,34 @@ START:
         SBBO  r0, r1, 0, 4
 
 
+        LBCO r0, CONST_PRUDRAM, 4, 4            // period
+
 MAINLOOP:
-        LBCO r0, CONST_PRUDRAM, 0, 4            // period
-        LBCO r4, CONST_PRUDRAM, 4, 4            // P8.11 duty cycle
-        LBCO r5, CONST_PRUDRAM, 8, 4            // P8.12 duty cycle
+        LBCO r1, CONST_PRUDRAM, 8, 4            // P8.11 duty cycle
+        AND  r1, r1, 0x000000FF
+        LBCO r2, CONST_PRUDRAM, 12, 4            // P8.12 duty cycle
+        AND  r2, r2, 0x000000FF
 
-LOOP1:
-        SET r30, PWM0
-        SET r30, PWM1                   // turns on gpio
+        SET  r30, PWM0
+        SET  r30, PWM1                   // turns on gpio
 
-/*         LBCO r1,CONST_PRUDRAM,8,4       // read duty cycle */
-/*         AND r1, r1, 0x000000FF */
-/* DELAY2: */
-/*         SUB r1, r1 , 1                  // loop duty cycle times */
-/*         QBNE DELAY2, r1, 0 */
+DELAY1:
+        SUB  r1, r1, 1
+        QBNE DELAY1, r1, 0
 
-
-/*         LBCO r1,CONST_PRUDRAM,8,4       // read duty cycle */
-/*         AND r1, r1, 0x000000FF */
-
-/*         MOV r2, 0x00000100              // figure out how many cycles are left */
-/*         RSB r1, r1, r2 */
-DELAY3:
-        SUB  r0, r0 , 1                  // loop remainder of period
-        QBNE DELAY3, r0, 0
+//        MOV r2, 0x00000100              // figure out how many cycles are left
+//        RSB r1, r1, r2
 
         CLR  r30, PWM0
         CLR  r30, PWM1                  // turn off gpio
 
+DELAY2:
+        SUB  r2, r2, 1                  // loop remainder of period
+        QBNE DELAY2, r0, 0
 
-/*         SUB r0, r0, 1                   // main loop */
-/*         QBNE LOOP1, r0, 0 */
+
+        SUB r0, r0, 1
+        QBNE MAINLOOP, r0, 0
 
         // tell handler we're done
         MOV r31.b0, PRU0_ARM_INTERRUPT + 16
