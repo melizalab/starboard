@@ -95,9 +95,10 @@ int main(void)
 
         // set values
         pruDataMem0[0] = 1;
-        pruDataMem0[1] = 1000;
-        pruDataMem0[2] = 250;
-        pruDataMem0[3] = 250;
+        // PRU loop takes 20 ns, so periods are all multiples of this
+        pruDataMem0[1] = 2500;
+        pruDataMem0[2] = 1000;
+        pruDataMem0[3] = 300;
 
         printf("\tINFO: Executing example.\r\n");
         prussdrv_exec_program(PRU_NUM, "./pwm.bin");

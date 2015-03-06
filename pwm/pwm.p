@@ -1,4 +1,5 @@
-//pwm.p
+/* -*- coding: utf-8 -*- */
+/* -*- mode: asm -*- */
 
 //Copyright (C) 2013 ADLab - http://www.analogdigitallab.org/
 
