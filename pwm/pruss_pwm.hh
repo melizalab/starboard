@@ -24,21 +24,21 @@ public:
          * pwm0_duty - duty cycle for pwm0
          * pwm1_duty - duty cycle for pwm1
          */
-        pwm(float period, float pwm0_duty, float pwm1_duty);
+        pwm(float period);
         ~pwm();
 
         float period() const;
         void period(float);
 
-        float pwm0_duty() const;
-        void pwm0_duty(float);
+        float duty(unsigned int pwm) const;
+        void duty(unsigned int pwm, float duty);
 
-        float pwm1_duty() const;
-        void pwm1_duty(float);
+        const static unsigned int n_pwms = 2;
 
 private:
-        void * pruDataMem;
-        unsigned int * pruDataMem0;
+        void * _pruDataMem;
+        unsigned int * _pruDataMem0;
+
 };
 
 }

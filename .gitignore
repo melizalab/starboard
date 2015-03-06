@@ -5,6 +5,7 @@
 *.bin
 *.dbg
 *.lst
+*.o
 .DS_Store
 /attic/
 /dist/

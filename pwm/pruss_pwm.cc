@@ -25,7 +25,7 @@
 
 using namespace pruss;
 
-pwm::pwm(float period, float pwm0_duty, float pwm1_duty)
+pwm::pwm(float period)
 {
         int ret;
         tpruss_intc_initdata pruss_intc_initdata = PRUSS_INTC_INITDATA;
@@ -39,22 +39,21 @@ pwm::pwm(float period, float pwm0_duty, float pwm1_duty)
         prussdrv_pruintc_init(&pruss_intc_initdata);
 
         // assign the the data RAM address to pointers
-        prussdrv_map_prumem(PRUSS0_PRU0_DATARAM, &pruDataMem);
-        pruDataMem0 = (unsigned int*)pruDataMem;
+        prussdrv_map_prumem(PRUSS0_PRU0_DATARAM, &_pruDataMem);
+        _pruDataMem0 = reinterpret_cast<unsigned int*>(_pruDataMem);
 
         // set values
-        pruDataMem0[0] = 1;
+        _pruDataMem0[0] = 1;
         pwm::period(period);
-        pwm::pwm0_duty(pwm0_duty);
-        pwm::pwm1_duty(pwm1_duty);
+        pwm::duty(0, 0);
+        pwm::duty(1, 0);
 
         prussdrv_exec_program(PRU_NUM, PRU_FIRMWARE);
-
 }
 
 pwm::~pwm()
 {
-        pruDataMem0[0] = 0;
+        _pruDataMem0[0] = 0;
         usleep(period());
         prussdrv_pru_clear_event(PRU_EVTOUT_0, PRU0_ARM_INTERRUPT);
         prussdrv_pru_disable(PRU_NUM);
@@ -64,9 +63,9 @@ pwm::~pwm()
 float pwm::period() const
 {
         // PRU loop is 4 instructions except on cycles where the GPIO is flipped
-        // on, so the actual period is going to be 4*pruDataMem0[1] + 2 + 9. PRU
+        // on, so the actual period is going to be 4*_pruDataMem0[1] + 2 + 9. PRU
         // clock is 250 MHz, so instructions are 5 ns
-        return (4.0 * pruDataMem0[1] + 2 + 9) * PRU_STEP_USEC;
+        return (4.0 * _pruDataMem0[1] + 2 + 9) * PRU_STEP_USEC;
 }
 
 void pwm::period(float usec)
@@ -74,26 +73,18 @@ void pwm::period(float usec)
         assert(usec > 0);
         // if period is greater than about 80 s the value will overflow
         assert(usec < 80e6);
-        pruDataMem0[1] = (unsigned int)round((usec / PRU_STEP_USEC - 2 - 9) / 4);
+        _pruDataMem0[1] = (unsigned int)round((usec / PRU_STEP_USEC - 2 - 9) / 4);
 }
 
-float pwm::pwm0_duty() const
+float pwm::duty(unsigned int idx) const
 {
-        return (float)pruDataMem0[2] / (float)pruDataMem0[1];
+        assert (idx < n_pwms);
+        return (float)_pruDataMem0[2 + idx] / (float)_pruDataMem0[1];
 }
 
-void pwm::pwm0_duty(float duty)
+void pwm::duty(unsigned int idx, float duty)
 {
-        assert(duty >= 0 && duty <= 100);
-        pruDataMem0[2] = (unsigned int)round(duty * period());
-}
-
-float pwm::pwm1_duty() const
-{
-        return (float)pruDataMem0[3] / (float)pruDataMem0[1];
-}
-
-void pwm::pwm1_duty(float duty)
-{
-        pruDataMem0[3] = (unsigned int)round(duty * period());
+        assert (idx < n_pwms);
+        assert (duty >= 0 && duty <= 100);
+        _pruDataMem0[2 + idx] = (unsigned int)round(duty * period());
 }
