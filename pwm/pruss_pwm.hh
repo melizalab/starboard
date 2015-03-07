@@ -27,6 +27,9 @@ public:
         pwm(float period);
         ~pwm();
 
+        bool is_loaded() const;
+        void start(char const * path);
+
         float period() const;
         void period(float);
 
@@ -36,6 +39,7 @@ public:
         const static unsigned int n_pwms = 2;
 
 private:
+        int _err;
         void * _pruDataMem;
         unsigned int * _pruDataMem0;
 

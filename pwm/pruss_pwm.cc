@@ -27,13 +27,13 @@ using namespace pruss;
 
 pwm::pwm(float period)
 {
-        int ret;
         tpruss_intc_initdata pruss_intc_initdata = PRUSS_INTC_INITDATA;
 
         prussdrv_init();
-        ret = prussdrv_open(PRU_EVTOUT_0);
-        if (ret)
-                throw std::runtime_error("prussdrv_open failed");
+        _err = prussdrv_open(PRU_EVTOUT_0);
+        // we can't throw errors in a node.js addon apparently, so just set a flag. dirty.
+        if (_err)
+                return;
 
         // Initialize interrupt
         prussdrv_pruintc_init(&pruss_intc_initdata);
@@ -48,7 +48,6 @@ pwm::pwm(float period)
         pwm::duty(0, 0);
         pwm::duty(1, 0);
 
-        prussdrv_exec_program(PRU_NUM, PRU_FIRMWARE);
 }
 
 pwm::~pwm()
@@ -60,15 +59,29 @@ pwm::~pwm()
         prussdrv_exit();
 }
 
-float pwm::period() const
+bool
+pwm::is_loaded() const
+{
+        return (_err == 0);
+}
+
+void
+pwm::start(char const * path)
+{
+        prussdrv_exec_program(PRU_NUM, path);
+}
+
+float
+pwm::period() const
 {
         // PRU loop is 4 instructions except on cycles where the GPIO is flipped
         // on, so the actual period is going to be 4*_pruDataMem0[1] + 2 + 9. PRU
-        // clock is 250 MHz, so instructions are 5 ns
+        // clock is 200 MHz, so instructions are 5 ns
         return (4.0 * _pruDataMem0[1] + 2 + 9) * PRU_STEP_USEC;
 }
 
-void pwm::period(float usec)
+void
+pwm::period(float usec)
 {
         assert(usec > 0);
         // if period is greater than about 80 s the value will overflow
@@ -76,15 +89,17 @@ void pwm::period(float usec)
         _pruDataMem0[1] = (unsigned int)round((usec / PRU_STEP_USEC - 2 - 9) / 4);
 }
 
-float pwm::duty(unsigned int idx) const
+float
+pwm::duty(unsigned int idx) const
 {
         assert (idx < n_pwms);
         return (float)_pruDataMem0[2 + idx] / (float)_pruDataMem0[1];
 }
 
-void pwm::duty(unsigned int idx, float duty)
+void
+pwm::duty(unsigned int idx, float duty)
 {
         assert (idx < n_pwms);
         assert (duty >= 0 && duty <= 100);
-        _pruDataMem0[2 + idx] = (unsigned int)round(duty * period());
+        _pruDataMem0[2 + idx] = (unsigned int)round(duty / 100 * _pruDataMem0[1]);
 }

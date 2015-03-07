@@ -33,6 +33,7 @@ int main(int argc, char ** argv)
         sscanf(argv[5], "%f", &dur_1);
 
         pwm PWM(50);
+        PWM.start("./pwm.bin");
 
         cout << "pwm period: " << PWM.period() << " μs" << endl;
         PWM.duty(idx, duty_0);
