@@ -25,7 +25,8 @@ START:
         MOV  r1, PRU0_CTRL + CTBIR
         SBBO r0, r1, 0, 4
 
-        LBCO r0, CONST_PRUDRAM, 0, 4           // enable
+        MOV  r0, 0x1
+        SBCO r0, CONST_PRUDRAM, 0, 4           // let host know we're running
 LOOP1:
         LBCO r1, CONST_PRUDRAM, 4, 4           // period
         LBCO r2, CONST_PRUDRAM, 8, 4           // duty cycle PWM 1

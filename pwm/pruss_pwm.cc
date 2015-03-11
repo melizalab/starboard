@@ -31,9 +31,8 @@ pwm::pwm(float period)
 
         prussdrv_init();
         _err = prussdrv_open(PRU_EVTOUT_0);
-        // we can't throw errors in a node.js addon apparently, so just set a flag. dirty.
         if (_err)
-                return;
+                throw std::runtime_error("error calling prussdrv_open()");
 
         // Initialize interrupt
         prussdrv_pruintc_init(&pruss_intc_initdata);
@@ -43,7 +42,7 @@ pwm::pwm(float period)
         _pruDataMem0 = reinterpret_cast<unsigned int*>(_pruDataMem);
 
         // set values
-        _pruDataMem0[0] = 1;
+        _pruDataMem0[0] = 0;
         pwm::period(period);
         pwm::duty(0, 0);
         pwm::duty(1, 0);
@@ -59,16 +58,16 @@ pwm::~pwm()
         prussdrv_exit();
 }
 
-bool
-pwm::is_loaded() const
-{
-        return (_err == 0);
-}
-
 void
 pwm::start(char const * path)
 {
         prussdrv_exec_program(PRU_NUM, path);
+}
+
+bool
+pwm::running() const
+{
+        return _pruDataMem0[0];
 }
 
 float

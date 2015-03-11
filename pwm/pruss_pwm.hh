@@ -27,8 +27,8 @@ public:
         pwm(float period);
         ~pwm();
 
-        bool is_loaded() const;
         void start(char const * path);
+        bool running() const;
 
         float period() const;
         void period(float);
