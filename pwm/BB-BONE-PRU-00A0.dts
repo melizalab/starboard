@@ -48,15 +48,4 @@
                         };
                 };
         };
-
-        /* fragment@2{ */
-        /*         target = <&ocp>; */
-        /*         __overlay__ { */
-        /*                 sbd-hoppers { */
-        /*                         compatible = "bone-pinmux-helper"; */
-        /*                         pinctrl-names = "default"; */
-        /*                         pinctrl-0 = <&pru_gpio_pins>; */
-        /*                 }; */
-        /*         }; */
-        /* }; */
- };
+};
