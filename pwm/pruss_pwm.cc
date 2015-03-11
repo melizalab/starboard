@@ -93,7 +93,7 @@ float
 pwm::duty(unsigned int idx) const
 {
         assert (idx < n_pwms);
-        return (float)_pruDataMem0[2 + idx] / (float)_pruDataMem0[1];
+        return (float)_pruDataMem0[2 + idx] / (float)_pruDataMem0[1] * 100;
 }
 
 void
