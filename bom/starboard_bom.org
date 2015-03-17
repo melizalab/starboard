@@ -14,7 +14,7 @@ Date: 2014-05-01
 | EEPROM                     |        1 |        | ON Semiconductor  | CAT24C256WI-G       | NK     | 06R0552                 | 0.664 | IC, EEPROM, 256KBIT, SERIAL 400KHZ SOIC-8         |
 | DAC                        |        1 |        | Analog Devices    | SSM2518CPZ          |        |                         |  5.10 | IC AMP AUD PWR 2C STER D 20LFCSP [2]              |
 | IC1,IC2                    |        2 |        | Texas Instruments | 74LVC04APW          | DK     | 296-1219-1-ND           |  0.29 | IC, HEX INVERTER, TSSOP-14                        |
-| IC3                        |        1 |        | ON Semiconductor  | MC74VHC1G86         | DK     | MC74VHC1G86DFT2GOSCT-ND |  0.27 | IC, SINGLE XOR GATE, 2I/P, SOT-23-5               |
+| IC3                        |        1 |        | ON Semiconductor  | MC74VHC1G86         | DK     | MC74VHC1G86DFT2GOSCT-ND |  0.27 | IC, SINGLE XOR GATE, 2I/P, SOT-23-5 [3]           |
 | REG                        |        1 |        | Texas Instruments | TPS54327DDAR        | DK     | 296-28061-1-ND          |  2.21 | 3A DCDC converter                                 |
 | Q1-3                       |        3 |        | Fairchild         | FDT439N             | NK     | 38C7188                 |  0.64 | MOSFET N-CH 30V 6.3A SOT223 [1][2]                |
 | S1                         |        1 |        | CTS               | CT2192LPST-ND       | DK     | CT2192LPST-ND           |  0.59 | SWITCH TAPE SEAL 2 POS SMD 50V                    |
@@ -79,3 +79,5 @@ input, drain, and source. Diodes Inc ZXMS6004SGTA ought to work but did not
 appear to match its datasheet on the parts we ordered most recently.
 
 [2] New in revision A2
+
+[3] Removed in A2A
