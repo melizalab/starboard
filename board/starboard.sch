@@ -8,20 +8,20 @@
 </settings>
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
-<layer number="17" name="Pads" color="2" fill="1" visible="no" active="no"/>
-<layer number="18" name="Vias" color="2" fill="1" visible="no" active="no"/>
-<layer number="19" name="Unrouted" color="3" fill="1" visible="no" active="no"/>
-<layer number="20" name="Dimension" color="15" fill="1" visible="no" active="no"/>
-<layer number="21" name="tPlace" color="15" fill="1" visible="no" active="no"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="no"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="no"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="no"/>
-<layer number="25" name="tNames" color="15" fill="1" visible="no" active="no"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="no" active="no"/>
-<layer number="27" name="tValues" color="15" fill="1" visible="no" active="no"/>
-<layer number="28" name="bValues" color="7" fill="1" visible="no" active="no"/>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="no"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="no"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="no"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="no"/>
+<layer number="19" name="Unrouted" color="3" fill="1" visible="yes" active="no"/>
+<layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="no"/>
+<layer number="21" name="tPlace" color="15" fill="1" visible="yes" active="no"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="no"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="no"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="no"/>
+<layer number="25" name="tNames" color="15" fill="1" visible="yes" active="no"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="no"/>
+<layer number="27" name="tValues" color="15" fill="1" visible="yes" active="no"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="no"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="no"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="no"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="no"/>
@@ -30,8 +30,8 @@
 <layer number="34" name="bFinish" color="6" fill="6" visible="no" active="no"/>
 <layer number="35" name="tGlue" color="7" fill="4" visible="no" active="no"/>
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="no"/>
-<layer number="37" name="tTest" color="7" fill="1" visible="no" active="no"/>
-<layer number="38" name="bTest" color="7" fill="1" visible="no" active="no"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="yes" active="no"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="yes" active="no"/>
 <layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="no"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="no"/>
 <layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="no"/>
@@ -39,17 +39,17 @@
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="no"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="no"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="no"/>
-<layer number="46" name="Milling" color="3" fill="1" visible="no" active="no"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="no" active="no"/>
-<layer number="48" name="Document" color="7" fill="1" visible="no" active="no"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="no" active="no"/>
-<layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
-<layer number="51" name="tDocu" color="14" fill="1" visible="no" active="no"/>
-<layer number="52" name="bDocu" color="7" fill="1" visible="no" active="no"/>
-<layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
-<layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
-<layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
-<layer number="57" name="tCAD" color="7" fill="1" visible="no" active="no"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="yes" active="no"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="no"/>
+<layer number="48" name="Document" color="7" fill="1" visible="yes" active="no"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="no"/>
+<layer number="50" name="dxf" color="7" fill="1" visible="yes" active="no"/>
+<layer number="51" name="tDocu" color="14" fill="1" visible="yes" active="no"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="no"/>
+<layer number="53" name="tGND_GNDA" color="7" fill="9" visible="yes" active="no"/>
+<layer number="54" name="bGND_GNDA" color="1" fill="9" visible="yes" active="no"/>
+<layer number="56" name="wert" color="7" fill="1" visible="yes" active="no"/>
+<layer number="57" name="tCAD" color="7" fill="1" visible="yes" active="no"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="93" name="Pins" color="2" fill="1" visible="no" active="yes"/>
@@ -12656,15 +12656,6 @@ Source: DCJ0202.pdf</description>
 <part name="+3V1" library="supply1" deviceset="+3V3" device=""/>
 <part name="IC1" library="dmeliza_custom" deviceset="74*04" device="APW" technology="LVC"/>
 <part name="IC2" library="dmeliza_custom" deviceset="74*04" device="APW" technology="LVC"/>
-<part name="R1" library="adafruit" deviceset="R-US_" device="R0603" value="140"/>
-<part name="R2" library="adafruit" deviceset="R-US_" device="R0603" value="10"/>
-<part name="R3" library="adafruit" deviceset="R-US_" device="R0603" value="33"/>
-<part name="R4" library="adafruit" deviceset="R-US_" device="R0603" value="140"/>
-<part name="R5" library="adafruit" deviceset="R-US_" device="R0603" value="10"/>
-<part name="R6" library="adafruit" deviceset="R-US_" device="R0603" value="33"/>
-<part name="R7" library="adafruit" deviceset="R-US_" device="R0603" value="140"/>
-<part name="R8" library="adafruit" deviceset="R-US_" device="R0603" value="10"/>
-<part name="R9" library="adafruit" deviceset="R-US_" device="R0603" value="33"/>
 <part name="BBB" library="dmeliza_custom" deviceset="BEAGLEBONE_OUTLINE" device=""/>
 <part name="+3V4" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
@@ -12696,9 +12687,9 @@ Source: DCJ0202.pdf</description>
 <part name="JP7" library="starboard" deviceset="PINHD-1X5" device="KK100" value="CPECK"/>
 <part name="JP3" library="starboard" deviceset="PINHD-1X5" device="KK100" value="RPECK"/>
 <part name="JP2" library="starboard" deviceset="PINHD-1X5" device="KK100" value="HOP"/>
-<part name="R14" library="adafruit" deviceset="R-US_" device="R0603" value="120"/>
-<part name="R16" library="adafruit" deviceset="R-US_" device="R0603" value="120"/>
-<part name="R12" library="adafruit" deviceset="R-US_" device="R0603" value="120"/>
+<part name="R14" library="adafruit" deviceset="R-US_" device="R0805" value="100"/>
+<part name="R16" library="adafruit" deviceset="R-US_" device="R0805" value="100"/>
+<part name="R12" library="adafruit" deviceset="R-US_" device="R0805" value="100"/>
 <part name="R10" library="adafruit" deviceset="R-US_" device="R0805" value="100"/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="+3V2" library="supply1" deviceset="+3V3" device=""/>
@@ -12721,16 +12712,12 @@ Source: DCJ0202.pdf</description>
 <part name="VDD4" library="supply1" deviceset="VDD" device=""/>
 <part name="JP4" library="starboard" deviceset="PINHD-1X2" device="KK100" value="LIGHTS"/>
 <part name="LED5" library="led" deviceset="LED" device="CHIPLED_0603" value="LBQ39"/>
-<part name="R15" library="rcl" deviceset="R-US_" device="R0603" value="91"/>
 <part name="+3V5" library="supply1" deviceset="+3V3" device=""/>
 <part name="LED6" library="led" deviceset="LED" device="CHIPLED_0603" value="LBQ39"/>
-<part name="R17" library="rcl" deviceset="R-US_" device="R0603" value="91"/>
 <part name="+3V6" library="supply1" deviceset="+3V3" device=""/>
 <part name="LED2" library="led" deviceset="LED" device="CHIPLED_0603" value="LBQ39"/>
-<part name="R13" library="rcl" deviceset="R-US_" device="R0603" value="91"/>
 <part name="+3V7" library="supply1" deviceset="+3V3" device=""/>
 <part name="LED1" library="led" deviceset="LED" device="CHIPLED_0603" value="LBQ39"/>
-<part name="R11" library="rcl" deviceset="R-US_" device="R0603" value="91"/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
 <part name="+3V10" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
@@ -12784,13 +12771,17 @@ Source: DCJ0202.pdf</description>
 <part name="R40" library="rcl" deviceset="R-US_" device="R0603" value="1k"/>
 <part name="+3V14" library="supply1" deviceset="+3V3" device=""/>
 <part name="P+3" library="supply1" deviceset="+5V" device=""/>
+<part name="R11" library="adafruit" deviceset="R-US_" device="R0805" value="100"/>
+<part name="R13" library="adafruit" deviceset="R-US_" device="R0805" value="100"/>
+<part name="R17" library="adafruit" deviceset="R-US_" device="R0805" value="100"/>
+<part name="R15" library="adafruit" deviceset="R-US_" device="R0805" value="100"/>
 </parts>
 <sheets>
 <sheet>
 <plain>
 <text x="337.82" y="63.5" size="2.54" layer="94">Meliza Lab - University of Virginia</text>
 <text x="109.22" y="271.78" size="2.54" layer="94" rot="R90">Response Ports</text>
-<text x="426.72" y="43.18" size="2.54" layer="94">A2A</text>
+<text x="426.72" y="43.18" size="2.54" layer="94">A2B</text>
 <text x="25.4" y="101.6" size="1.778" layer="97">EEPROM</text>
 <text x="309.88" y="307.34" size="1.778" layer="97">POWER</text>
 <text x="30.48" y="304.8" size="1.778" layer="97">CUE LEDS</text>
@@ -12814,15 +12805,6 @@ Max current is 5 mA - safe to drive pins low</text>
 <instance part="IC2" gate="A" x="73.66" y="205.74" rot="R180"/>
 <instance part="IC2" gate="B" x="73.66" y="187.96" rot="R180"/>
 <instance part="IC2" gate="C" x="73.66" y="175.26" rot="R180"/>
-<instance part="R1" gate="G$1" x="58.42" y="294.64"/>
-<instance part="R2" gate="G$1" x="58.42" y="276.86"/>
-<instance part="R3" gate="G$1" x="58.42" y="264.16"/>
-<instance part="R4" gate="G$1" x="58.42" y="248.92"/>
-<instance part="R5" gate="G$1" x="58.42" y="236.22"/>
-<instance part="R6" gate="G$1" x="58.42" y="223.52"/>
-<instance part="R7" gate="G$1" x="58.42" y="205.74"/>
-<instance part="R8" gate="G$1" x="58.42" y="187.96"/>
-<instance part="R9" gate="G$1" x="58.42" y="175.26"/>
 <instance part="BBB" gate="G$1" x="373.38" y="149.86"/>
 <instance part="IC1" gate="P" x="73.66" y="294.64"/>
 <instance part="+3V4" gate="G$1" x="73.66" y="304.8"/>
@@ -12888,16 +12870,12 @@ Max current is 5 mA - safe to drive pins low</text>
 <instance part="VDD4" gate="G$1" x="137.16" y="160.02"/>
 <instance part="JP4" gate="G$1" x="157.48" y="154.94"/>
 <instance part="LED5" gate="G$1" x="154.94" y="284.48"/>
-<instance part="R15" gate="G$1" x="154.94" y="292.1" rot="R90"/>
 <instance part="+3V5" gate="G$1" x="154.94" y="271.78"/>
 <instance part="LED6" gate="G$1" x="154.94" y="254"/>
-<instance part="R17" gate="G$1" x="154.94" y="261.62" rot="R90"/>
 <instance part="+3V6" gate="G$1" x="154.94" y="238.76"/>
 <instance part="LED2" gate="G$1" x="154.94" y="220.98"/>
-<instance part="R13" gate="G$1" x="154.94" y="228.6" rot="R90"/>
 <instance part="+3V7" gate="G$1" x="154.94" y="205.74"/>
 <instance part="LED1" gate="G$1" x="154.94" y="187.96"/>
-<instance part="R11" gate="G$1" x="154.94" y="195.58" rot="R90"/>
 <instance part="GND5" gate="1" x="327.66" y="208.28"/>
 <instance part="IC2" gate="P" x="73.66" y="205.74"/>
 <instance part="+3V10" gate="G$1" x="73.66" y="215.9"/>
@@ -12952,64 +12930,14 @@ Max current is 5 mA - safe to drive pins low</text>
 <instance part="R40" gate="G$1" x="139.7" y="127"/>
 <instance part="+3V14" gate="G$1" x="335.28" y="147.32"/>
 <instance part="P+3" gate="1" x="327.66" y="147.32"/>
+<instance part="R11" gate="G$1" x="154.94" y="195.58" rot="R90"/>
+<instance part="R13" gate="G$1" x="154.94" y="228.6" rot="R90"/>
+<instance part="R17" gate="G$1" x="154.94" y="261.62" rot="R90"/>
+<instance part="R15" gate="G$1" x="154.94" y="292.1" rot="R90"/>
 </instances>
 <busses>
 </busses>
 <nets>
-<net name="N$1" class="0">
-<segment>
-<pinref part="IC1" gate="A" pin="O"/>
-<pinref part="R1" gate="G$1" pin="2"/>
-</segment>
-</net>
-<net name="N$2" class="0">
-<segment>
-<pinref part="IC1" gate="B" pin="O"/>
-<pinref part="R2" gate="G$1" pin="2"/>
-</segment>
-</net>
-<net name="N$3" class="0">
-<segment>
-<pinref part="IC1" gate="C" pin="O"/>
-<pinref part="R3" gate="G$1" pin="2"/>
-</segment>
-</net>
-<net name="N$4" class="0">
-<segment>
-<pinref part="IC1" gate="F" pin="O"/>
-<pinref part="R4" gate="G$1" pin="2"/>
-</segment>
-</net>
-<net name="N$5" class="0">
-<segment>
-<pinref part="IC1" gate="E" pin="O"/>
-<pinref part="R5" gate="G$1" pin="2"/>
-</segment>
-</net>
-<net name="N$6" class="0">
-<segment>
-<pinref part="IC1" gate="D" pin="O"/>
-<pinref part="R6" gate="G$1" pin="2"/>
-</segment>
-</net>
-<net name="N$7" class="0">
-<segment>
-<pinref part="IC2" gate="A" pin="O"/>
-<pinref part="R7" gate="G$1" pin="2"/>
-</segment>
-</net>
-<net name="N$8" class="0">
-<segment>
-<pinref part="IC2" gate="B" pin="O"/>
-<pinref part="R8" gate="G$1" pin="2"/>
-</segment>
-</net>
-<net name="N$9" class="0">
-<segment>
-<pinref part="IC2" gate="C" pin="O"/>
-<pinref part="R9" gate="G$1" pin="2"/>
-</segment>
-</net>
 <net name="LEFT_PECK" class="0">
 <segment>
 <label x="165.1" y="279.4" size="1.778" layer="95"/>
@@ -13253,23 +13181,23 @@ Max current is 5 mA - safe to drive pins low</text>
 </segment>
 <segment>
 <pinref part="+3V2" gate="G$1" pin="+3V3"/>
-<pinref part="R15" gate="G$1" pin="2"/>
 <wire x1="154.94" y1="297.18" x2="154.94" y2="302.26" width="0.1524" layer="91"/>
+<pinref part="R15" gate="G$1" pin="2"/>
 </segment>
 <segment>
 <pinref part="+3V5" gate="G$1" pin="+3V3"/>
-<pinref part="R17" gate="G$1" pin="2"/>
 <wire x1="154.94" y1="266.7" x2="154.94" y2="269.24" width="0.1524" layer="91"/>
+<pinref part="R17" gate="G$1" pin="2"/>
 </segment>
 <segment>
 <pinref part="+3V6" gate="G$1" pin="+3V3"/>
-<pinref part="R13" gate="G$1" pin="2"/>
 <wire x1="154.94" y1="233.68" x2="154.94" y2="236.22" width="0.1524" layer="91"/>
+<pinref part="R13" gate="G$1" pin="2"/>
 </segment>
 <segment>
 <pinref part="+3V7" gate="G$1" pin="+3V3"/>
-<pinref part="R11" gate="G$1" pin="2"/>
 <wire x1="154.94" y1="200.66" x2="154.94" y2="203.2" width="0.1524" layer="91"/>
+<pinref part="R11" gate="G$1" pin="2"/>
 </segment>
 <segment>
 <pinref part="IC2" gate="P" pin="VCC"/>
@@ -13747,77 +13675,77 @@ Max current is 5 mA - safe to drive pins low</text>
 </net>
 <net name="N$17" class="0">
 <segment>
-<pinref part="R1" gate="G$1" pin="1"/>
 <pinref part="JP1" gate="A" pin="1"/>
-<wire x1="53.34" y1="294.64" x2="35.56" y2="294.64" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="294.64" x2="35.56" y2="294.64" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="A" pin="O"/>
 </segment>
 </net>
 <net name="N$18" class="0">
 <segment>
-<pinref part="R2" gate="G$1" pin="1"/>
-<wire x1="53.34" y1="276.86" x2="50.8" y2="276.86" width="0.1524" layer="91"/>
 <wire x1="50.8" y1="276.86" x2="50.8" y2="292.1" width="0.1524" layer="91"/>
 <pinref part="JP1" gate="A" pin="2"/>
 <wire x1="50.8" y1="292.1" x2="35.56" y2="292.1" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="B" pin="O"/>
+<wire x1="63.5" y1="276.86" x2="50.8" y2="276.86" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$19" class="0">
 <segment>
-<pinref part="R3" gate="G$1" pin="1"/>
-<wire x1="53.34" y1="264.16" x2="48.26" y2="264.16" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="264.16" x2="48.26" y2="289.56" width="0.1524" layer="91"/>
 <pinref part="JP1" gate="A" pin="3"/>
 <wire x1="48.26" y1="289.56" x2="35.56" y2="289.56" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="C" pin="O"/>
+<wire x1="63.5" y1="264.16" x2="48.26" y2="264.16" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$20" class="0">
 <segment>
-<pinref part="R4" gate="G$1" pin="1"/>
 <pinref part="JP5" gate="A" pin="1"/>
-<wire x1="53.34" y1="248.92" x2="35.56" y2="248.92" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="248.92" x2="35.56" y2="248.92" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="F" pin="O"/>
 </segment>
 </net>
 <net name="N$21" class="0">
 <segment>
-<pinref part="R5" gate="G$1" pin="1"/>
-<wire x1="53.34" y1="236.22" x2="50.8" y2="236.22" width="0.1524" layer="91"/>
 <wire x1="50.8" y1="236.22" x2="50.8" y2="246.38" width="0.1524" layer="91"/>
 <pinref part="JP5" gate="A" pin="2"/>
 <wire x1="50.8" y1="246.38" x2="35.56" y2="246.38" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="E" pin="O"/>
+<wire x1="63.5" y1="236.22" x2="50.8" y2="236.22" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$22" class="0">
 <segment>
-<pinref part="R6" gate="G$1" pin="1"/>
-<wire x1="53.34" y1="223.52" x2="48.26" y2="223.52" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="223.52" x2="48.26" y2="243.84" width="0.1524" layer="91"/>
 <pinref part="JP5" gate="A" pin="3"/>
 <wire x1="48.26" y1="243.84" x2="35.56" y2="243.84" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="D" pin="O"/>
+<wire x1="63.5" y1="223.52" x2="48.26" y2="223.52" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$23" class="0">
 <segment>
-<pinref part="R7" gate="G$1" pin="1"/>
 <pinref part="JP9" gate="A" pin="1"/>
-<wire x1="53.34" y1="205.74" x2="35.56" y2="205.74" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="205.74" x2="35.56" y2="205.74" width="0.1524" layer="91"/>
+<pinref part="IC2" gate="A" pin="O"/>
 </segment>
 </net>
 <net name="N$24" class="0">
 <segment>
-<pinref part="R8" gate="G$1" pin="1"/>
-<wire x1="53.34" y1="187.96" x2="50.8" y2="187.96" width="0.1524" layer="91"/>
 <wire x1="50.8" y1="187.96" x2="50.8" y2="203.2" width="0.1524" layer="91"/>
 <pinref part="JP9" gate="A" pin="2"/>
 <wire x1="50.8" y1="203.2" x2="35.56" y2="203.2" width="0.1524" layer="91"/>
+<pinref part="IC2" gate="B" pin="O"/>
+<wire x1="63.5" y1="187.96" x2="50.8" y2="187.96" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$32" class="0">
 <segment>
-<pinref part="R9" gate="G$1" pin="1"/>
-<wire x1="53.34" y1="175.26" x2="48.26" y2="175.26" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="175.26" x2="48.26" y2="200.66" width="0.1524" layer="91"/>
 <pinref part="JP9" gate="A" pin="3"/>
 <wire x1="48.26" y1="200.66" x2="35.56" y2="200.66" width="0.1524" layer="91"/>
+<pinref part="IC2" gate="C" pin="O"/>
+<wire x1="63.5" y1="175.26" x2="48.26" y2="175.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$33" class="0">
@@ -13872,30 +13800,6 @@ Max current is 5 mA - safe to drive pins low</text>
 <wire x1="149.86" y1="134.62" x2="137.16" y2="134.62" width="0.1524" layer="91"/>
 <wire x1="137.16" y1="134.62" x2="137.16" y2="137.16" width="0.1524" layer="91"/>
 <junction x="149.86" y="134.62"/>
-</segment>
-</net>
-<net name="N$10" class="0">
-<segment>
-<pinref part="LED5" gate="G$1" pin="A"/>
-<pinref part="R15" gate="G$1" pin="1"/>
-</segment>
-</net>
-<net name="N$11" class="0">
-<segment>
-<pinref part="LED6" gate="G$1" pin="A"/>
-<pinref part="R17" gate="G$1" pin="1"/>
-</segment>
-</net>
-<net name="N$12" class="0">
-<segment>
-<pinref part="LED2" gate="G$1" pin="A"/>
-<pinref part="R13" gate="G$1" pin="1"/>
-</segment>
-</net>
-<net name="N$13" class="0">
-<segment>
-<pinref part="LED1" gate="G$1" pin="A"/>
-<pinref part="R11" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="I2C2_SCL" class="0">
@@ -14172,6 +14076,30 @@ Max current is 5 mA - safe to drive pins low</text>
 <segment>
 <pinref part="Q1" gate="G$1" pin="G"/>
 <pinref part="R40" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="N$1" class="0">
+<segment>
+<pinref part="LED1" gate="G$1" pin="A"/>
+<pinref part="R11" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="N$2" class="0">
+<segment>
+<pinref part="LED2" gate="G$1" pin="A"/>
+<pinref part="R13" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="N$3" class="0">
+<segment>
+<pinref part="LED6" gate="G$1" pin="A"/>
+<pinref part="R17" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="N$4" class="0">
+<segment>
+<pinref part="LED5" gate="G$1" pin="A"/>
+<pinref part="R15" gate="G$1" pin="1"/>
 </segment>
 </net>
 </nets>

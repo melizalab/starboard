@@ -22,9 +22,9 @@ PCB assembly is relatively straightforward. You can reflow SMD components with
 an oven or a lab hot plate. Headers and pin connectors have to be
 hand-soldered.
 
-### Beam-break detector
+### Response detectors
 
-Suggested connections:
+Four GPIOs are configured to detect instrumental responses using switches or infra-red beam-break detectors. In the former case, the switch should be a single-pole, single-throw that closes the connection between board pin 3 and board pin 4 or 5 (ground). For a beam-break detector, power needs to be delivered to a 5 mW IR LED (see BOM) and an integrated photologic detector. The output pins should be connected as follows (colors refer to wires in standard telephone wire, a cheap option for making these connections):
 
 | Board Pin | Wire   | Signal               | Connect to                          |
 |-----------+--------+----------------------+-------------------------------------|
