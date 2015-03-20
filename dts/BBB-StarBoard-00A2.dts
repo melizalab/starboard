@@ -187,7 +187,7 @@
                          gpios = <&gpio2 12 0>;
                          default-state = "off";
                  };
-                 sbd-hopper-left {
+                 sbd-hopper-right {
                          label = "starboard:hopper:right";
                          gpios = <&gpio2 13 0>;
                          default-state = "off";
