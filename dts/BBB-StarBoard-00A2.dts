@@ -9,8 +9,9 @@
   version = "00A2";
 
   exclusive-use =
-      "P8.11", "gpio1_13",
-      "P8.12", "gpio1_12",
+      "P8.11", /* pru0: pr1_pru0_pru_r30_15 */
+      "P8.12", /* pru0: pr1_pru0_pru_r30_14 */
+      "pru0",
       "P8.13", "ehrpwm2b", /* "gpio0_23", */
       "P8.14", "gpio0_26",
       "P8.15", "gpio1_15",
@@ -37,10 +38,17 @@
              0x024 0x4 /* P8.13 - house lights output pulldown */
         >;
       };
+      /* some j-p to avoid muxing to PRU in its undefined startup state */
       hopper_gpio: pinmux_hopper_gpio_pins {
         pinctrl-single,pins = <
-             0x034 0x07 /* P8.11 - right hopper GPIO output pulldown */
-             0x030 0x07 /* P8.12 - left hopper GPIO output pulldown */
+             0x34 0x27
+             0x30 0x27
+        >;
+      };
+      hopper_pru: pinmux_hopper_pru_pins {
+        pinctrl-single,pins = <
+             0x34 0x26
+             0x30 0x26
         >;
       };
       led_gpio: pinmux_led_gpio_pins {
@@ -141,8 +149,15 @@
      };
    };
 
-  /* creates user interface */
-  fragment@5 {
+   fragment@5 {
+       target = <&pruss>;
+       __overlay__ {
+           status = "okay";
+       };
+   };
+
+   /* creates user interface */
+   fragment@6 {
        target = <&ocp>;
        /* target = <&baseboard_beaglebone_black>; */
        __overlay__ {
@@ -158,20 +173,11 @@
                  };
          };
          sbd-hoppers {
-                 compatible = "gpio-leds";
-                 pinctrl-names = "default";
-                 pinctrl-0 = <&hopper_gpio>;
+                 compatible = "bone-pinmux-helper";
                  status = "okay";
-                 sbd-hopper-left {
-                         label = "starboard:hopper:left";
-                         gpios = <&gpio2 12 0>;
-                         default-state = "off";
-                 };
-                 sbd-hopper-right {
-                         label = "starboard:hopper:right";
-                         gpios = <&gpio2 13 0>;
-                         default-state = "off";
-                 };
+                 pinctrl-names = "default", "pruout";
+                 pinctrl-0 = <&hopper_gpio>;
+                 pinctrl-1 = <&hopper_pru>;
          };
          sbd-cues {
                  compatible = "gpio-leds";
