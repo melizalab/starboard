@@ -28,17 +28,29 @@ Following Robert Nelson's instructions on building the 3.8 kernel for Debian
 [here](http://eewiki.net/display/linuxonarm/BeagleBone+Black). These
 instructions should be followed on the host computer, not the BBB.
 
-You can skip downloading the cross-compiler; this will be done automatically when compiling the kernel. You can also skip downloading the 'device-tree-compiler' package as long as Debian's apt configuration is set correctly.
+You can skip downloading the cross-compiler; this will be done automatically
+when compiling the kernel. You can also skip downloading the
+'device-tree-compiler' package as long as Debian's apt configuration is set
+correctly.
 
-Build the kernel with no patches for the first time to get a working installation. You can use the default kernel configuration, but check under `Device Drivers->Sound Card Support->Advanced Linux Sound Architecture->ALSA for SoC audio support` and make sure `SoC Audio for the AM33XX chip`, `Build all ASoC CODEC drivers`, and `ASoC Simple sound card support` are configured as modules.
+Build the kernel with no patches for the first time to get a working
+installation. You can use the default kernel configuration, but check under
+`Device Drivers->Sound Card Support->Advanced Linux Sound Architecture->ALSA for
+SoC audio support` and make sure `SoC Audio for the AM33XX chip`, `Build all
+ASoC CODEC drivers`, and `ASoC Simple sound card support` are configured as
+modules.
 
-In principle you should be able to install the new kernel and modules to an existing installation on the BBB's eMMC, but it's probably safer to work with an SD card and then copy over needed files from the eMMC.
+In principle you should be able to install the new kernel and modules to an
+existing installation on the BBB's eMMC, but it's probably safer to work with an
+SD card and then copy over needed files from the eMMC.
 
 ## Postinstall
 
-The Debian file system in the instructions needs some additional configuration, and it's easiest to copy from the eMMC to the SD. Some things to fix:
+The Debian file system in the instructions needs some additional configuration,
+and it's easiest to copy from the eMMC to the SD. Some things to fix:
 
-Copy SOC.sh from the boot partition - this is responsible for starting up the usb ethernet port
+Copy SOC.sh from the boot partition - this is responsible for starting up the
+usb ethernet port
 
 Copy /etc/apt/*, then do a apt-get update.
 
