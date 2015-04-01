@@ -1,60 +1,71 @@
-BOM for starboard
-Revision: A2
-Date: 2014-05-01
+BOM for starboard, LED breakout, and associated parts
+Revision: A2B
+Date: 2015-03
 
 ** Parts
 
-| Parts                      | Quantity | Value  | Manufacturer      | Manuf. Code         | Vendor | Order code              | Price | Description                                       |
-|----------------------------+----------+--------+-------------------+---------------------+--------+-------------------------+-------+---------------------------------------------------|
-| BBB                        |        1 |        | CircuitCo         |                     | NK     | BB-BBLK-000             | 45.00 | Beaglebone Black                                  |
-| Power Supply (12V, 60W)    |        1 |        | XP Power          | AFM60US12           | DK     | 1470-1016-ND            | 34.00 | PWR SUPPLY EXT 12V 5A 60W                         |
-| Lights                     |        1 |        |                   |                     | SBL    | NFLS-NW300X3-WHT        | 27.00 | High Power LED Flexible Light Strip (100 cm)      |
-| Light mount                |        1 |        |                   |                     | SBL    | B5391                   | 11.95 | Klus B5391 - ECO series Corner Mount              |
-|                            |          |        |                   |                     |        |                         |       |                                                   |
-| EEPROM                     |        1 |        | ON Semiconductor  | CAT24C256WI-G       | NK     | 06R0552                 | 0.664 | IC, EEPROM, 256KBIT, SERIAL 400KHZ SOIC-8         |
-| DAC                        |        1 |        | Analog Devices    | SSM2518CPZ          |        |                         |  5.10 | IC AMP AUD PWR 2C STER D 20LFCSP [2]              |
-| IC1,IC2                    |        2 |        | Texas Instruments | 74LVC04APW          | DK     | 296-1219-1-ND           |  0.29 | IC, HEX INVERTER, TSSOP-14                        |
-| IC3                        |        1 |        | ON Semiconductor  | MC74VHC1G86         | DK     | MC74VHC1G86DFT2GOSCT-ND |  0.27 | IC, SINGLE XOR GATE, 2I/P, SOT-23-5 [3]           |
-| REG                        |        1 |        | Texas Instruments | TPS54327DDAR        | DK     | 296-28061-1-ND          |  2.21 | 3A DCDC converter                                 |
-| Q1-3                       |        3 |        | Fairchild         | FDT439N             | NK     | 38C7188                 |  0.64 | MOSFET N-CH 30V 6.3A SOT223 [1][2]                |
-| S1                         |        1 |        | CTS               | CT2192LPST-ND       | DK     | CT2192LPST-ND           |  0.59 | SWITCH TAPE SEAL 2 POS SMD 50V                    |
-| LCUE,CCUE,RCUE             |        3 |        | Molex             | 22-23-2041          | DK     | WM4202-ND               |  0.26 | WIRE-BOARD CONNECTOR HEADER 4POS, 2.54MM          |
-|                            |        3 |        | Molex             | 22-01-2045          | DK     | WM2614-ND               |  0.28 | CONNECTOR, HOUSING, RECEPTACLE, 4POS, 2.54MM      |
-| RGB LED                    |        3 |        | OSRAM             | LRTBGFTM-ST7        | DK     | 475-2900-1-ND           |  0.50 | LED RGB RECT DIFFUSED 6PLCC                       |
-| LPECK,CPECK,RPECK,HOP      |        4 |        | Molex             | 22-23-2051          | DK     | WM4203-ND               |  0.31 | WIRE-BOARD CONNECTOR HEADER 5POS, 2.54MM          |
-|                            |        4 |        | Molex             |                     | DK     | WM2615-ND               |  0.29 | CONNECTOR, HOUSING, RECEPTACLE, 5POS, 2.54MM      |
-|                            |        4 |        | Optek             | OPL820-OC           | DK     | 365-1869-ND             |  2.93 | SENSOR PHOTOLOGIC HERMETIC TO-18                  |
-|                            |        4 |        | Optek             | OP133               | DK     | 365-1042-ND             |  2.45 | LED IR 5MW 935NM HERMETIC TO-46                   |
-| LHOP,RHOP,lights,SPKR,SPKL |        5 |        | Molex             |                     | DK     | WM4200-ND               |  0.14 | WIRE-BOARD CONNECTOR HEADER 2POS, 2.54MM          |
-|                            |        5 |        | Molex             |                     | DK     | WM2613-ND               |  0.20 | CONNECTOR, HOUSING, RECEPTACLE, 2POS, 2.54MM      |
-|                            |       42 |        | Molex             | 08-50-0113          | DK     | WM1114CT-ND             |  0.03 | CONTACT, FEMALE, 30-22AWG, CRIMP, FULL REEL       |
-| LED1-7                     |        7 |        | OSRAM             | LB Q39G-L2N2-35-1   | DK     | 475-2816-1-ND           |  0.93 | LED CHIPLED BLUE 470NM 0603 SMD                   |
-| solenoid                   |        2 |        | Guardian          | 11HD-I-12D          | AL     |                         | 17.00 | Solenoid, 1" stroke, int 12VDC, 20W, 7 oz@3/4"    |
-| flyback diode              |        2 |        |                   |                     | DK     | 1N4007-TPMSCT-ND        |  0.07 | 1N4007 diode (protects mosfets)                   |
-| P8,P9                      |        5 |        | FCI               | 67997-210HLF        | DK     | 609-3236-ND             |  0.40 | CONN HEADER 10POS .100 STR 15AU                   |
-| P9 (analog)                |        1 |        | Samtec            | SSQ-106-03-G-D      | NK     | 11P8267                 |  2.52 | stacking header (optional for analog inputs)      |
-|                            |          |        |                   |                     |        |                         |       |                                                   |
-| 12V                        |        1 |        | Multcomp          | SPC21365            | NK     | 11M0560                 |  1.13 | CONNECTOR, DC POWER, JACK, 5A                     |
-| L1                         |        1 | 3.3 uH | TDK               | SPM6530T-3R3M       | NK     | 90R0849                 |  0.78 | POWER LINE IND, 3.3UH,6.8A,20%                    |
-| C1                         |        1 | 10 uF  | TDK               | C3225X5R1E106M250AA | NK     | 90R7825                 |  0.33 | CAPACITOR CERAMIC, 10UF, 25V, X5R, 20%, 1210      |
-| C2,C3,C8,C9,C11            |        5 | 0.1 uF | TDK               | C1608X7R1H104K080AA | NK     | 90R7708                 | 0.028 | CAPACITOR CERAMIC, 0.1UF, 50V, X7R, 10%, 0603     |
-| C4,C5                      |        2 | 22 uF  | TDK               | C3216X5R0J226M160AA | NK     | 90R7775                 |  0.22 | CAPACITOR CERAMIC, 22UF, 6.3V, X5R, 20%, 1206     |
-| C6                         |        1 | 1 uF   | TDK               | C1608X7R1C105K080AC | NK     | 90R7686                 | 0.046 | CAPACITOR CERAMIC, 1UF, 16V, X7R, 10%, 0603       |
-| C7                         |        1 | 3.3 nF | AVX               | 06035C332KAT2A      | NK     | 88W4178                 |  0.04 | CAP MLCC, 3300pF, 50V, X7R, 10%, 0603             |
-| C10                        |        1 | 10 uF  | TDK               | C1608X5R0J106M080AB | NK     | 90R7666                 |  0.15 | CAPACITOR CERAMIC, 10UF, 6.3V, X5R, 20%, 0603 [2] |
-| FB1                        |        1 | 3A     | Wurth             | 742792121           | NK     | 08P2394                 | 0.233 | WE-CBF SMD EMI SUPP FERRITE BEAD [2]              |
-| R2,R5,R8                   |        3 | 10     | Panasonic         | ERJ-3EKF10R0V       | NK     | 64R5306                 |  .015 | 0603 RESISTOR, THICK FILM, 10OHM, 100mW, 1%       |
-| R3,R6,R9,R32-35            |        6 | 33     | Panasonic         | ERJ-3EKF33R0V       | NK     | 90W3178                 |  .015 |                                                   |
-| R10-R17                    |        8 | 100    | Panasonic         | ERJ-6ENF1000V       | NK     | 64R5368                 |  .022 | 0805 RESISTOR, THICK FILM, 100 OHM, 125mW, 1%     |
-| R1,R4,R7                   |        3 | 140    | Panasonic         | ERJ-3EKF1400V       | NK     | 53W4528                 |  .015 |                                                   |
-| R38,R39,R40                |        3 | 1k     | Panasonic         | ERJ-3EKF1001V       | NK     | 64R5308                 |  .015 | 0603 RESISTOR, THICK FILM, 1KOHM, 100mW, 1% [2]   |
-| R18-R20,R36,R37            |        5 | 2.2k   | Panasonic         | ERJ-3EKF2201V       | NK     | 64R5329                 |  .015 | 0603 RESISTOR, THICK FILM, 2.2KOHM, 100mW, 1% [2] |
-| R27-R29                    |        3 | 4.7k   | Panasonic         | ERJ-3EKF4701V       | NK     | 64R5349                 |  .015 |                                                   |
-| R24,R25                    |        2 | 5.6k   | Panasonic         | ERJ-3EKF5601V       | NK     | 64R5354                 |  .015 |                                                   |
-| R21,R30                    |        2 | 10k    | Panasonic         | ERJ-3EKF1002V       | NK     | 64R5309                 |  .015 |                                                   |
-| R23                        |        1 | 22.1k  | Panasonic         | ERJ-3EKF2212V       | NK     | 65T8381                 |  .015 |                                                   |
-| R22                        |        1 | 124k   | Panasonic         | ERJ-3EKF1243V       | NK     | 65T8327                 |  .015 |                                                   |
-| R31                        |        0 | DNF    |                   |                     |        |                         |       |                                                   |
+*** starboard cape
+
+| Parts                      | Quantity | Value  | Manufacturer      | Manuf. Code         | Vendor | Order code     | Price | Description                                   |
+|----------------------------+----------+--------+-------------------+---------------------+--------+----------------+-------+-----------------------------------------------|
+| EEPROM                     |        1 |        | ON Semiconductor  | CAT24C256WI-G       | NK     | 06R0552        | 0.664 | IC, EEPROM, 256KBIT, SERIAL 400KHZ SOIC-8     |
+| DAC                        |        1 |        | Analog Devices    | SSM2518CPZ          |        |                |  5.10 | IC AMP AUD PWR 2C STER D 20LFCSP              |
+| IC1,IC2                    |        2 |        | Texas Instruments | 74LVC04APW          | DK     | 296-1219-1-ND  |  0.29 | IC, HEX INVERTER, TSSOP-14                    |
+| REG                        |        1 |        | Texas Instruments | TPS54327DDAR        | DK     | 296-28061-1-ND |  2.21 | 3A DCDC converter                             |
+| Q1-3                       |        3 |        | Fairchild         | FDT439N             | NK     | 38C7188        |  0.64 | MOSFET N-CH 30V 6.3A SOT223 [1]               |
+| S1                         |        1 |        | CTS               | CT2192LPST-ND       | DK     | CT2192LPST-ND  |  0.59 | SWITCH TAPE SEAL 2 POS SMD 50V                |
+| LCUE,CCUE,RCUE             |        3 |        | Molex             | 22-23-2041          | DK     | WM4202-ND      |  0.26 | WIRE-BOARD CONNECTOR HEADER 4POS, 2.54MM      |
+|                            |        3 |        | Molex             | 22-01-2045          | DK     | WM2614-ND      |  0.28 | CONNECTOR, HOUSING, RECEPTACLE, 4POS, 2.54MM  |
+| RGB LED                    |        3 |        | OSRAM             | LRTBGFTM-ST7        | DK     | 475-2900-1-ND  |  0.50 | LED RGB RECT DIFFUSED 6PLCC                   |
+| LPECK,CPECK,RPECK,HOP      |        4 |        | Molex             | 22-23-2051          | DK     | WM4203-ND      |  0.31 | WIRE-BOARD CONNECTOR HEADER 5POS, 2.54MM      |
+|                            |        4 |        | Molex             |                     | DK     | WM2615-ND      |  0.29 | CONNECTOR, HOUSING, RECEPTACLE, 5POS, 2.54MM  |
+| LHOP,RHOP,lights,SPKR,SPKL |        5 |        | Molex             |                     | DK     | WM4200-ND      |  0.14 | WIRE-BOARD CONNECTOR HEADER 2POS, 2.54MM      |
+|                            |        5 |        | Molex             |                     | DK     | WM2613-ND      |  0.20 | CONNECTOR, HOUSING, RECEPTACLE, 2POS, 2.54MM  |
+|                            |       42 |        | Molex             | 08-50-0113          | DK     | WM1114CT-ND    |  0.03 | CONTACT, FEMALE, 30-22AWG, CRIMP, FULL REEL   |
+| LED1-7                     |        7 |        | OSRAM             | LB Q39G-L2N2-35-1   | DK     | 475-2816-1-ND  |  0.93 | LED CHIPLED BLUE 470NM 0603 SMD               |
+| P8,P9                      |        5 |        | FCI               | 67997-210HLF        | DK     | 609-3236-ND    |  0.40 | CONN HEADER 10POS .100 STR 15AU               |
+| P9 (analog)                |        1 |        | Samtec            | SSQ-106-03-G-D      | NK     | 11P8267        |  2.52 | stacking header (optional for analog inputs)  |
+|                            |          |        |                   |                     |        |                |       |                                               |
+| 12V                        |        1 |        | Multcomp          | SPC21365            | NK     | 11M0560        |  1.13 | CONNECTOR, DC POWER, JACK, 5A                 |
+| L1                         |        1 | 3.3 uH | TDK               | SPM6530T-3R3M       | NK     | 90R0849        |  0.78 | POWER LINE IND, 3.3UH,6.8A,20%                |
+| C1                         |        1 | 10 uF  | TDK               | C3225X5R1E106M250AA | NK     | 90R7825        |  0.33 | CAPACITOR CERAMIC, 10UF, 25V, X5R, 20%, 1210  |
+| C2,C3,C8,C9,C11            |        5 | 0.1 uF | TDK               | C1608X7R1H104K080AA | NK     | 90R7708        | 0.028 | CAPACITOR CERAMIC, 0.1UF, 50V, X7R, 10%, 0603 |
+| C4,C5                      |        2 | 22 uF  | TDK               | C3216X5R0J226M160AA | NK     | 90R7775        |  0.22 | CAPACITOR CERAMIC, 22UF, 6.3V, X5R, 20%, 1206 |
+| C6                         |        1 | 1 uF   | TDK               | C1608X7R1C105K080AC | NK     | 90R7686        | 0.046 | CAPACITOR CERAMIC, 1UF, 16V, X7R, 10%, 0603   |
+| C7                         |        1 | 3.3 nF | AVX               | 06035C332KAT2A      | NK     | 88W4178        |  0.04 | CAP MLCC, 3300pF, 50V, X7R, 10%, 0603         |
+| C10                        |        1 | 10 uF  | TDK               | C1608X5R0J106M080AB | NK     | 90R7666        |  0.15 | CAPACITOR CERAMIC, 10UF, 6.3V, X5R, 20%, 0603 |
+| FB1                        |        1 | 3A     | Wurth             | 742792121           | NK     | 08P2394        | 0.233 | WE-CBF SMD EMI SUPP FERRITE BEAD              |
+| R32-35                     |        3 | 33     | Panasonic         | ERJ-3EKF33R0V       | NK     | 90W3178        |  .015 | 0603 RESISTOR, THICK FILM, 33 OHM, 100mW, 1%  |
+| R10-R17                    |        8 | 100    | Panasonic         | ERJ-6ENF1000V       | NK     | 64R5368        |  .022 | 0805 RESISTOR, THICK FILM, 100 OHM, 125mW, 1% |
+| R38,R39,R40                |        3 | 1k     | Panasonic         | ERJ-3EKF1001V       | NK     | 64R5308        |  .015 | 0603 RESISTOR, THICK FILM, 1KOHM, 100mW, 1%   |
+| R18-R20,R36,R37            |        5 | 2.2k   | Panasonic         | ERJ-3EKF2201V       | NK     | 64R5329        |  .015 | 0603 RESISTOR, THICK FILM, 2.2KOHM, 100mW, 1% |
+| R27-R29                    |        3 | 4.7k   | Panasonic         | ERJ-3EKF4701V       | NK     | 64R5349        |  .015 |                                               |
+| R24,R25                    |        2 | 5.6k   | Panasonic         | ERJ-3EKF5601V       | NK     | 64R5354        |  .015 |                                               |
+| R21,R30                    |        2 | 10k    | Panasonic         | ERJ-3EKF1002V       | NK     | 64R5309        |  .015 |                                               |
+| R23                        |        1 | 22.1k  | Panasonic         | ERJ-3EKF2212V       | NK     | 65T8381        |  .015 |                                               |
+| R22                        |        1 | 124k   | Panasonic         | ERJ-3EKF1243V       | NK     | 65T8327        |  .015 |                                               |
+
+*** LED breakout
+
+| Parts | Quantity | Value | Manufacturer | Manuf. Code   | Vendor | Order code | Price | Description                                 |
+|-------+----------+-------+--------------+---------------+--------+------------+-------+---------------------------------------------|
+| R1    |        6 |    33 | Panasonic    | ERJ-3EKF33R0V | NK     | 90W3178    |  .015 |                                             |
+| R2    |        3 |    10 | Panasonic    | ERJ-3EKF10R0V | NK     | 64R5306    |  .015 | 0603 RESISTOR, THICK FILM, 10OHM, 100mW, 1% |
+| R3    |        3 |   140 | Panasonic    | ERJ-3EKF1400V | NK     | 53W4528    |  .015 |                                             |
+
+*** Other
+
+| Parts                   | Quantity | Value | Manufacturer | Manuf. Code | Vendor | Order code       | Price | Description                                    |
+|-------------------------+----------+-------+--------------+-------------+--------+------------------+-------+------------------------------------------------|
+| BBB                     |        1 |       | CircuitCo    |             | NK     | BB-BBLK-000      | 45.00 | Beaglebone Black                               |
+| Power Supply (12V, 60W) |        1 |       | XP Power     | AFM60US12   | DK     | 1470-1016-ND     | 34.00 | PWR SUPPLY EXT 12V 5A 60W                      |
+| Lights                  |        1 |       |              |             | SBL    | NFLS-NW300X3-WHT | 27.00 | High Power LED Flexible Light Strip (100 cm)   |
+| Light mount             |        1 |       |              |             | SBL    | B5391            | 11.95 | Klus B5391 - ECO series Corner Mount           |
+| solenoid                |        2 |       | Guardian     | 11HD-I-12D  | AL     |                  | 17.00 | Solenoid, 1" stroke, int 12VDC, 20W, 7 oz@3/4" |
+| flyback diode           |        2 |       |              |             | DK     | 1N4007-TPMSCT-ND |  0.07 | 1N4007 diode (protects mosfets)                |
+|                         |        4 |       | Optek        | OPL820-OC   | DK     | 365-1869-ND      |  2.93 | SENSOR PHOTOLOGIC HERMETIC TO-18               |
+|                         |        4 |       | Optek        | OP133       | DK     | 365-1042-ND      |  2.45 | LED IR 5MW 935NM HERMETIC TO-46                |
+
 
 Vendors:
 NK - newark
@@ -74,11 +85,8 @@ DNF - do not fit
 
 ** Notes
 
-[1] Any MOSFET or integrated driver/MOSFET IC in a SOT-223 package will work
+[1] Any MOSFET or integrated driver/MOSFET IC in a SOT-223 package should work
 here, as long as drain is connected to the large tab, and the small tabs are
-input, drain, and source. Diodes Inc ZXMS6004SGTA ought to work but did not
-appear to match its datasheet on the parts we ordered most recently.
-
-[2] New in revision A2
-
-[3] Removed in A2A
+input, drain, and source. Check that the required for switching does not exceed
+the maximum output of the BBB pin, and adjust current-limiting resistor
+(R32-R35) accordingly.
