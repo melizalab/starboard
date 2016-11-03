@@ -15,7 +15,7 @@
                 "P8.11", /* pru0: pr1_pru0_pru_r30_15 */
                 "P8.12", /* pru0: pr1_pru0_pru_r30_14 */
                 "pru0",
-                "P8.13", "ehrpwm2b", /* "gpio0_23", */
+                "P8.13", "ehrpwm2B", /* "gpio0_23", */
                 "P8.14", "gpio0_26",
                 "P8.15", "gpio1_15",
                 "P8.16", "gpio1_14",
@@ -112,6 +112,7 @@
                 __overlay__ {
                         pinctrl-names = "default";
                         pinctrl-0 = <&lights_pwm>;
+			status = "okay";
                 };
         };
 
@@ -196,5 +197,4 @@
                         };
                 };
         };
->>>>>>> tmp
  };
