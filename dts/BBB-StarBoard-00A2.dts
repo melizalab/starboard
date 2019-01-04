@@ -5,6 +5,34 @@
 #include <dt-bindings/pinctrl/am33xx.h>
 
 / {
+        compatible = "ti,beaglebone-black";
+
+        /* identification */
+        part-number = "BBB-StarBoard";
+        version = "00A2";
+
+        exclusive-use =
+                "P8.11", /* pru0: pr1_pru0_pru_r30_15 */
+                "P8.12", /* pru0: pr1_pru0_pru_r30_14 */
+                "pru0",
+                "P8.13", "ehrpwm2b", /* "gpio0_23", */
+                "P8.14", "gpio0_26",
+                "P8.15", "gpio1_15",
+                "P8.16", "gpio1_14",
+                "P8.17", "gpio0_27",
+                "P8.18", "gpio2_1",
+                "P8.19", "gpio0_22",
+                "P8.26", "gpio1_29",
+                "P8.41", "gpio2_10",
+                "P8.42", "gpio2_11",
+                "P8.43", "gpio2_8",
+                "P8.44", "gpio2_9",
+                "P8.45", "gpio2_6",
+                "P8.46", "gpio2_7",
+                "P9.25", "P9.28", "P9.29", "P9.31", "mcasp0", "ssm2518",
+                "P9.27", "gpio3_19", "gpio1_27";
+
+
         fragment@0 {
                 target = <&ocp>;
                 __overlay__ {
@@ -37,17 +65,10 @@
                                         0x024 0x4 /* P8.13 - house lights output pulldown */
                                         >;
                         };
-                        /* some j-p to avoid muxing to PRU in its undefined startup state */
                 hopper_gpio: pinmux_hopper_gpio_pins {
                                 pinctrl-single,pins = <
                                         0x34 0x27
                                         0x30 0x27
-                                        >;
-                        };
-                hopper_pru: pinmux_hopper_pru_pins {
-                                pinctrl-single,pins = <
-                                        0x34 0x26
-                                        0x30 0x26
                                         >;
                         };
                 led_gpio: pinmux_led_gpio_pins {
@@ -78,7 +99,7 @@
                 };
         };
 
-        /* enables pwm outputs - not sure what first device is but it's needed */
+        /* enables pwm outputs */
         fragment@2 {
                 target = <&epwmss2>;
                 __overlay__ {
@@ -91,146 +112,89 @@
                 __overlay__ {
                         pinctrl-names = "default";
                         pinctrl-0 = <&lights_pwm>;
-                        status = "okay";
                 };
         };
 
-  //  fragment@4 {
-  //      target = <&pruss>;
-  //      __overlay__ {
-  //          status = "okay";
-  //      };
-  //  };
-
-   /* creates user interface */
-   fragment@4 {
-           target-path = "/";
-           __overlay__ {
-                   sbd-lights {
-                           compatible = "pwm-leds";
-                           status = "okay";
-                           sbd-lights-pwm {
-                                   label = "starboard::lights";
-                                   /*channel, period (ns), polarity */
-                                   pwms = <&ehrpwm2 1 500000 0>;
-                                   /* pwm-names = "lights"; */
-                                   max-brightness = <255>;
-                           };
-                   };
-         // sbd-hoppers {
-         //         compatible = "bone-pinmux-helper";
-         //         status = "okay";
-         //         pinctrl-names = "default", "pruout";
-         //         pinctrl-0 = <&hopper_gpio>;
-         //         pinctrl-1 = <&hopper_pru>;
-         // };
-                   sbd-hopper-gpio {
-                           compatible = "gpio-leds";
-                           status = "okay";
-                           sbd-hopper-left {
-                                   label = "starboard:hopper:left";
-                                   gpios = <&gpio2 12 0>;
-                                   default-state = "off";
-                           };
-                           sbd-hopper-right {
-                                   label = "starboard:hopper:right";
-                                   gpios = <&gpio2 13 0>;
-                                   default-state = "off";
-                           };
-                   };
-                   sbd-cues {
-                           compatible = "gpio-leds";
-                           pinctrl-names = "default";
-                           pinctrl-0 = <&led_gpio>;
-                           status = "okay";
-                           sbd-cue-rrd {
-                                   label = "starboard:right:red";
-                                   gpios = <&gpio2 29 0>; /* P8.26 */
-                                   default-state = "off";
-                           };
-                           sbd-cue-rgn {
-                                   label = "starboard:right:green";
-                                   gpios = <&gpio3 1 0>; /* P8.18 */
-                                   default-state = "off";
-                           };
-                           sbd-cue-rbl {
-                                   label = "starboard:right:blue";
-                                   gpios = <&gpio1 22 0>; /* P8.19 */
-                                   default-state = "off";
-                           };
-                           sbd-cue-crd {
-                                   label = "starboard:center:red";
-                                   gpios = <&gpio3 9 0>; /* P8.44 */
-                                   default-state = "off";
-                           };
-                           sbd-cue-cgn {
-                                   label = "starboard:center:green";
-                                   gpios = <&gpio3 10 0>; /* P8.41 */
-                                   default-state = "off";
-                           };
-                           sbd-cue-cbl {
-                                   label = "starboard:center:blue";
-                                   gpios = <&gpio3 11 0>; /* P8.42 */
-                                   default-state = "off";
-                           };
-                           sbd-cue-lrd {
-                                   label = "starboard:left:red";
-                                   gpios = <&gpio3 6 0>; /* P8.45 */
-                                   default-state = "off";
-                           };
-                           sbd-cue-lgn {
-                                   label = "starboard:left:green";
-                                   gpios = <&gpio3 7 0>; /* P8.46 */
-                                   default-state = "off";
-                           };
-                           sbd-cue-lbl {
-                                   label = "starboard:left:blue";
-                                   gpios = <&gpio3 8 0>; /* P8.43 */
-                                   default-state = "off";
-                           };
-                   };
-                   sbd-hopdet {
-                           compatible = "gpio-keys";
-                           pinctrl-names = "default";
-                           pinctrl-0 = <&hopdet_gpio>;
-                           status = "okay";
-                           hopper-up {
-                                   label = "starboard::hopper-up";
-                                   debounce_interval = <100>;
-                                   linux,code = <1>;
-                                   gpios = <&gpio2 14 0x5>; /* P8.16 */
-                                   gpio-key,wakeup;
-                           };
-                   };
-                   sbd-keys {
-                           compatible = "gpio-keys";
-                           pinctrl-names = "default";
-                           pinctrl-0 = <&keys_gpio>;
-                           status = "okay";
-                           /* these need to be in gpio order for some reason */
-                           peck-right {
-                                   label = "starboard::right-peck";
-                                   debounce_interval = <5>;
-                                   linux,code = <4>;
-                                   gpios = <&gpio1 26 0x5>; /* P8.14 */
-                                   gpio-key,wakeup;
-                           };
-                           peck-left {
-                                   label = "starboard::left-peck";
-                                   debounce_interval = <5>;
-                                   linux,code = <2>;
-                                   /* 0x5 should be input pullup */
-                                   gpios = <&gpio1 27 0x5>; /* P8.17 */
-                                   gpio-key,wakeup;
-                           };
-                           peck-center {
-                                   label = "starboard::center-peck";
-                                   debounce_interval = <5>;
-                                   linux,code = <3>;
-                                   gpios = <&gpio2 15 0x5>; /* P8.15 */
-                                   gpio-key,wakeup;
-                           };
-                   };
-           };
-   };
+        /* creates user interface */
+        fragment@4 {
+                target-path = "/";
+                __overlay__ {
+                        sbd-lights {
+                                compatible = "pwm-leds";
+                                status = "okay";
+                                sbd-lights-pwm {
+                                        label = "starboard::lights";
+                                        /*channel, period (ns), polarity */
+                                        pwms = <&ehrpwm2 1 500000 0>;
+                                        /* pwm-names = "lights"; */
+                                        max-brightness = <255>;
+                                };
+                        };
+                        sbd-hopper-gpio {
+                                compatible = "gpio-leds";
+                                status = "okay";
+                                sbd-hopper-left {
+                                        label = "starboard:hopper:left";
+                                        gpios = <&gpio1 12 GPIO_ACTIVE_HIGH>;
+                                        default-state = "off";
+                                };
+                                sbd-hopper-right {
+                                        label = "starboard:hopper:right";
+                                        gpios = <&gpio1 13 GPIO_ACTIVE_HIGH>;
+                                        default-state = "off";
+                                };
+                        };
+                        sbd-cues {
+                                compatible = "gpio-leds";
+                                pinctrl-names = "default";
+                                pinctrl-0 = <&led_gpio>;
+                                sbd-cue-rrd {
+                                        label = "starboard:right:red";
+                                        gpios = <&gpio1 29 GPIO_ACTIVE_HIGH>; /* P8.26 */
+                                        default-state = "off";
+                                };
+                                sbd-cue-rgn {
+                                        label = "starboard:right:green";
+                                        gpios = <&gpio2 1 GPIO_ACTIVE_HIGH>; /* P8.18 */
+                                        default-state = "off";
+                                };
+                                sbd-cue-rbl {
+                                        label = "starboard:right:blue";
+                                        gpios = <&gpio0 22 GPIO_ACTIVE_HIGH>; /* P8.19 */
+                                        default-state = "off";
+                                };
+                                sbd-cue-crd {
+                                        label = "starboard:center:red";
+                                        gpios = <&gpio2 9 GPIO_ACTIVE_HIGH>; /* P8.44 */
+                                        default-state = "off";
+                                };
+                                sbd-cue-cgn {
+                                        label = "starboard:center:green";
+                                        gpios = <&gpio2 10 GPIO_ACTIVE_HIGH>; /* P8.41 */
+                                        default-state = "off";
+                                };
+                                sbd-cue-cbl {
+                                        label = "starboard:center:blue";
+                                        gpios = <&gpio2 11 GPIO_ACTIVE_HIGH>; /* P8.42 */
+                                        default-state = "off";
+                                };
+                                sbd-cue-lrd {
+                                        label = "starboard:left:red";
+                                        gpios = <&gpio2 6 GPIO_ACTIVE_HIGH>; /* P8.45 */
+                                        default-state = "off";
+                                };
+                                sbd-cue-lgn {
+                                        label = "starboard:left:green";
+                                        gpios = <&gpio2 7 GPIO_ACTIVE_HIGH>; /* P8.46 */
+                                        default-state = "off";
+                                };
+                                sbd-cue-lbl {
+                                        label = "starboard:left:blue";
+                                        gpios = <&gpio2 8 GPIO_ACTIVE_HIGH>; /* P8.43 */
+                                        default-state = "off";
+                                };
+                        };
+                };
+        };
+>>>>>>> tmp
  };
