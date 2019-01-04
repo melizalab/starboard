@@ -1,0 +1,73 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/am33xx.h>
+
+/ {
+        compatible = "ti,beaglebone-black";
+
+        /* identification */
+        part-number = "BBB-PwmLed";
+        version = "00A0";
+
+        exclusive-use =
+                "P8.13", "ehrpwm2B"; /* "gpio0_23", */
+
+        fragment@0 {
+                target = <&ocp>;
+                __overlay__ {
+                        P8_13_pinmux { status = "disabled"; }; /* ehrpwm2b */
+                };
+        };
+
+        /* sets pin mux */
+        fragment@1 {
+                target = <&am33xx_pinmux>;
+                __overlay__ {
+                lights_pwm: pinmux_lights_pwm_pins {
+                                pinctrl-single,pins = <
+                                        0x024 0x4 /* P8.13 - house lights output pulldown */
+                                        >;
+                        };
+                };
+        };
+
+
+        /* enables pwm outputs - not sure what first device is but it's needed */
+        fragment@2 {
+                target = <&epwmss2>;
+                __overlay__ {
+                        status = "okay";
+                };
+        };
+
+        fragment@3 {
+                target = <&ehrpwm2>;
+                __overlay__ {
+                        pinctrl-names = "default";
+                        pinctrl-0 = <&lights_pwm>;
+                        status = "okay";
+                };
+        };
+
+        /* creates user interface */
+        fragment@5 {
+                target-path = "/";
+                __overlay__ {
+                        sbd-lights {
+                                compatible = "pwm-leds";
+                                status = "okay";
+                                sbd-lights-pwm {
+                                        label = "starboard::lights";
+                                        /*channel, period (ns), polarity */
+                                        pwms = <&ehrpwm2 1 500000 0>;
+                                        /* pwm-names = "lights"; */
+                                        max-brightness = <255>;
+                                        default-state = "off";
+                                };
+                        };
+
+                };
+        };
+ };
