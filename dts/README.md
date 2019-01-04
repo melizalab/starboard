@@ -36,12 +36,15 @@ installed (i.e. for debugging with the JTAG serial connection), you need to edit
 
 ## Storing board information on cape EEPROM
 
-You can use the python script `make_eeprom.py` in this directory to generate the
-binary file for the EEPROM.
+The cape has an EEPROM chip that needs to contain information about the cape
+identity and revision number. This chip is read at boot time and is used to look
+up the `dtbo` file. You can use the python script `make_eeprom.py` in this
+directory to generate the binary file for the EEPROM.
 
-To write the EEPROM to the board, you need to ground the test pad marked "EP_WP" (00A1 revision) or "EPRWP" (00A2 board), then issue the following command:
+You need to write the EEPROM image once to each board. Ground the test pad marked "EP_WP" (00A1 revision) or
+"EPRWP" (00A2 board), then issue the following command:
 
-    cat BBB-StarBoard-00A1.eeprom > /sys/bus/i2c/1-0054/eeprom
+    cat BBB-StarBoard-00A2.eeprom > /sys/bus/i2c/1-0054/eeprom
 
 Note that the address `1-0054` is only correct if the DIP switches on the board are both set to zero.  The address can be configured by changing the DIP switches, if you need to have more than one cape attached. To read the contents of the eeprom:
 
