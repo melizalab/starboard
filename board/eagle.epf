@@ -17,7 +17,7 @@ UsedLibrary="/Applications/EAGLE-7.7.0/lbr/texas-tpl7407l.lbr"
 
 [Win_1]
 Type="Control Panel"
-Loc="87 165 686 564"
+Loc="640 346 1239 745"
 State=2
 Number=0
 
