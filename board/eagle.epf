@@ -7,13 +7,22 @@ Desktop="Desktop"
 
 [Globals]
 AutoSaveProject=1
+UsedLibrary="/Applications/EAGLE-7.7.0/lbr/SparkFun-Resistors.lbr"
+UsedLibrary="/Applications/EAGLE-7.7.0/lbr/adafruit.lbr"
+UsedLibrary="/Applications/EAGLE-7.7.0/lbr/bt_logic.lbr"
+UsedLibrary="/Applications/EAGLE-7.7.0/lbr/connectors.lbr"
+UsedLibrary="/Applications/EAGLE-7.7.0/lbr/jumper.lbr"
 UsedLibrary="/Applications/EAGLE-7.7.0/lbr/molex-sl-connectors_jw.lbr"
+UsedLibrary="/Applications/EAGLE-7.7.0/lbr/open-ephys.lbr"
+UsedLibrary="/Applications/EAGLE-7.7.0/lbr/pinhead.lbr"
+UsedLibrary="/Applications/EAGLE-7.7.0/lbr/resistor-net.lbr"
+UsedLibrary="/Applications/EAGLE-7.7.0/lbr/resistor.lbr"
+UsedLibrary="/Applications/EAGLE-7.7.0/lbr/texas-tpl7407l.lbr"
 UsedLibrary="/Applications/EAGLE-7.7.0/lbr/texas.lbr"
 UsedLibrary="/Applications/EAGLE-7.7.0/lbr/toshiba.lbr"
-UsedLibrary="/Applications/EAGLE-7.7.0/lbr/adafruit.lbr"
 UsedLibrary="/Applications/EAGLE-7.7.0/lbr/seeed/Seeed-OPL-ic.lbr"
-UsedLibrary="/Applications/EAGLE-7.7.0/lbr/connectors.lbr"
-UsedLibrary="/Applications/EAGLE-7.7.0/lbr/texas-tpl7407l.lbr"
+UsedLibrary="/Applications/EAGLE-7.7.0/lbr/seeed/Seeed-OPL-Switch.lbr"
+UsedLibrary="/Applications/EAGLE-7.7.0/lbr/seeed/Seeed-OPL-Resistor.lbr"
 
 [Win_1]
 Type="Control Panel"
