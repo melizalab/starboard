@@ -3285,7 +3285,7 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 </element>
 <element name="I77-O88" library="molex-sl-connectors_jw" package="SL_74099_6" value="" x="35.56" y="16.51" rot="R270"/>
 <element name="C9" library="adafruit" package="PANASONIC_C" value="47uF/16V" x="54.61" y="19.685" smashed="yes">
-<attribute name="NAME" x="53.915" y="20.53" size="1.016" layer="25"/>
+<attribute name="NAME" x="50.74" y="17.355" size="1.016" layer="25"/>
 </element>
 <element name="U3" library="open-ephys" package="TSSOP-24" value="OCTAL_BUS_TRANSCEIVER" x="16.51" y="31.115" smashed="yes" rot="R180">
 <attribute name="NAME" x="15.165" y="25.95" size="0.8128" layer="25" font="vector" rot="R180"/>
@@ -3296,7 +3296,7 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 <element name="R1" library="rcl" package="R0603" value="4.7k" x="22.225" y="37.465" smashed="yes">
 <attribute name="NAME" x="22.2758" y="35.87115" size="0.8128" layer="25"/>
 </element>
-<element name="R2" library="Seeed-OPL-Resistor" package="RA1206-8" value="" x="23.7363" y="45.78985" smashed="yes">
+<element name="R2" library="Seeed-OPL-Resistor" package="RA1206-8" value="4.7k" x="23.7363" y="45.78985" smashed="yes">
 <attribute name="NAME" x="19.9263" y="46.42085" size="0.889" layer="25" ratio="11"/>
 <attribute name="VALUE" x="22.0853" y="43.12285" size="0.635" layer="27" ratio="10"/>
 <attribute name="NAME" x="22.4663" y="45.78985" size="0.4572" layer="33" ratio="10"/>
