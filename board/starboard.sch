@@ -17299,18 +17299,6 @@ Source: RS Component / BUORNS</description>
 <label x="325.12" y="116.84" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="RTGPIO_121" class="0">
-<segment>
-<pinref part="BBB" gate="G$1" pin="GPIO3_19"/>
-<wire x1="345.44" y1="111.76" x2="327.66" y2="111.76" width="0.1524" layer="91"/>
-<label x="325.12" y="111.76" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="SW1" gate="G$1" pin="P$1"/>
-<wire x1="218.44" y1="281.94" x2="208.28" y2="281.94" width="0.1524" layer="91"/>
-<label x="203.2" y="281.94" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="N$31" class="0">
 <segment>
 <pinref part="Q1" gate="G$1" pin="G"/>
@@ -17676,38 +17664,26 @@ Source: RS Component / BUORNS</description>
 </net>
 <net name="MOTORB1" class="0">
 <segment>
-<pinref part="BBB" gate="G$1" pin="GPIO1_15"/>
-<wire x1="345.44" y1="193.04" x2="327.66" y2="193.04" width="0.1524" layer="91"/>
-<label x="322.58" y="193.04" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="U1" gate="G$1" pin="BIN1"/>
 <wire x1="48.26" y1="129.54" x2="30.48" y2="129.54" width="0.1524" layer="91"/>
 <label x="27.94" y="129.54" size="1.778" layer="95"/>
 </segment>
-</net>
-<net name="MOTORB2" class="0">
-<segment>
-<pinref part="BBB" gate="G$1" pin="GPIO1_14"/>
-<wire x1="401.32" y1="193.04" x2="419.1" y2="193.04" width="0.1524" layer="91"/>
-<label x="414.02" y="193.04" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="U1" gate="G$1" pin="BIN2"/>
-<wire x1="48.26" y1="127" x2="30.48" y2="127" width="0.1524" layer="91"/>
-<label x="27.94" y="127" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="RTGPIO_125" class="0">
 <segment>
 <pinref part="BBB" gate="G$1" pin="GPIO3_21"/>
 <wire x1="345.44" y1="114.3" x2="325.12" y2="114.3" width="0.1524" layer="91"/>
 <label x="325.12" y="114.3" size="1.778" layer="95"/>
 </segment>
+</net>
+<net name="MOTORB2" class="0">
 <segment>
-<pinref part="SW2" gate="G$1" pin="P$1"/>
-<wire x1="218.44" y1="271.78" x2="208.28" y2="271.78" width="0.1524" layer="91"/>
-<label x="203.2" y="271.78" size="1.778" layer="95"/>
+<pinref part="U1" gate="G$1" pin="BIN2"/>
+<wire x1="48.26" y1="127" x2="30.48" y2="127" width="0.1524" layer="91"/>
+<label x="27.94" y="127" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="BBB" gate="G$1" pin="GPIO3_19"/>
+<wire x1="345.44" y1="111.76" x2="327.66" y2="111.76" width="0.1524" layer="91"/>
+<label x="325.12" y="111.76" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="GPIO_8" class="0">
@@ -17827,6 +17803,30 @@ Source: RS Component / BUORNS</description>
 <wire x1="78.74" y1="185.42" x2="78.74" y2="182.88" width="0.1524" layer="91"/>
 <pinref part="OUT-TTL-IN" gate="1" pin="2"/>
 <wire x1="78.74" y1="182.88" x2="96.52" y2="182.88" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="GPIO_46" class="0">
+<segment>
+<pinref part="BBB" gate="G$1" pin="GPIO1_14"/>
+<wire x1="401.32" y1="193.04" x2="419.1" y2="193.04" width="0.1524" layer="91"/>
+<label x="414.02" y="193.04" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="SW1" gate="G$1" pin="P$1"/>
+<wire x1="218.44" y1="281.94" x2="208.28" y2="281.94" width="0.1524" layer="91"/>
+<label x="203.2" y="281.94" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="GPIO_44" class="0">
+<segment>
+<pinref part="BBB" gate="G$1" pin="GPIO1_15"/>
+<wire x1="345.44" y1="193.04" x2="327.66" y2="193.04" width="0.1524" layer="91"/>
+<label x="322.58" y="193.04" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="SW2" gate="G$1" pin="P$1"/>
+<wire x1="218.44" y1="271.78" x2="208.28" y2="271.78" width="0.1524" layer="91"/>
+<label x="203.2" y="271.78" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
