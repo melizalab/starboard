@@ -7,6 +7,7 @@ Desktop="Desktop"
 
 [Globals]
 AutoSaveProject=1
+UsedLibrary="/Applications/EAGLE-7.7.0/lbr/208658-1051.lbr"
 UsedLibrary="/Applications/EAGLE-7.7.0/lbr/SparkFun-Resistors.lbr"
 UsedLibrary="/Applications/EAGLE-7.7.0/lbr/adafruit.lbr"
 UsedLibrary="/Applications/EAGLE-7.7.0/lbr/bt_logic.lbr"
@@ -23,6 +24,7 @@ UsedLibrary="/Applications/EAGLE-7.7.0/lbr/toshiba.lbr"
 UsedLibrary="/Applications/EAGLE-7.7.0/lbr/seeed/Seeed-OPL-ic.lbr"
 UsedLibrary="/Applications/EAGLE-7.7.0/lbr/seeed/Seeed-OPL-Switch.lbr"
 UsedLibrary="/Applications/EAGLE-7.7.0/lbr/seeed/Seeed-OPL-Resistor.lbr"
+UsedLibrary="/Users/dmeliza/Devel/starboard/lbr/starboard.lbr"
 
 [Win_1]
 Type="Control Panel"
@@ -32,11 +34,11 @@ Number=0
 
 [Win_2]
 Type="Schematic Editor"
-Loc="640 290 1239 689"
+Loc="0 -22 599 377"
 State=1
-Number=2
+Number=1
 File="starboard.sch"
-View="0.999841 29.4478 450.912 320.864"
+View="126.342 8.46113 438.781 210.834"
 WireWidths=" 0 0.3048 0.6096 0.8128 1.016 1.27 1.4224 1.6764 1.778 1.9304 2.1844 2.54 3.81 6.4516 0.4064 0.1524"
 PadDiameters=" 0.254 0.3048 0.4064 0.6096 0.8128 1.016 1.27 1.4224 1.6764 1.778 1.9304 2.1844 2.54 3.81 6.4516 0"
 PadDrills=" 0.5 0.6 0.7 0.9 1 1.1 1.2 1.3 1.4 1.5 1.6 2 2.2 2.8 3.2 0.8"
@@ -75,22 +77,23 @@ ArcDirection=0
 AddLevel=2
 PadsSameType=0
 Layer=91
+Views=" 1: 126.342 8.46113 438.781 210.834"
 Sheet="1"
 
 [Win_3]
 Type="Board Editor"
 Loc="0 -22 599 377"
 State=1
-Number=1
+Number=2
 File="starboard.brd"
-View="12.859 0.677225 69.0185 43.5325"
-WireWidths=" 0 0.3048 0.8128 1.27 1.4224 1.6764 1.778 1.9304 2.1844 2.54 3.81 6.4516 0.254 0.4064 0.6096 1.016"
+View="36.6511 3.30729 63.0623 23.9745"
+WireWidths=" 0 0.8128 1.016 1.27 1.4224 1.6764 1.778 1.9304 2.1844 2.54 3.81 6.4516 0.6096 0.3048 0.4064 0.254"
 PadDiameters=" 0.254 0.3048 0.4064 0.6096 0.8128 1.016 1.27 1.4224 1.6764 1.778 1.9304 2.1844 2.54 3.81 6.4516 0"
 PadDrills=" 0.5 0.6 0.7 0.9 1 1.1 1.2 1.3 1.4 1.5 1.6 2 2.2 2.8 3.2 0.8"
 ViaDiameters=" 0.254 0.3048 0.4064 0.6096 0.8128 1.016 1.27 1.4224 1.6764 1.778 1.9304 2.1844 2.54 3.81 6.4516 0"
-ViaDrills=" 0.5 0.7 0.8 0.9 1 1.3 1.4 1.5 1.6 2 2.2 2.8 3.2 0.6 1.2 1.1"
+ViaDrills=" 0.7 0.8 0.9 1 1.1 1.2 1.3 1.4 1.5 1.6 2 2.2 2.8 3.2 0.6 0.381"
 HoleDrills=" 0.5 0.7 0.8 0.9 1 1.1 1.2 1.3 1.4 1.5 1.6 2 2.2 2.8 3.2 0.6"
-TextSizes=" 0.254 0.3048 0.4064 1.016 1.27 1.4224 1.6764 1.9304 2.1844 2.54 3.81 5.08 6.4516 1.778 0.8128 0.6096"
+TextSizes=" 0.254 0.3048 0.4064 0.6096 1.016 1.27 1.4224 1.6764 1.9304 2.1844 2.54 3.81 5.08 6.4516 1.778 0.8128"
 PolygonSpacings=" 0.254 0.3048 0.4064 0.6096 0.8128 1.016 1.4224 1.6764 1.778 1.9304 2.1844 2.54 3.81 5.08 6.4516 1.27"
 PolygonIsolates=" 0.254 0.3048 0.4064 0.6096 0.8128 1.016 1.27 1.4224 1.6764 1.778 1.9304 2.1844 2.54 3.81 6.4516 0"
 MiterRadiuss=" 0.254 0.3175 0.635 1.27 2.54 1 2 2.5 5 7.5 10 0"
@@ -121,10 +124,10 @@ SwapLevel=0
 ArcDirection=0
 AddLevel=2
 PadsSameType=0
-Layer=25
+Layer=1
 
 [Desktop]
-Screen="640 480"
+Screen="1920 1080"
 Window="Win_1"
 Window="Win_2"
 Window="Win_3"
