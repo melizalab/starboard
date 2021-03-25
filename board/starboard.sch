@@ -16391,6 +16391,7 @@ Source: RS Component / BUORNS</description>
 <part name="+3V4" library="supply1" deviceset="+3V3" device=""/>
 <part name="C14" library="rcl" deviceset="C-EU" device="C0603" value="0.1uF"/>
 <part name="+3V5" library="supply1" deviceset="+3V3" device=""/>
+<part name="P+9" library="supply1" deviceset="+5V" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -16475,8 +16476,8 @@ Source: RS Component / BUORNS</description>
 <instance part="GND4" gate="1" x="20.32" y="132.08"/>
 <instance part="VDD2" gate="G$1" x="43.18" y="160.02"/>
 <instance part="VDD3" gate="G$1" x="43.18" y="121.92"/>
-<instance part="TTL" gate="G$1" x="132.08" y="203.2" rot="MR0"/>
-<instance part="+3V2" gate="G$1" x="86.36" y="198.12"/>
+<instance part="TTL" gate="G$1" x="127" y="226.06" rot="R180"/>
+<instance part="+3V2" gate="G$1" x="20.32" y="198.12"/>
 <instance part="GND12" gate="1" x="96.52" y="175.26"/>
 <instance part="P+5" gate="1" x="20.32" y="294.64"/>
 <instance part="GND17" gate="1" x="20.32" y="264.16"/>
@@ -16489,10 +16490,10 @@ Source: RS Component / BUORNS</description>
 <instance part="VDD5" gate="G$1" x="243.84" y="86.36"/>
 <instance part="GND20" gate="1" x="243.84" y="43.18"/>
 <instance part="C9" gate="G$1" x="243.84" y="66.04"/>
-<instance part="P+8" gate="1" x="104.14" y="203.2"/>
+<instance part="P+8" gate="1" x="27.94" y="203.2"/>
 <instance part="+3V1" gate="G$1" x="20.32" y="144.78"/>
-<instance part="U3" gate="G$1" x="68.58" y="208.28"/>
-<instance part="R1" gate="G$1" x="99.06" y="187.96" rot="R270"/>
+<instance part="U3" gate="G$1" x="68.58" y="208.28" rot="MR0"/>
+<instance part="R1" gate="G$1" x="27.94" y="190.5" rot="R270"/>
 <instance part="R2" gate="A" x="43.18" y="86.36" rot="R90"/>
 <instance part="R2" gate="B" x="50.8" y="86.36" rot="R90"/>
 <instance part="R2" gate="C" x="58.42" y="86.36" rot="R90"/>
@@ -16507,6 +16508,7 @@ Source: RS Component / BUORNS</description>
 <instance part="+3V4" gate="G$1" x="266.7" y="86.36"/>
 <instance part="C14" gate="G$1" x="281.94" y="66.04"/>
 <instance part="+3V5" gate="G$1" x="281.94" y="86.36"/>
+<instance part="P+9" gate="1" x="99.06" y="241.3"/>
 </instances>
 <busses>
 </busses>
@@ -16636,42 +16638,41 @@ Source: RS Component / BUORNS</description>
 <segment>
 <pinref part="TTL" gate="G$1" pin="CECGND"/>
 <pinref part="GND12" gate="1" pin="GND"/>
-<wire x1="127" y1="177.8" x2="119.38" y2="177.8" width="0.1524" layer="91"/>
 <pinref part="TTL" gate="G$1" pin="CLOCKSHIELD"/>
-<wire x1="119.38" y1="177.8" x2="96.52" y2="177.8" width="0.1524" layer="91"/>
-<wire x1="127" y1="180.34" x2="119.38" y2="180.34" width="0.1524" layer="91"/>
-<wire x1="119.38" y1="180.34" x2="119.38" y2="177.8" width="0.1524" layer="91"/>
-<junction x="119.38" y="177.8"/>
+<wire x1="114.3" y1="177.8" x2="96.52" y2="177.8" width="0.1524" layer="91"/>
 <pinref part="TTL" gate="G$1" pin="DATA0SHIELD"/>
-<wire x1="127" y1="182.88" x2="119.38" y2="182.88" width="0.1524" layer="91"/>
-<wire x1="119.38" y1="182.88" x2="119.38" y2="180.34" width="0.1524" layer="91"/>
-<junction x="119.38" y="180.34"/>
 <pinref part="TTL" gate="G$1" pin="DATA1SHIELD"/>
-<wire x1="127" y1="185.42" x2="119.38" y2="185.42" width="0.1524" layer="91"/>
-<wire x1="119.38" y1="185.42" x2="119.38" y2="182.88" width="0.1524" layer="91"/>
-<junction x="119.38" y="182.88"/>
 <pinref part="TTL" gate="G$1" pin="DATA2SHIELD"/>
-<wire x1="127" y1="187.96" x2="119.38" y2="187.96" width="0.1524" layer="91"/>
-<wire x1="119.38" y1="187.96" x2="119.38" y2="185.42" width="0.1524" layer="91"/>
-<junction x="119.38" y="185.42"/>
 <junction x="96.52" y="177.8"/>
-<wire x1="96.52" y1="177.8" x2="81.28" y2="177.8" width="0.1524" layer="91"/>
-<wire x1="81.28" y1="177.8" x2="48.26" y2="177.8" width="0.1524" layer="91"/>
-<wire x1="48.26" y1="177.8" x2="48.26" y2="185.42" width="0.1524" layer="91"/>
-<pinref part="U3" gate="G$1" pin="GND3"/>
-<wire x1="48.26" y1="185.42" x2="53.34" y2="185.42" width="0.1524" layer="91"/>
-<wire x1="48.26" y1="185.42" x2="48.26" y2="187.96" width="0.1524" layer="91"/>
-<junction x="48.26" y="185.42"/>
-<pinref part="U3" gate="G$1" pin="GND2"/>
-<wire x1="48.26" y1="187.96" x2="53.34" y2="187.96" width="0.1524" layer="91"/>
 <pinref part="U3" gate="G$1" pin="GND1"/>
-<wire x1="53.34" y1="190.5" x2="48.26" y2="190.5" width="0.1524" layer="91"/>
-<wire x1="48.26" y1="190.5" x2="48.26" y2="187.96" width="0.1524" layer="91"/>
-<junction x="48.26" y="187.96"/>
+<wire x1="83.82" y1="190.5" x2="96.52" y2="190.5" width="0.1524" layer="91"/>
+<pinref part="U3" gate="G$1" pin="GND3"/>
+<wire x1="96.52" y1="190.5" x2="96.52" y2="187.96" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="187.96" x2="96.52" y2="185.42" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="185.42" x2="96.52" y2="177.8" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="185.42" x2="96.52" y2="185.42" width="0.1524" layer="91"/>
+<junction x="96.52" y="185.42"/>
+<pinref part="U3" gate="G$1" pin="GND2"/>
+<wire x1="83.82" y1="187.96" x2="96.52" y2="187.96" width="0.1524" layer="91"/>
+<junction x="96.52" y="187.96"/>
 <pinref part="U3" gate="G$1" pin="OE"/>
-<wire x1="78.74" y1="187.96" x2="81.28" y2="187.96" width="0.1524" layer="91"/>
-<wire x1="81.28" y1="187.96" x2="81.28" y2="177.8" width="0.1524" layer="91"/>
-<junction x="81.28" y="177.8"/>
+<wire x1="55.88" y1="187.96" x2="58.42" y2="187.96" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="187.96" x2="58.42" y2="177.8" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="177.8" x2="96.52" y2="177.8" width="0.1524" layer="91"/>
+<wire x1="121.92" y1="251.46" x2="114.3" y2="251.46" width="0.1524" layer="91"/>
+<wire x1="114.3" y1="251.46" x2="114.3" y2="248.92" width="0.1524" layer="91"/>
+<wire x1="114.3" y1="248.92" x2="114.3" y2="246.38" width="0.1524" layer="91"/>
+<wire x1="114.3" y1="246.38" x2="114.3" y2="243.84" width="0.1524" layer="91"/>
+<wire x1="114.3" y1="243.84" x2="114.3" y2="241.3" width="0.1524" layer="91"/>
+<wire x1="114.3" y1="241.3" x2="114.3" y2="177.8" width="0.1524" layer="91"/>
+<wire x1="121.92" y1="248.92" x2="114.3" y2="248.92" width="0.1524" layer="91"/>
+<junction x="114.3" y="248.92"/>
+<wire x1="121.92" y1="246.38" x2="114.3" y2="246.38" width="0.1524" layer="91"/>
+<junction x="114.3" y="246.38"/>
+<wire x1="121.92" y1="243.84" x2="114.3" y2="243.84" width="0.1524" layer="91"/>
+<junction x="114.3" y="243.84"/>
+<wire x1="121.92" y1="241.3" x2="114.3" y2="241.3" width="0.1524" layer="91"/>
+<junction x="114.3" y="241.3"/>
 </segment>
 <segment>
 <pinref part="GND17" gate="1" pin="GND"/>
@@ -16812,14 +16813,15 @@ Source: RS Component / BUORNS</description>
 <segment>
 <pinref part="U3" gate="G$1" pin="3V3_A"/>
 <pinref part="+3V2" gate="G$1" pin="+3V3"/>
-<wire x1="86.36" y1="195.58" x2="78.74" y2="195.58" width="0.1524" layer="91"/>
-<pinref part="U3" gate="G$1" pin="3V3_B"/>
-<wire x1="78.74" y1="193.04" x2="86.36" y2="193.04" width="0.1524" layer="91"/>
-<wire x1="86.36" y1="193.04" x2="86.36" y2="195.58" width="0.1524" layer="91"/>
-<junction x="86.36" y="195.58"/>
+<wire x1="20.32" y1="195.58" x2="55.88" y2="195.58" width="0.1524" layer="91"/>
+<junction x="20.32" y="195.58"/>
 <pinref part="R1" gate="G$1" pin="1"/>
-<wire x1="86.36" y1="195.58" x2="99.06" y2="195.58" width="0.1524" layer="91"/>
-<wire x1="99.06" y1="195.58" x2="99.06" y2="193.04" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="195.58" x2="58.42" y2="195.58" width="0.1524" layer="91"/>
+<wire x1="20.32" y1="195.58" x2="27.94" y2="195.58" width="0.1524" layer="91"/>
+<pinref part="U3" gate="G$1" pin="3V3_B"/>
+<wire x1="58.42" y1="193.04" x2="55.88" y2="193.04" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="193.04" x2="55.88" y2="195.58" width="0.1524" layer="91"/>
+<junction x="55.88" y="195.58"/>
 </segment>
 <segment>
 <pinref part="+3V3" gate="G$1" pin="+3V3"/>
@@ -17033,12 +17035,13 @@ Source: RS Component / BUORNS</description>
 </segment>
 <segment>
 <pinref part="TTL" gate="G$1" pin="VCC"/>
+<wire x1="121.92" y1="238.76" x2="99.06" y2="238.76" width="0.1524" layer="91"/>
+<pinref part="P+9" gate="1" pin="+5V"/>
+</segment>
+<segment>
 <pinref part="P+8" gate="1" pin="+5V"/>
-<wire x1="127" y1="190.5" x2="104.14" y2="190.5" width="0.1524" layer="91"/>
-<wire x1="104.14" y1="190.5" x2="104.14" y2="200.66" width="0.1524" layer="91"/>
 <pinref part="U3" gate="G$1" pin="5V"/>
-<wire x1="78.74" y1="200.66" x2="104.14" y2="200.66" width="0.1524" layer="91"/>
-<junction x="104.14" y="200.66"/>
+<wire x1="58.42" y1="200.66" x2="27.94" y2="200.66" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="P+2" gate="1" pin="+5V"/>
@@ -17086,8 +17089,8 @@ Source: RS Component / BUORNS</description>
 </segment>
 <segment>
 <pinref part="TTL" gate="G$1" pin="SCL"/>
-<wire x1="127" y1="195.58" x2="109.22" y2="195.58" width="0.1524" layer="91"/>
-<label x="109.22" y="195.58" size="1.778" layer="95"/>
+<wire x1="121.92" y1="233.68" x2="101.6" y2="233.68" width="0.1524" layer="91"/>
+<label x="101.6" y="233.68" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="I2C2_SDA" class="0">
@@ -17107,8 +17110,8 @@ Source: RS Component / BUORNS</description>
 </segment>
 <segment>
 <pinref part="TTL" gate="G$1" pin="SDA"/>
-<wire x1="127" y1="198.12" x2="109.22" y2="198.12" width="0.1524" layer="91"/>
-<label x="109.22" y="198.12" size="1.778" layer="95"/>
+<wire x1="121.92" y1="231.14" x2="101.6" y2="231.14" width="0.1524" layer="91"/>
+<label x="101.6" y="231.14" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$25" class="0">
@@ -17190,12 +17193,11 @@ Source: RS Component / BUORNS</description>
 </segment>
 <segment>
 <pinref part="U3" gate="G$1" pin="DIR"/>
-<wire x1="78.74" y1="185.42" x2="78.74" y2="182.88" width="0.1524" layer="91"/>
-<wire x1="78.74" y1="182.88" x2="99.06" y2="182.88" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="185.42" x2="27.94" y2="185.42" width="0.1524" layer="91"/>
 <pinref part="R1" gate="G$1" pin="2"/>
-<wire x1="99.06" y1="182.88" x2="109.22" y2="182.88" width="0.1524" layer="91"/>
-<junction x="99.06" y="182.88"/>
-<label x="106.68" y="182.88" size="1.778" layer="95"/>
+<wire x1="27.94" y1="185.42" x2="15.24" y2="185.42" width="0.1524" layer="91"/>
+<junction x="27.94" y="185.42"/>
+<label x="15.24" y="185.42" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$31" class="0">
@@ -17345,9 +17347,9 @@ Source: RS Component / BUORNS</description>
 <label x="322.58" y="154.94" size="1.778" layer="95"/>
 </segment>
 <segment>
-<label x="35.56" y="215.9" size="1.778" layer="95"/>
-<wire x1="53.34" y1="215.9" x2="38.1" y2="215.9" width="0.1524" layer="91"/>
-<pinref part="U3" gate="G$1" pin="A4"/>
+<label x="35.56" y="213.36" size="1.778" layer="95"/>
+<pinref part="U3" gate="G$1" pin="B5"/>
+<wire x1="58.42" y1="213.36" x2="38.1" y2="213.36" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="GPIO_71" class="0">
@@ -17357,9 +17359,9 @@ Source: RS Component / BUORNS</description>
 <label x="414.02" y="154.94" size="1.778" layer="95"/>
 </segment>
 <segment>
-<label x="35.56" y="218.44" size="1.778" layer="95"/>
-<wire x1="53.34" y1="218.44" x2="38.1" y2="218.44" width="0.1524" layer="91"/>
-<pinref part="U3" gate="G$1" pin="A3"/>
+<label x="35.56" y="210.82" size="1.778" layer="95"/>
+<pinref part="U3" gate="G$1" pin="B6"/>
+<wire x1="58.42" y1="210.82" x2="38.1" y2="210.82" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="GPIO_72" class="0">
@@ -17369,9 +17371,9 @@ Source: RS Component / BUORNS</description>
 <label x="322.58" y="157.48" size="1.778" layer="95"/>
 </segment>
 <segment>
-<label x="35.56" y="220.98" size="1.778" layer="95"/>
-<wire x1="53.34" y1="220.98" x2="38.1" y2="220.98" width="0.1524" layer="91"/>
-<pinref part="U3" gate="G$1" pin="A2"/>
+<label x="35.56" y="208.28" size="1.778" layer="95"/>
+<pinref part="U3" gate="G$1" pin="B7"/>
+<wire x1="58.42" y1="208.28" x2="38.1" y2="208.28" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="GPIO_73" class="0">
@@ -17381,9 +17383,9 @@ Source: RS Component / BUORNS</description>
 <label x="414.02" y="157.48" size="1.778" layer="95"/>
 </segment>
 <segment>
-<label x="35.56" y="223.52" size="1.778" layer="95"/>
-<wire x1="53.34" y1="223.52" x2="38.1" y2="223.52" width="0.1524" layer="91"/>
-<pinref part="U3" gate="G$1" pin="A1"/>
+<label x="35.56" y="205.74" size="1.778" layer="95"/>
+<pinref part="U3" gate="G$1" pin="B8"/>
+<wire x1="58.42" y1="205.74" x2="38.1" y2="205.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="GPIO_75" class="0">
@@ -17580,9 +17582,9 @@ Source: RS Component / BUORNS</description>
 <label x="325.12" y="167.64" size="1.778" layer="95"/>
 </segment>
 <segment>
-<label x="35.56" y="213.36" size="1.778" layer="95"/>
-<wire x1="53.34" y1="213.36" x2="38.1" y2="213.36" width="0.1524" layer="91"/>
-<pinref part="U3" gate="G$1" pin="A5"/>
+<label x="35.56" y="215.9" size="1.778" layer="95"/>
+<pinref part="U3" gate="G$1" pin="B4"/>
+<wire x1="58.42" y1="215.9" x2="38.1" y2="215.9" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="GPIO_9" class="0">
@@ -17592,9 +17594,9 @@ Source: RS Component / BUORNS</description>
 <label x="325.12" y="170.18" size="1.778" layer="95"/>
 </segment>
 <segment>
-<label x="35.56" y="210.82" size="1.778" layer="95"/>
-<wire x1="53.34" y1="210.82" x2="38.1" y2="210.82" width="0.1524" layer="91"/>
-<pinref part="U3" gate="G$1" pin="A6"/>
+<label x="35.56" y="218.44" size="1.778" layer="95"/>
+<pinref part="U3" gate="G$1" pin="B3"/>
+<wire x1="58.42" y1="218.44" x2="38.1" y2="218.44" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="GPIO_10" class="0">
@@ -17604,9 +17606,9 @@ Source: RS Component / BUORNS</description>
 <label x="325.12" y="172.72" size="1.778" layer="95"/>
 </segment>
 <segment>
-<label x="35.56" y="205.74" size="1.778" layer="95"/>
-<wire x1="53.34" y1="205.74" x2="38.1" y2="205.74" width="0.1524" layer="91"/>
-<pinref part="U3" gate="G$1" pin="A8"/>
+<label x="35.56" y="223.52" size="1.778" layer="95"/>
+<pinref part="U3" gate="G$1" pin="B1"/>
+<wire x1="58.42" y1="223.52" x2="38.1" y2="223.52" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="GPIO_11" class="0">
@@ -17616,65 +17618,9 @@ Source: RS Component / BUORNS</description>
 <label x="414.02" y="172.72" size="1.778" layer="95"/>
 </segment>
 <segment>
-<label x="35.56" y="208.28" size="1.778" layer="95"/>
-<wire x1="53.34" y1="208.28" x2="38.1" y2="208.28" width="0.1524" layer="91"/>
-<pinref part="U3" gate="G$1" pin="A7"/>
-</segment>
-</net>
-<net name="TTL_71" class="0">
-<segment>
-<pinref part="TTL" gate="G$1" pin="DATA1+"/>
-<wire x1="78.74" y1="218.44" x2="127" y2="218.44" width="0.1524" layer="91"/>
-<pinref part="U3" gate="G$1" pin="B3"/>
-</segment>
-</net>
-<net name="TTL_70" class="0">
-<segment>
-<pinref part="U3" gate="G$1" pin="B4"/>
-<pinref part="TTL" gate="G$1" pin="DATA1-"/>
-<wire x1="78.74" y1="215.9" x2="127" y2="215.9" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="TTL_8" class="0">
-<segment>
-<pinref part="U3" gate="G$1" pin="B5"/>
-<pinref part="TTL" gate="G$1" pin="DATA0+"/>
-<wire x1="78.74" y1="213.36" x2="127" y2="213.36" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="TTL_9" class="0">
-<segment>
-<pinref part="U3" gate="G$1" pin="B6"/>
-<pinref part="TTL" gate="G$1" pin="DATA0-"/>
-<wire x1="78.74" y1="210.82" x2="127" y2="210.82" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="TTL_11" class="0">
-<segment>
-<pinref part="U3" gate="G$1" pin="B7"/>
-<pinref part="TTL" gate="G$1" pin="CLOCK+"/>
-<wire x1="78.74" y1="208.28" x2="127" y2="208.28" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="TTL_10" class="0">
-<segment>
-<pinref part="U3" gate="G$1" pin="B8"/>
-<pinref part="TTL" gate="G$1" pin="CLOCK-"/>
-<wire x1="78.74" y1="205.74" x2="127" y2="205.74" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="TTL_72" class="0">
-<segment>
+<label x="35.56" y="220.98" size="1.778" layer="95"/>
 <pinref part="U3" gate="G$1" pin="B2"/>
-<pinref part="TTL" gate="G$1" pin="DATA2-"/>
-<wire x1="127" y1="220.98" x2="78.74" y2="220.98" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="TTL_73" class="0">
-<segment>
-<pinref part="U3" gate="G$1" pin="B1"/>
-<pinref part="TTL" gate="G$1" pin="DATA2+"/>
-<wire x1="78.74" y1="223.52" x2="127" y2="223.52" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="220.98" x2="38.1" y2="220.98" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="GPIO_46" class="0">
@@ -17711,6 +17657,62 @@ Source: RS Component / BUORNS</description>
 <pinref part="I75-O87" gate="G$1" pin="3"/>
 <wire x1="76.2" y1="279.4" x2="66.04" y2="279.4" width="0.1524" layer="91"/>
 <label x="63.5" y="279.4" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$5" class="0">
+<segment>
+<pinref part="U3" gate="G$1" pin="A8"/>
+<pinref part="TTL" gate="G$1" pin="DATA2+"/>
+<wire x1="83.82" y1="205.74" x2="121.92" y2="205.74" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$6" class="0">
+<segment>
+<pinref part="U3" gate="G$1" pin="A7"/>
+<pinref part="TTL" gate="G$1" pin="DATA2-"/>
+<wire x1="83.82" y1="208.28" x2="121.92" y2="208.28" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$7" class="0">
+<segment>
+<pinref part="U3" gate="G$1" pin="A6"/>
+<pinref part="TTL" gate="G$1" pin="DATA1+"/>
+<wire x1="83.82" y1="210.82" x2="121.92" y2="210.82" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$8" class="0">
+<segment>
+<pinref part="U3" gate="G$1" pin="A5"/>
+<pinref part="TTL" gate="G$1" pin="DATA1-"/>
+<wire x1="83.82" y1="213.36" x2="121.92" y2="213.36" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$9" class="0">
+<segment>
+<pinref part="U3" gate="G$1" pin="A4"/>
+<pinref part="TTL" gate="G$1" pin="DATA0+"/>
+<wire x1="83.82" y1="215.9" x2="121.92" y2="215.9" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$10" class="0">
+<segment>
+<pinref part="U3" gate="G$1" pin="A3"/>
+<pinref part="TTL" gate="G$1" pin="DATA0-"/>
+<wire x1="83.82" y1="218.44" x2="121.92" y2="218.44" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$11" class="0">
+<segment>
+<pinref part="U3" gate="G$1" pin="A2"/>
+<pinref part="TTL" gate="G$1" pin="CLOCK+"/>
+<wire x1="83.82" y1="220.98" x2="121.92" y2="220.98" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$12" class="0">
+<segment>
+<pinref part="U3" gate="G$1" pin="A1"/>
+<pinref part="TTL" gate="G$1" pin="CLOCK-"/>
+<wire x1="83.82" y1="223.52" x2="121.92" y2="223.52" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
