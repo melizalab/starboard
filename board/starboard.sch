@@ -16291,6 +16291,115 @@ Source: RS Component / BUORNS</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="pinhead">
+<description>&lt;b&gt;Pin Header Connectors&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
+<packages>
+<package name="1X03">
+<description>&lt;b&gt;PIN HEADER&lt;/b&gt;</description>
+<wire x1="-3.175" y1="1.27" x2="-1.905" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="-1.905" y1="1.27" x2="-1.27" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="-1.27" y1="0.635" x2="-1.27" y2="-0.635" width="0.1524" layer="21"/>
+<wire x1="-1.27" y1="-0.635" x2="-1.905" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="-1.27" y1="0.635" x2="-0.635" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="-0.635" y1="1.27" x2="0.635" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="0.635" y1="1.27" x2="1.27" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="1.27" y1="0.635" x2="1.27" y2="-0.635" width="0.1524" layer="21"/>
+<wire x1="1.27" y1="-0.635" x2="0.635" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="0.635" y1="-1.27" x2="-0.635" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="-0.635" y1="-1.27" x2="-1.27" y2="-0.635" width="0.1524" layer="21"/>
+<wire x1="-3.81" y1="0.635" x2="-3.81" y2="-0.635" width="0.1524" layer="21"/>
+<wire x1="-3.175" y1="1.27" x2="-3.81" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="-3.81" y1="-0.635" x2="-3.175" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="-1.905" y1="-1.27" x2="-3.175" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="1.27" y1="0.635" x2="1.905" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="1.905" y1="1.27" x2="3.175" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="3.175" y1="1.27" x2="3.81" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="3.81" y1="0.635" x2="3.81" y2="-0.635" width="0.1524" layer="21"/>
+<wire x1="3.81" y1="-0.635" x2="3.175" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="3.175" y1="-1.27" x2="1.905" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="1.905" y1="-1.27" x2="1.27" y2="-0.635" width="0.1524" layer="21"/>
+<pad name="1" x="-2.54" y="0" drill="1.016" shape="long" rot="R90"/>
+<pad name="2" x="0" y="0" drill="1.016" shape="long" rot="R90"/>
+<pad name="3" x="2.54" y="0" drill="1.016" shape="long" rot="R90"/>
+<text x="-3.8862" y="1.8288" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-3.81" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="-0.254" y1="-0.254" x2="0.254" y2="0.254" layer="51"/>
+<rectangle x1="-2.794" y1="-0.254" x2="-2.286" y2="0.254" layer="51"/>
+<rectangle x1="2.286" y1="-0.254" x2="2.794" y2="0.254" layer="51"/>
+</package>
+<package name="1X03/90">
+<description>&lt;b&gt;PIN HEADER&lt;/b&gt;</description>
+<wire x1="-3.81" y1="-1.905" x2="-1.27" y2="-1.905" width="0.1524" layer="21"/>
+<wire x1="-1.27" y1="-1.905" x2="-1.27" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="-1.27" y1="0.635" x2="-3.81" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="-3.81" y1="0.635" x2="-3.81" y2="-1.905" width="0.1524" layer="21"/>
+<wire x1="-2.54" y1="6.985" x2="-2.54" y2="1.27" width="0.762" layer="21"/>
+<wire x1="-1.27" y1="-1.905" x2="1.27" y2="-1.905" width="0.1524" layer="21"/>
+<wire x1="1.27" y1="-1.905" x2="1.27" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="1.27" y1="0.635" x2="-1.27" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="0" y1="6.985" x2="0" y2="1.27" width="0.762" layer="21"/>
+<wire x1="1.27" y1="-1.905" x2="3.81" y2="-1.905" width="0.1524" layer="21"/>
+<wire x1="3.81" y1="-1.905" x2="3.81" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="3.81" y1="0.635" x2="1.27" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="2.54" y1="6.985" x2="2.54" y2="1.27" width="0.762" layer="21"/>
+<pad name="1" x="-2.54" y="-3.81" drill="1.016" shape="long" rot="R90"/>
+<pad name="2" x="0" y="-3.81" drill="1.016" shape="long" rot="R90"/>
+<pad name="3" x="2.54" y="-3.81" drill="1.016" shape="long" rot="R90"/>
+<text x="-4.445" y="-3.81" size="1.27" layer="25" ratio="10" rot="R90">&gt;NAME</text>
+<text x="5.715" y="-3.81" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
+<rectangle x1="-2.921" y1="0.635" x2="-2.159" y2="1.143" layer="21"/>
+<rectangle x1="-0.381" y1="0.635" x2="0.381" y2="1.143" layer="21"/>
+<rectangle x1="2.159" y1="0.635" x2="2.921" y2="1.143" layer="21"/>
+<rectangle x1="-2.921" y1="-2.921" x2="-2.159" y2="-1.905" layer="21"/>
+<rectangle x1="-0.381" y1="-2.921" x2="0.381" y2="-1.905" layer="21"/>
+<rectangle x1="2.159" y1="-2.921" x2="2.921" y2="-1.905" layer="21"/>
+</package>
+</packages>
+<symbols>
+<symbol name="PINHD3">
+<wire x1="-6.35" y1="-5.08" x2="1.27" y2="-5.08" width="0.4064" layer="94"/>
+<wire x1="1.27" y1="-5.08" x2="1.27" y2="5.08" width="0.4064" layer="94"/>
+<wire x1="1.27" y1="5.08" x2="-6.35" y2="5.08" width="0.4064" layer="94"/>
+<wire x1="-6.35" y1="5.08" x2="-6.35" y2="-5.08" width="0.4064" layer="94"/>
+<text x="-6.35" y="5.715" size="1.778" layer="95">&gt;NAME</text>
+<text x="-6.35" y="-7.62" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="1" x="-2.54" y="2.54" visible="pad" length="short" direction="pas" function="dot"/>
+<pin name="2" x="-2.54" y="0" visible="pad" length="short" direction="pas" function="dot"/>
+<pin name="3" x="-2.54" y="-2.54" visible="pad" length="short" direction="pas" function="dot"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="PINHD-1X3" prefix="JP" uservalue="yes">
+<description>&lt;b&gt;PIN HEADER&lt;/b&gt;</description>
+<gates>
+<gate name="A" symbol="PINHD3" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="1X03">
+<connects>
+<connect gate="A" pin="1" pad="1"/>
+<connect gate="A" pin="2" pad="2"/>
+<connect gate="A" pin="3" pad="3"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="/90" package="1X03/90">
+<connects>
+<connect gate="A" pin="1" pad="1"/>
+<connect gate="A" pin="2" pad="2"/>
+<connect gate="A" pin="3" pad="3"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -16379,7 +16488,6 @@ Source: RS Component / BUORNS</description>
 <part name="P+8" library="supply1" deviceset="+5V" device=""/>
 <part name="+3V1" library="supply1" deviceset="+3V3" device=""/>
 <part name="U3" library="open-ephys" deviceset="OCTAL_BUS_TRANSCEIVER" device=""/>
-<part name="R1" library="rcl" deviceset="R-US_" device="R0603" value="4.7k"/>
 <part name="R2" library="Seeed-OPL-Resistor" deviceset="RES-ARRAY" device="-1206" value="4.7k"/>
 <part name="C10" library="rcl" deviceset="C-EU" device="C0603" value="0.1uF"/>
 <part name="+3V3" library="supply1" deviceset="+3V3" device=""/>
@@ -16392,6 +16500,8 @@ Source: RS Component / BUORNS</description>
 <part name="C14" library="rcl" deviceset="C-EU" device="C0603" value="0.1uF"/>
 <part name="+3V5" library="supply1" deviceset="+3V3" device=""/>
 <part name="P+9" library="supply1" deviceset="+5V" device=""/>
+<part name="IN" library="pinhead" deviceset="PINHD-1X3" device=""/>
+<part name="R1" library="rcl" deviceset="R-US_" device="R0603" value="5.6k"/>
 </parts>
 <sheets>
 <sheet>
@@ -16477,8 +16587,8 @@ Source: RS Component / BUORNS</description>
 <instance part="VDD2" gate="G$1" x="43.18" y="160.02"/>
 <instance part="VDD3" gate="G$1" x="43.18" y="121.92"/>
 <instance part="TTL" gate="G$1" x="127" y="226.06" rot="R180"/>
-<instance part="+3V2" gate="G$1" x="20.32" y="198.12"/>
-<instance part="GND12" gate="1" x="96.52" y="175.26"/>
+<instance part="+3V2" gate="G$1" x="45.72" y="198.12"/>
+<instance part="GND12" gate="1" x="96.52" y="172.72"/>
 <instance part="P+5" gate="1" x="20.32" y="294.64"/>
 <instance part="GND17" gate="1" x="20.32" y="264.16"/>
 <instance part="SW2" gate="G$1" x="223.52" y="271.78"/>
@@ -16493,7 +16603,6 @@ Source: RS Component / BUORNS</description>
 <instance part="P+8" gate="1" x="27.94" y="203.2"/>
 <instance part="+3V1" gate="G$1" x="20.32" y="144.78"/>
 <instance part="U3" gate="G$1" x="68.58" y="208.28" rot="MR0"/>
-<instance part="R1" gate="G$1" x="27.94" y="190.5" rot="R270"/>
 <instance part="R2" gate="A" x="43.18" y="86.36" rot="R90"/>
 <instance part="R2" gate="B" x="50.8" y="86.36" rot="R90"/>
 <instance part="R2" gate="C" x="58.42" y="86.36" rot="R90"/>
@@ -16509,6 +16618,8 @@ Source: RS Component / BUORNS</description>
 <instance part="C14" gate="G$1" x="281.94" y="66.04"/>
 <instance part="+3V5" gate="G$1" x="281.94" y="86.36"/>
 <instance part="P+9" gate="1" x="99.06" y="241.3"/>
+<instance part="IN" gate="A" x="30.48" y="185.42" rot="R180"/>
+<instance part="R1" gate="G$1" x="43.18" y="180.34" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -16639,32 +16750,30 @@ Source: RS Component / BUORNS</description>
 <pinref part="TTL" gate="G$1" pin="CECGND"/>
 <pinref part="GND12" gate="1" pin="GND"/>
 <pinref part="TTL" gate="G$1" pin="CLOCKSHIELD"/>
-<wire x1="114.3" y1="177.8" x2="96.52" y2="177.8" width="0.1524" layer="91"/>
+<wire x1="114.3" y1="175.26" x2="96.52" y2="175.26" width="0.1524" layer="91"/>
 <pinref part="TTL" gate="G$1" pin="DATA0SHIELD"/>
 <pinref part="TTL" gate="G$1" pin="DATA1SHIELD"/>
 <pinref part="TTL" gate="G$1" pin="DATA2SHIELD"/>
-<junction x="96.52" y="177.8"/>
+<junction x="96.52" y="175.26"/>
 <pinref part="U3" gate="G$1" pin="GND1"/>
 <wire x1="83.82" y1="190.5" x2="96.52" y2="190.5" width="0.1524" layer="91"/>
 <pinref part="U3" gate="G$1" pin="GND3"/>
 <wire x1="96.52" y1="190.5" x2="96.52" y2="187.96" width="0.1524" layer="91"/>
 <wire x1="96.52" y1="187.96" x2="96.52" y2="185.42" width="0.1524" layer="91"/>
-<wire x1="96.52" y1="185.42" x2="96.52" y2="177.8" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="185.42" x2="96.52" y2="175.26" width="0.1524" layer="91"/>
 <wire x1="83.82" y1="185.42" x2="96.52" y2="185.42" width="0.1524" layer="91"/>
 <junction x="96.52" y="185.42"/>
 <pinref part="U3" gate="G$1" pin="GND2"/>
 <wire x1="83.82" y1="187.96" x2="96.52" y2="187.96" width="0.1524" layer="91"/>
 <junction x="96.52" y="187.96"/>
 <pinref part="U3" gate="G$1" pin="OE"/>
-<wire x1="55.88" y1="187.96" x2="58.42" y2="187.96" width="0.1524" layer="91"/>
-<wire x1="58.42" y1="187.96" x2="58.42" y2="177.8" width="0.1524" layer="91"/>
-<wire x1="58.42" y1="177.8" x2="96.52" y2="177.8" width="0.1524" layer="91"/>
+<wire x1="50.8" y1="175.26" x2="96.52" y2="175.26" width="0.1524" layer="91"/>
 <wire x1="121.92" y1="251.46" x2="114.3" y2="251.46" width="0.1524" layer="91"/>
 <wire x1="114.3" y1="251.46" x2="114.3" y2="248.92" width="0.1524" layer="91"/>
 <wire x1="114.3" y1="248.92" x2="114.3" y2="246.38" width="0.1524" layer="91"/>
 <wire x1="114.3" y1="246.38" x2="114.3" y2="243.84" width="0.1524" layer="91"/>
 <wire x1="114.3" y1="243.84" x2="114.3" y2="241.3" width="0.1524" layer="91"/>
-<wire x1="114.3" y1="241.3" x2="114.3" y2="177.8" width="0.1524" layer="91"/>
+<wire x1="114.3" y1="241.3" x2="114.3" y2="175.26" width="0.1524" layer="91"/>
 <wire x1="121.92" y1="248.92" x2="114.3" y2="248.92" width="0.1524" layer="91"/>
 <junction x="114.3" y="248.92"/>
 <wire x1="121.92" y1="246.38" x2="114.3" y2="246.38" width="0.1524" layer="91"/>
@@ -16673,6 +16782,11 @@ Source: RS Component / BUORNS</description>
 <junction x="114.3" y="243.84"/>
 <wire x1="121.92" y1="241.3" x2="114.3" y2="241.3" width="0.1524" layer="91"/>
 <junction x="114.3" y="241.3"/>
+<wire x1="50.8" y1="175.26" x2="50.8" y2="187.96" width="0.1524" layer="91"/>
+<wire x1="50.8" y1="187.96" x2="58.42" y2="187.96" width="0.1524" layer="91"/>
+<pinref part="R1" gate="G$1" pin="1"/>
+<wire x1="50.8" y1="175.26" x2="43.18" y2="175.26" width="0.1524" layer="91"/>
+<junction x="50.8" y="175.26"/>
 </segment>
 <segment>
 <pinref part="GND17" gate="1" pin="GND"/>
@@ -16811,19 +16925,6 @@ Source: RS Component / BUORNS</description>
 <pinref part="+3V1" gate="G$1" pin="+3V3"/>
 </segment>
 <segment>
-<pinref part="U3" gate="G$1" pin="3V3_A"/>
-<pinref part="+3V2" gate="G$1" pin="+3V3"/>
-<wire x1="20.32" y1="195.58" x2="55.88" y2="195.58" width="0.1524" layer="91"/>
-<junction x="20.32" y="195.58"/>
-<pinref part="R1" gate="G$1" pin="1"/>
-<wire x1="55.88" y1="195.58" x2="58.42" y2="195.58" width="0.1524" layer="91"/>
-<wire x1="20.32" y1="195.58" x2="27.94" y2="195.58" width="0.1524" layer="91"/>
-<pinref part="U3" gate="G$1" pin="3V3_B"/>
-<wire x1="58.42" y1="193.04" x2="55.88" y2="193.04" width="0.1524" layer="91"/>
-<wire x1="55.88" y1="193.04" x2="55.88" y2="195.58" width="0.1524" layer="91"/>
-<junction x="55.88" y="195.58"/>
-</segment>
-<segment>
 <pinref part="+3V3" gate="G$1" pin="+3V3"/>
 <pinref part="C10" gate="G$1" pin="1"/>
 <wire x1="220.98" y1="83.82" x2="220.98" y2="68.58" width="0.1524" layer="91"/>
@@ -16837,6 +16938,15 @@ Source: RS Component / BUORNS</description>
 <pinref part="+3V5" gate="G$1" pin="+3V3"/>
 <pinref part="C14" gate="G$1" pin="1"/>
 <wire x1="281.94" y1="83.82" x2="281.94" y2="68.58" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U3" gate="G$1" pin="3V3_A"/>
+<pinref part="+3V2" gate="G$1" pin="+3V3"/>
+<wire x1="58.42" y1="195.58" x2="45.72" y2="195.58" width="0.1524" layer="91"/>
+<pinref part="U3" gate="G$1" pin="3V3_B"/>
+<wire x1="58.42" y1="193.04" x2="45.72" y2="193.04" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="193.04" x2="45.72" y2="195.58" width="0.1524" layer="91"/>
+<junction x="45.72" y="195.58"/>
 </segment>
 </net>
 <net name="HOUSE_LGHT" class="0">
@@ -17041,7 +17151,11 @@ Source: RS Component / BUORNS</description>
 <segment>
 <pinref part="P+8" gate="1" pin="+5V"/>
 <pinref part="U3" gate="G$1" pin="5V"/>
-<wire x1="58.42" y1="200.66" x2="27.94" y2="200.66" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="200.66" x2="33.02" y2="200.66" width="0.1524" layer="91"/>
+<pinref part="IN" gate="A" pin="3"/>
+<wire x1="33.02" y1="200.66" x2="27.94" y2="200.66" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="187.96" x2="33.02" y2="200.66" width="0.1524" layer="91"/>
+<junction x="33.02" y="200.66"/>
 </segment>
 <segment>
 <pinref part="P+2" gate="1" pin="+5V"/>
@@ -17190,14 +17304,6 @@ Source: RS Component / BUORNS</description>
 <pinref part="BBB" gate="G$1" pin="GPIO1_17"/>
 <wire x1="345.44" y1="116.84" x2="327.66" y2="116.84" width="0.1524" layer="91"/>
 <label x="325.12" y="116.84" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="U3" gate="G$1" pin="DIR"/>
-<wire x1="58.42" y1="185.42" x2="27.94" y2="185.42" width="0.1524" layer="91"/>
-<pinref part="R1" gate="G$1" pin="2"/>
-<wire x1="27.94" y1="185.42" x2="15.24" y2="185.42" width="0.1524" layer="91"/>
-<junction x="27.94" y="185.42"/>
-<label x="15.24" y="185.42" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$31" class="0">
@@ -17713,6 +17819,16 @@ Source: RS Component / BUORNS</description>
 <pinref part="U3" gate="G$1" pin="A1"/>
 <pinref part="TTL" gate="G$1" pin="CLOCK-"/>
 <wire x1="83.82" y1="223.52" x2="121.92" y2="223.52" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$13" class="0">
+<segment>
+<pinref part="U3" gate="G$1" pin="DIR"/>
+<pinref part="IN" gate="A" pin="2"/>
+<wire x1="58.42" y1="185.42" x2="43.18" y2="185.42" width="0.1524" layer="91"/>
+<pinref part="R1" gate="G$1" pin="2"/>
+<wire x1="43.18" y1="185.42" x2="33.02" y2="185.42" width="0.1524" layer="91"/>
+<junction x="43.18" y="185.42"/>
 </segment>
 </net>
 </nets>
