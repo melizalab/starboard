@@ -10,6 +10,7 @@ Pins can also be mapped to specific Linux devices, such as the sound card.
 The DTS files are "device tree overlays" that can be loaded into the kernel
 either at boot or later from the shell. There are different DTS files for each
 revision of the cape, reflecting changes in which pins are used for what. The
+
 DTS files need to be compiled to a binary format. The best way to do this is to
 use the build toolchain for the capes at bb.org. To set up this toolchain:
 

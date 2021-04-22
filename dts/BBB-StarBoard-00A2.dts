@@ -99,8 +99,7 @@
                 };
         };
 
-
-        /* enables pwm outputs - not sure what first device is but it's needed */
+        /* enables pwm outputs */
         fragment@2 {
                 target = <&epwmss2>;
                 __overlay__ {
@@ -194,19 +193,6 @@
                                         label = "starboard:left:blue";
                                         gpios = <&gpio2 8 GPIO_ACTIVE_HIGH>; /* P8.43 */
                                         default-state = "off";
-                                };
-                        };
-                        sbd-hopdet {
-                                compatible = "gpio-keys";
-                                pinctrl-names = "default";
-                                pinctrl-0 = <&hopdet_gpio>;
-                                status = "okay";
-                                hopper-up {
-                                        label = "starboard::hopper-up";
-                                        debounce_interval = <100>;
-                                        linux,code = <1>;
-                                        gpios = <&gpio1 14 0x5>; /* P8.16 */
-                                        gpio-key,wakeup;
                                 };
                         };
                 };
