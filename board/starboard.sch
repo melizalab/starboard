@@ -15674,10 +15674,10 @@ MOS dual H-bridge motor driver, 1.2A current 3.2A peak
 <smd name="P$17" x="-3.25" y="3.95" dx="0.3" dy="2.6" layer="1" cream="no"/>
 <smd name="P$18" x="-3.75" y="3.95" dx="0.3" dy="2.6" layer="1" cream="no"/>
 <smd name="P$19" x="-4.25" y="3.95" dx="0.3" dy="2.6" layer="1" cream="no"/>
-<pad name="P$20" x="-7.25" y="3" drill="1.35"/>
-<pad name="P$21" x="7.25" y="3" drill="1.35"/>
-<pad name="P$22" x="7.25" y="-2.96" drill="0.85"/>
-<pad name="P$23" x="-7.25" y="-2.96" drill="0.85"/>
+<pad name="P$20" x="-7.25" y="3" drill="2.2"/>
+<pad name="P$21" x="7.25" y="3" drill="2.2"/>
+<pad name="P$22" x="7.25" y="-2.96" drill="1.3"/>
+<pad name="P$23" x="-7.25" y="-2.96" drill="1.3"/>
 <wire x1="-6" y1="4" x2="-6.5" y2="4" width="0.127" layer="21"/>
 <wire x1="-6.5" y1="4" x2="-7.5" y2="4" width="0.127" layer="21"/>
 <wire x1="-7.5" y1="4" x2="-7.5" y2="-1.5" width="0.127" layer="21"/>
@@ -15811,9 +15811,9 @@ MOS dual H-bridge motor driver, 1.2A current 3.2A peak
 <wire x1="-4.5" y1="5.3" x2="4.9" y2="5.3" width="0.127" layer="21"/>
 </package>
 <package name="PJ-102AH">
-<pad name="3" x="-4.8" y="0" drill="3.5" rot="R90"/>
-<pad name="2" x="0" y="3" drill="3.5" rot="R180"/>
-<pad name="1" x="0" y="-3" drill="3.5" rot="R180"/>
+<pad name="3" x="-4.8" y="0" drill="3" rot="R90"/>
+<pad name="2" x="0" y="3" drill="3.4" rot="R180"/>
+<pad name="1" x="0" y="-3" drill="3.4" rot="R180"/>
 <wire x1="-1.5" y1="-3" x2="-4.7" y2="-3" width="0.1524" layer="21"/>
 <wire x1="-4.7" y1="-3" x2="-4.7" y2="-2.5" width="0.1524" layer="21"/>
 <wire x1="1.5" y1="-3" x2="4.7" y2="-3" width="0.1524" layer="21"/>
@@ -16509,7 +16509,7 @@ Source: RS Component / BUORNS</description>
 <text x="337.82" y="63.5" size="2.54" layer="94">Meliza Lab - University of Virginia</text>
 <text x="426.72" y="43.18" size="2.54" layer="94">B2</text>
 <text x="25.4" y="101.6" size="1.778" layer="97">EEPROM</text>
-<text x="309.88" y="307.34" size="1.778" layer="97">POWER</text>
+<text x="281.94" y="304.8" size="1.778" layer="97">POWER</text>
 <text x="27.94" y="299.72" size="1.778" layer="97">I2C Ports</text>
 <text x="25.4" y="165.1" size="1.778" layer="97">POWER OUTPUTS</text>
 <text x="43.18" y="101.6" size="1.778" layer="97">EEPROM is read-only unless EP_WP is grounded</text>
@@ -16525,25 +16525,25 @@ Source: RS Component / BUORNS</description>
 <instance part="BBB" gate="G$1" x="373.38" y="149.86"/>
 <instance part="FRAME2" gate="G$1" x="10.16" y="35.56"/>
 <instance part="FRAME2" gate="G$2" x="335.28" y="35.56"/>
-<instance part="12V" gate="A" x="426.72" y="294.64" rot="MR0"/>
-<instance part="VDD1" gate="G$1" x="414.02" y="304.8"/>
-<instance part="C1" gate="G$1" x="403.86" y="287.02" rot="R90"/>
-<instance part="C2" gate="G$1" x="403.86" y="279.4" rot="R90"/>
-<instance part="C6" gate="G$1" x="345.44" y="284.48"/>
-<instance part="C7" gate="G$1" x="353.06" y="284.48"/>
-<instance part="REG" gate="A" x="378.46" y="292.1"/>
-<instance part="R23" gate="G$1" x="340.36" y="274.32" rot="R90"/>
-<instance part="R22" gate="G$1" x="330.2" y="289.56"/>
-<instance part="C3" gate="G$1" x="347.98" y="299.72" rot="R90"/>
-<instance part="L1" gate="G$1" x="330.2" y="297.18" rot="R90"/>
-<instance part="GND6" gate="1" x="360.68" y="261.62"/>
-<instance part="AGND1" gate="VR1" x="353.06" y="261.62"/>
-<instance part="AGND2" gate="VR1" x="340.36" y="261.62"/>
-<instance part="GND7" gate="1" x="414.02" y="261.62"/>
-<instance part="GND8" gate="1" x="345.44" y="261.62"/>
-<instance part="P+1" gate="1" x="304.8" y="304.8"/>
-<instance part="C4" gate="G$1" x="304.8" y="287.02" rot="R180"/>
-<instance part="GND9" gate="1" x="304.8" y="264.16"/>
+<instance part="12V" gate="A" x="421.64" y="292.1" rot="MR0"/>
+<instance part="VDD1" gate="G$1" x="386.08" y="302.26"/>
+<instance part="C1" gate="G$1" x="375.92" y="284.48" rot="R90"/>
+<instance part="C2" gate="G$1" x="375.92" y="276.86" rot="R90"/>
+<instance part="C6" gate="G$1" x="317.5" y="281.94"/>
+<instance part="C7" gate="G$1" x="325.12" y="281.94"/>
+<instance part="REG" gate="A" x="350.52" y="289.56"/>
+<instance part="R23" gate="G$1" x="312.42" y="271.78" rot="R90"/>
+<instance part="R22" gate="G$1" x="302.26" y="287.02"/>
+<instance part="C3" gate="G$1" x="320.04" y="297.18" rot="R90"/>
+<instance part="L1" gate="G$1" x="302.26" y="294.64" rot="R90"/>
+<instance part="GND6" gate="1" x="332.74" y="259.08"/>
+<instance part="AGND1" gate="VR1" x="325.12" y="259.08"/>
+<instance part="AGND2" gate="VR1" x="312.42" y="259.08"/>
+<instance part="GND7" gate="1" x="386.08" y="259.08"/>
+<instance part="GND8" gate="1" x="317.5" y="259.08"/>
+<instance part="P+1" gate="1" x="276.86" y="302.26"/>
+<instance part="C4" gate="G$1" x="276.86" y="284.48" rot="R180"/>
+<instance part="GND9" gate="1" x="276.86" y="261.62"/>
 <instance part="Q1" gate="G$1" x="218.44" y="129.54" smashed="yes">
 <attribute name="NAME" x="224.79" y="127" size="1.778" layer="95"/>
 </instance>
@@ -16563,14 +16563,14 @@ Source: RS Component / BUORNS</description>
 <instance part="GND14" gate="1" x="160.02" y="40.64"/>
 <instance part="GND15" gate="1" x="121.92" y="40.64"/>
 <instance part="+3V11" gate="G$1" x="20.32" y="104.14"/>
-<instance part="C5" gate="G$1" x="312.42" y="287.02" rot="R180"/>
-<instance part="R21" gate="G$1" x="403.86" y="302.26"/>
-<instance part="GND16" gate="1" x="327.66" y="231.14"/>
+<instance part="C5" gate="G$1" x="284.48" y="284.48" rot="R180"/>
+<instance part="R21" gate="G$1" x="375.92" y="299.72"/>
+<instance part="GND16" gate="1" x="299.72" y="228.6"/>
 <instance part="+3V8" gate="G$1" x="411.48" y="147.32"/>
 <instance part="P+4" gate="1" x="419.1" y="147.32"/>
-<instance part="+5V" gate="G$1" x="312.42" y="299.72"/>
-<instance part="DGND" gate="G$1" x="327.66" y="246.38"/>
-<instance part="AGND3" gate="VR1" x="340.36" y="231.14"/>
+<instance part="+5V" gate="G$1" x="284.48" y="297.18"/>
+<instance part="DGND" gate="G$1" x="299.72" y="243.84"/>
+<instance part="AGND3" gate="VR1" x="312.42" y="228.6"/>
 <instance part="R40" gate="G$1" x="210.82" y="127"/>
 <instance part="+3V14" gate="G$1" x="335.28" y="147.32"/>
 <instance part="P+3" gate="1" x="327.66" y="147.32"/>
@@ -16628,25 +16628,25 @@ Source: RS Component / BUORNS</description>
 <segment>
 <pinref part="REG" gate="A" pin="EP"/>
 <pinref part="REG" gate="A" pin="GND"/>
-<wire x1="360.68" y1="279.4" x2="360.68" y2="276.86" width="0.1524" layer="91"/>
-<junction x="360.68" y="276.86"/>
-<wire x1="360.68" y1="276.86" x2="360.68" y2="264.16" width="0.1524" layer="91"/>
+<wire x1="332.74" y1="276.86" x2="332.74" y2="274.32" width="0.1524" layer="91"/>
+<junction x="332.74" y="274.32"/>
+<wire x1="332.74" y1="274.32" x2="332.74" y2="261.62" width="0.1524" layer="91"/>
 <pinref part="GND6" gate="1" pin="GND"/>
 </segment>
 <segment>
 <pinref part="C6" gate="G$1" pin="2"/>
 <pinref part="GND8" gate="1" pin="GND"/>
-<wire x1="345.44" y1="279.4" x2="345.44" y2="264.16" width="0.1524" layer="91"/>
+<wire x1="317.5" y1="276.86" x2="317.5" y2="261.62" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="C4" gate="G$1" pin="1"/>
 <pinref part="GND9" gate="1" pin="GND"/>
-<wire x1="304.8" y1="284.48" x2="304.8" y2="279.4" width="0.1524" layer="91"/>
+<wire x1="276.86" y1="281.94" x2="276.86" y2="276.86" width="0.1524" layer="91"/>
 <pinref part="C5" gate="G$1" pin="1"/>
-<wire x1="304.8" y1="279.4" x2="304.8" y2="266.7" width="0.1524" layer="91"/>
-<wire x1="312.42" y1="284.48" x2="312.42" y2="279.4" width="0.1524" layer="91"/>
-<wire x1="312.42" y1="279.4" x2="304.8" y2="279.4" width="0.1524" layer="91"/>
-<junction x="304.8" y="279.4"/>
+<wire x1="276.86" y1="276.86" x2="276.86" y2="264.16" width="0.1524" layer="91"/>
+<wire x1="284.48" y1="281.94" x2="284.48" y2="276.86" width="0.1524" layer="91"/>
+<wire x1="284.48" y1="276.86" x2="276.86" y2="276.86" width="0.1524" layer="91"/>
+<junction x="276.86" y="276.86"/>
 </segment>
 <segment>
 <pinref part="Q1" gate="G$1" pin="S"/>
@@ -16681,40 +16681,40 @@ Source: RS Component / BUORNS</description>
 <segment>
 <pinref part="GND7" gate="1" pin="GND"/>
 <pinref part="C1" gate="G$1" pin="2"/>
-<wire x1="414.02" y1="287.02" x2="414.02" y2="279.4" width="0.1524" layer="91"/>
-<wire x1="414.02" y1="279.4" x2="414.02" y2="264.16" width="0.1524" layer="91"/>
-<wire x1="408.94" y1="287.02" x2="414.02" y2="287.02" width="0.1524" layer="91"/>
+<wire x1="386.08" y1="284.48" x2="386.08" y2="276.86" width="0.1524" layer="91"/>
+<wire x1="386.08" y1="276.86" x2="386.08" y2="261.62" width="0.1524" layer="91"/>
+<wire x1="381" y1="284.48" x2="386.08" y2="284.48" width="0.1524" layer="91"/>
 <pinref part="C2" gate="G$1" pin="2"/>
-<wire x1="408.94" y1="279.4" x2="414.02" y2="279.4" width="0.1524" layer="91"/>
-<junction x="414.02" y="279.4"/>
-<wire x1="414.02" y1="294.64" x2="414.02" y2="292.1" width="0.1524" layer="91"/>
-<junction x="414.02" y="287.02"/>
+<wire x1="381" y1="276.86" x2="386.08" y2="276.86" width="0.1524" layer="91"/>
+<junction x="386.08" y="276.86"/>
+<wire x1="386.08" y1="292.1" x2="386.08" y2="289.56" width="0.1524" layer="91"/>
+<junction x="386.08" y="284.48"/>
 <pinref part="12V" gate="A" pin="GND1"/>
-<wire x1="414.02" y1="292.1" x2="414.02" y2="287.02" width="0.1524" layer="91"/>
-<wire x1="419.1" y1="294.64" x2="414.02" y2="294.64" width="0.1524" layer="91"/>
+<wire x1="386.08" y1="289.56" x2="386.08" y2="284.48" width="0.1524" layer="91"/>
+<wire x1="414.02" y1="292.1" x2="386.08" y2="292.1" width="0.1524" layer="91"/>
 <pinref part="12V" gate="A" pin="GND2"/>
-<wire x1="419.1" y1="292.1" x2="414.02" y2="292.1" width="0.1524" layer="91"/>
-<junction x="414.02" y="292.1"/>
+<wire x1="414.02" y1="289.56" x2="386.08" y2="289.56" width="0.1524" layer="91"/>
+<junction x="386.08" y="289.56"/>
 </segment>
 <segment>
 <pinref part="AGND3" gate="VR1" pin="AGND"/>
-<wire x1="340.36" y1="233.68" x2="340.36" y2="241.3" width="0.1524" layer="91"/>
+<wire x1="312.42" y1="231.14" x2="312.42" y2="238.76" width="0.1524" layer="91"/>
 <pinref part="GND16" gate="1" pin="GND"/>
 <pinref part="DGND" gate="G$1" pin="TP"/>
-<wire x1="327.66" y1="233.68" x2="327.66" y2="241.3" width="0.1524" layer="91"/>
-<wire x1="327.66" y1="241.3" x2="327.66" y2="243.84" width="0.1524" layer="91"/>
-<wire x1="340.36" y1="241.3" x2="327.66" y2="241.3" width="0.1524" layer="91"/>
-<junction x="327.66" y="241.3"/>
+<wire x1="299.72" y1="231.14" x2="299.72" y2="238.76" width="0.1524" layer="91"/>
+<wire x1="299.72" y1="238.76" x2="299.72" y2="241.3" width="0.1524" layer="91"/>
+<wire x1="312.42" y1="238.76" x2="299.72" y2="238.76" width="0.1524" layer="91"/>
+<junction x="299.72" y="238.76"/>
 </segment>
 <segment>
 <pinref part="C7" gate="G$1" pin="2"/>
 <pinref part="AGND1" gate="VR1" pin="AGND"/>
-<wire x1="353.06" y1="279.4" x2="353.06" y2="264.16" width="0.1524" layer="91"/>
+<wire x1="325.12" y1="276.86" x2="325.12" y2="261.62" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="R23" gate="G$1" pin="1"/>
 <pinref part="AGND2" gate="VR1" pin="AGND"/>
-<wire x1="340.36" y1="269.24" x2="340.36" y2="264.16" width="0.1524" layer="91"/>
+<wire x1="312.42" y1="266.7" x2="312.42" y2="261.62" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U1" gate="G$1" pin="PGND1"/>
@@ -16992,25 +16992,25 @@ Source: RS Component / BUORNS</description>
 <net name="VDD" class="0">
 <segment>
 <pinref part="VDD1" gate="G$1" pin="VDD"/>
-<wire x1="414.02" y1="302.26" x2="414.02" y2="304.8" width="0.1524" layer="91"/>
-<junction x="414.02" y="302.26"/>
-<wire x1="414.02" y1="297.18" x2="414.02" y2="302.26" width="0.1524" layer="91"/>
+<wire x1="386.08" y1="299.72" x2="386.08" y2="302.26" width="0.1524" layer="91"/>
+<junction x="386.08" y="299.72"/>
+<wire x1="386.08" y1="294.64" x2="386.08" y2="299.72" width="0.1524" layer="91"/>
 <pinref part="R21" gate="G$1" pin="2"/>
-<wire x1="414.02" y1="302.26" x2="408.94" y2="302.26" width="0.1524" layer="91"/>
-<wire x1="398.78" y1="297.18" x2="396.24" y2="297.18" width="0.1524" layer="91"/>
+<wire x1="386.08" y1="299.72" x2="381" y2="299.72" width="0.1524" layer="91"/>
+<wire x1="370.84" y1="294.64" x2="368.3" y2="294.64" width="0.1524" layer="91"/>
 <pinref part="REG" gate="A" pin="VIN"/>
-<wire x1="398.78" y1="297.18" x2="398.78" y2="287.02" width="0.1524" layer="91"/>
+<wire x1="370.84" y1="294.64" x2="370.84" y2="284.48" width="0.1524" layer="91"/>
 <pinref part="C1" gate="G$1" pin="1"/>
-<wire x1="398.78" y1="287.02" x2="401.32" y2="287.02" width="0.1524" layer="91"/>
-<wire x1="398.78" y1="287.02" x2="398.78" y2="279.4" width="0.1524" layer="91"/>
-<junction x="398.78" y="287.02"/>
+<wire x1="370.84" y1="284.48" x2="373.38" y2="284.48" width="0.1524" layer="91"/>
+<wire x1="370.84" y1="284.48" x2="370.84" y2="276.86" width="0.1524" layer="91"/>
+<junction x="370.84" y="284.48"/>
 <pinref part="C2" gate="G$1" pin="1"/>
-<wire x1="398.78" y1="279.4" x2="401.32" y2="279.4" width="0.1524" layer="91"/>
-<wire x1="398.78" y1="297.18" x2="414.02" y2="297.18" width="0.1524" layer="91"/>
-<junction x="398.78" y="297.18"/>
+<wire x1="370.84" y1="276.86" x2="373.38" y2="276.86" width="0.1524" layer="91"/>
+<wire x1="370.84" y1="294.64" x2="386.08" y2="294.64" width="0.1524" layer="91"/>
+<junction x="370.84" y="294.64"/>
 <pinref part="12V" gate="A" pin="PWR"/>
-<wire x1="419.1" y1="297.18" x2="414.02" y2="297.18" width="0.1524" layer="91"/>
-<junction x="414.02" y="297.18"/>
+<wire x1="414.02" y1="294.64" x2="386.08" y2="294.64" width="0.1524" layer="91"/>
+<junction x="386.08" y="294.64"/>
 </segment>
 <segment>
 <pinref part="VDD4" gate="G$1" pin="VDD"/>
@@ -17042,67 +17042,67 @@ Source: RS Component / BUORNS</description>
 </net>
 <net name="N$16" class="0">
 <segment>
-<wire x1="360.68" y1="287.02" x2="353.06" y2="287.02" width="0.1524" layer="91"/>
+<wire x1="332.74" y1="284.48" x2="325.12" y2="284.48" width="0.1524" layer="91"/>
 <pinref part="C7" gate="G$1" pin="1"/>
 <pinref part="REG" gate="A" pin="SS"/>
 </segment>
 </net>
 <net name="N$28" class="0">
 <segment>
-<wire x1="360.68" y1="289.56" x2="345.44" y2="289.56" width="0.1524" layer="91"/>
+<wire x1="332.74" y1="287.02" x2="317.5" y2="287.02" width="0.1524" layer="91"/>
 <pinref part="C6" gate="G$1" pin="1"/>
-<wire x1="345.44" y1="289.56" x2="345.44" y2="287.02" width="0.1524" layer="91"/>
+<wire x1="317.5" y1="287.02" x2="317.5" y2="284.48" width="0.1524" layer="91"/>
 <pinref part="REG" gate="A" pin="VREG5"/>
 </segment>
 </net>
 <net name="N$29" class="0">
 <segment>
 <pinref part="REG" gate="A" pin="VFB"/>
-<wire x1="360.68" y1="294.64" x2="340.36" y2="294.64" width="0.1524" layer="91"/>
+<wire x1="332.74" y1="292.1" x2="312.42" y2="292.1" width="0.1524" layer="91"/>
 <pinref part="R23" gate="G$1" pin="2"/>
-<wire x1="340.36" y1="294.64" x2="340.36" y2="289.56" width="0.1524" layer="91"/>
+<wire x1="312.42" y1="292.1" x2="312.42" y2="287.02" width="0.1524" layer="91"/>
 <pinref part="R22" gate="G$1" pin="2"/>
-<wire x1="340.36" y1="289.56" x2="340.36" y2="279.4" width="0.1524" layer="91"/>
-<wire x1="335.28" y1="289.56" x2="340.36" y2="289.56" width="0.1524" layer="91"/>
-<junction x="340.36" y="289.56"/>
+<wire x1="312.42" y1="287.02" x2="312.42" y2="276.86" width="0.1524" layer="91"/>
+<wire x1="307.34" y1="287.02" x2="312.42" y2="287.02" width="0.1524" layer="91"/>
+<junction x="312.42" y="287.02"/>
 </segment>
 </net>
 <net name="N$30" class="0">
 <segment>
 <pinref part="REG" gate="A" pin="VBST"/>
 <pinref part="C3" gate="G$1" pin="2"/>
-<wire x1="360.68" y1="299.72" x2="353.06" y2="299.72" width="0.1524" layer="91"/>
+<wire x1="332.74" y1="297.18" x2="325.12" y2="297.18" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="SW" class="0">
 <segment>
 <pinref part="REG" gate="A" pin="SW"/>
 <pinref part="L1" gate="G$1" pin="2"/>
-<wire x1="360.68" y1="297.18" x2="345.44" y2="297.18" width="0.1524" layer="91"/>
+<wire x1="332.74" y1="294.64" x2="317.5" y2="294.64" width="0.1524" layer="91"/>
 <pinref part="C3" gate="G$1" pin="1"/>
-<wire x1="345.44" y1="297.18" x2="337.82" y2="297.18" width="0.1524" layer="91"/>
-<wire x1="345.44" y1="299.72" x2="345.44" y2="297.18" width="0.1524" layer="91"/>
-<junction x="345.44" y="297.18"/>
+<wire x1="317.5" y1="294.64" x2="309.88" y2="294.64" width="0.1524" layer="91"/>
+<wire x1="317.5" y1="297.18" x2="317.5" y2="294.64" width="0.1524" layer="91"/>
+<junction x="317.5" y="294.64"/>
 </segment>
 </net>
 <net name="+5V" class="0">
 <segment>
 <pinref part="L1" gate="G$1" pin="1"/>
-<wire x1="322.58" y1="297.18" x2="317.5" y2="297.18" width="0.1524" layer="91"/>
-<wire x1="317.5" y1="297.18" x2="312.42" y2="297.18" width="0.1524" layer="91"/>
-<wire x1="312.42" y1="297.18" x2="304.8" y2="297.18" width="0.1524" layer="91"/>
-<wire x1="304.8" y1="297.18" x2="304.8" y2="302.26" width="0.1524" layer="91"/>
+<wire x1="294.64" y1="294.64" x2="289.56" y2="294.64" width="0.1524" layer="91"/>
+<wire x1="289.56" y1="294.64" x2="284.48" y2="294.64" width="0.1524" layer="91"/>
+<wire x1="284.48" y1="294.64" x2="276.86" y2="294.64" width="0.1524" layer="91"/>
+<wire x1="276.86" y1="294.64" x2="276.86" y2="299.72" width="0.1524" layer="91"/>
 <pinref part="P+1" gate="1" pin="+5V"/>
-<junction x="317.5" y="297.18"/>
+<junction x="289.56" y="294.64"/>
 <pinref part="R22" gate="G$1" pin="1"/>
-<wire x1="317.5" y1="289.56" x2="317.5" y2="297.18" width="0.1524" layer="91"/>
-<wire x1="325.12" y1="289.56" x2="317.5" y2="289.56" width="0.1524" layer="91"/>
+<wire x1="289.56" y1="287.02" x2="289.56" y2="294.64" width="0.1524" layer="91"/>
+<wire x1="297.18" y1="287.02" x2="289.56" y2="287.02" width="0.1524" layer="91"/>
 <pinref part="C4" gate="G$1" pin="2"/>
-<wire x1="304.8" y1="297.18" x2="304.8" y2="292.1" width="0.1524" layer="91"/>
-<junction x="304.8" y="297.18"/>
+<wire x1="276.86" y1="294.64" x2="276.86" y2="289.56" width="0.1524" layer="91"/>
+<junction x="276.86" y="294.64"/>
 <pinref part="C5" gate="G$1" pin="2"/>
-<wire x1="312.42" y1="297.18" x2="312.42" y2="292.1" width="0.1524" layer="91"/>
-<junction x="312.42" y="297.18"/>
+<wire x1="284.48" y1="294.64" x2="284.48" y2="289.56" width="0.1524" layer="91"/>
+<junction x="284.48" y="294.64"/>
 <pinref part="+5V" gate="G$1" pin="TP"/>
 </segment>
 <segment>
@@ -17281,8 +17281,8 @@ Source: RS Component / BUORNS</description>
 <segment>
 <pinref part="R21" gate="G$1" pin="1"/>
 <pinref part="REG" gate="A" pin="EN"/>
-<wire x1="398.78" y1="302.26" x2="396.24" y2="302.26" width="0.1524" layer="91"/>
-<wire x1="396.24" y1="302.26" x2="396.24" y2="299.72" width="0.1524" layer="91"/>
+<wire x1="370.84" y1="299.72" x2="368.3" y2="299.72" width="0.1524" layer="91"/>
+<wire x1="368.3" y1="299.72" x2="368.3" y2="297.18" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="GPIO1_28" class="0">
