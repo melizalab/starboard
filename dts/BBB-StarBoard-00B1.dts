@@ -265,7 +265,7 @@
                         sb_motor_pinmux {
                                 compatible = "bone-pinmux-helper";
                                 pinctrl-names = "default", "gpio", "pwm", "pru";
-                                pinctrl-0 = <&sb_motor_gpio_pins>;
+                                pinctrl-0 = <&sb_motor_pwm_pins>;
                                 pinctrl-1 = <&sb_motor_gpio_pins>;
                                 pinctrl-2 = <&sb_motor_pwm_pins>;
                                 pinctrl-3 = <&sb_motor_pru_pins>;
