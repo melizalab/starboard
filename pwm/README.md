@@ -28,3 +28,12 @@ It's helpful to install the libraries and assembler in system locations. From th
 At this point you should be able to compile the test programs in `pru_sw/example_apps`. **Important**: remember to `modprobe uio_pruss` before trying to run them.
 
 #### Compilation
+
+
+#### Debian 9
+
+See http://processors.wiki.ti.com/index.php/PRU_Training:_Hands-on_Labs
+
+    cp my_firmware.out /lib/firmware/pru
+    echo "pru/my_firmware.out" > /sys/class/remoteproc/remoteproc1/firmware
+    echo "start" > /sys/class/remoteproc/remoteproc1/state

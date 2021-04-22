@@ -112,7 +112,7 @@
                 __overlay__ {
                         pinctrl-names = "default";
                         pinctrl-0 = <&lights_pwm>;
-			status = "okay";
+                        status = "okay";
                 };
         };
 
