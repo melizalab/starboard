@@ -1,0 +1,308 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/am33xx.h>
+#include <dt-bindings/board/am335x-bbw-bbb-base.h>
+
+/ {
+        compatible = "ti,beaglebone-black";
+
+        /* identification */
+        part-number = "BBB-StarBoard";
+        version = "00B2";
+
+        exclusive-use =
+                "P8.11", // motor A1: GPIO 1.12, PRU 0.out15
+                "P8.12", // motor A2: GPIO 1.13, PRU 0.out14
+                "P8.13", // house lights: PWM2B
+                "P8.15", // switch 1, GPIO 1.15, PRU 0.in15
+                "P8.16", // switch 2, GPIO 1.14, PRU 0.in14
+                "P8.27", // connector 3 interrupt: GPIO 2.22
+                "P8.28", // connector 4 interrupt: GPIO 2.24
+                "P8.29", // connector 2 interrupt: GPIO 2.23
+                "P8.30", // connector 1 interrupt: GPIO 2.25
+                "P8.31", // TTL 1: GPIO 0.10
+                "P8.32", // TTL 2: GPIO 0.11
+                "P8.33", // TTL 3: GPIO 0.9
+                "P8.34", // motor A PWM: GPIO 2.17, PWM1B
+                "P8.35", // TTL 4: GPIO 0.8
+                "P8.36", // motor B PWM: GPIO 2.16, PWM1A
+                "P8.39", // connector 3 output: GPIO 2.12
+                "P8.40", // connector 4 output: GPIO 2.13
+                "P8.41", // connector 2 output: GPIO 2.10
+                "P8.42", // connector 1 output: GPIO 2.11
+                "P8.43", // TTL 7: GPIO 2.8
+                "P8.44", // TTL 8: GPIO 2.9
+                "P8.45", // TTL 5: GPIO 2.6
+                "P8.46", // TTL 4: GPIO 2.7
+                "P9.19", // I2C2 SCL
+                "P9.20", // I2C2 SDA
+                "P9.24", // I2C1 SCL
+                "P9.25", // motor B1: GPIO 3.21, PRU 0.7
+                "P9.26", // I2C1 SDA
+                "P9.27", // motor B2: GPIO 3.19, PRU 0.5
+                "ehrpwm2B",
+                "ehrpwm1A",
+                "ehrpwm1B",
+                "i2c1";
+
+        fragment@0 {
+                target = <&ocp>;
+                __overlay__ {
+                        P8_11_pinmux { status = "disabled"; };
+                        P8_12_pinmux { status = "disabled"; };
+                        P8_13_pinmux { status = "disabled"; };
+                        P8_15_pinmux { status = "disabled"; };
+                        P8_16_pinmux { status = "disabled"; };
+                        P8_27_pinmux { status = "disabled"; };
+                        P8_28_pinmux { status = "disabled"; };
+                        P8_29_pinmux { status = "disabled"; };
+                        P8_30_pinmux { status = "disabled"; };
+                        P8_31_pinmux { status = "disabled"; };
+                        P8_32_pinmux { status = "disabled"; };
+                        P8_33_pinmux { status = "disabled"; };
+                        P8_34_pinmux { status = "disabled"; };
+                        P8_35_pinmux { status = "disabled"; };
+                        P8_36_pinmux { status = "disabled"; };
+                        P8_39_pinmux { status = "disabled"; };
+                        P8_40_pinmux { status = "disabled"; };
+                        P8_41_pinmux { status = "disabled"; };
+                        P8_42_pinmux { status = "disabled"; };
+                        P8_43_pinmux { status = "disabled"; };
+                        P8_44_pinmux { status = "disabled"; };
+                        P8_45_pinmux { status = "disabled"; };
+                        P8_46_pinmux { status = "disabled"; };
+                        P9_19_pinmux { status = "disabled"; };
+                        P9_20_pinmux { status = "disabled"; };
+                        P9_24_pinmux { status = "disabled"; };
+                        P9_25_pinmux { status = "disabled"; };
+                        P9_26_pinmux { status = "disabled"; };
+                        P9_27_pinmux { status = "disabled"; };
+                };
+        };
+
+        /* sets pin mux */
+        fragment@1 {
+                target = <&am33xx_pinmux>;
+                __overlay__ {
+                sb_lights_pin: pinmux_sb_lights_pin {
+                                pinctrl-single,pins = <
+                                        BONE_P8_13 0x4 /* ehrpwm2B */
+                                        >;
+                        };
+                sb_motor_gpio_pins: pinmux_sb_motor_gpio_pins {
+                                pinctrl-single,pins = <
+                                        BONE_P8_11 (PIN_OUTPUT_PULLDOWN | INPUT_EN | MUX_MODE7)
+                                        BONE_P8_12 (PIN_OUTPUT_PULLDOWN | INPUT_EN | MUX_MODE7)
+                                        BONE_P9_25 (PIN_OUTPUT_PULLDOWN | INPUT_EN | MUX_MODE7)
+                                        BONE_P9_27 (PIN_OUTPUT_PULLDOWN | INPUT_EN | MUX_MODE7)
+                                        BONE_P8_34 (PIN_OUTPUT_PULLDOWN | INPUT_EN | MUX_MODE7)
+                                        BONE_P8_36 (PIN_OUTPUT_PULLDOWN | INPUT_EN | MUX_MODE7)
+                                        >;
+                        };
+                sb_motor_pwm_pins: pinmux_sb_motor_pwm_pins {
+                                pinctrl-single,pins = <
+                                        BONE_P8_11 (PIN_OUTPUT_PULLDOWN | INPUT_EN | MUX_MODE7)
+                                        BONE_P8_12 (PIN_OUTPUT_PULLDOWN | INPUT_EN | MUX_MODE7)
+                                        BONE_P9_25 (PIN_OUTPUT_PULLDOWN | INPUT_EN | MUX_MODE7)
+                                        BONE_P9_27 (PIN_OUTPUT_PULLDOWN | INPUT_EN | MUX_MODE7)
+                                        BONE_P8_34 0x02 /* (PIN_OUTPUT_PULLDOWN | MUX_MODE2) */
+                                        BONE_P8_36 0x02 /* (PIN_OUTPUT_PULLDOWN | MUX_MODE2) */
+                                        >;
+                        };
+                sb_motor_pru_pins: pinmux_sb_motor_pru_pins {
+                                pinctrl-single,pins = <
+                                        BONE_P8_11 (PIN_OUTPUT_PULLDOWN | MUX_MODE6)
+                                        BONE_P8_12 (PIN_OUTPUT_PULLDOWN | MUX_MODE6)
+                                        BONE_P9_25 (PIN_OUTPUT_PULLDOWN | MUX_MODE5)
+                                        BONE_P9_27 (PIN_OUTPUT_PULLDOWN | MUX_MODE5)
+                                        BONE_P8_34 (PIN_OUTPUT_PULLDOWN | MUX_MODE7)
+                                        BONE_P8_36 (PIN_OUTPUT_PULLDOWN | MUX_MODE7)
+                                        >;
+                        };
+                sb_sw1_pu_pin: pinmux_sb_sw1_pu_pin {
+                                pinctrl-single,pins = <
+                                        BONE_P8_15 (PIN_INPUT_PULLUP | MUX_MODE7) /* button 1 */
+                                        >;
+                        };
+                sb_sw1_pd_pin: pinmux_sb_sw1_pd_pin {
+                                pinctrl-single,pins = <
+                                        BONE_P8_15 (PIN_INPUT_PULLDOWN | MUX_MODE7) /* button 1 */
+                                        >;
+                        };
+                sb_sw1_pru_pu_pin: pinmux_sb_sw1_pru_pu_pin {
+                                pinctrl-single,pins = <
+                                        BONE_P8_15 (PIN_INPUT_PULLUP | MUX_MODE6) /* button 1 */
+                                        >;
+                        };
+                sb_sw1_pru_pd_pin: pinmux_sb_sw1_pru_pd_pin {
+                                pinctrl-single,pins = <
+                                        BONE_P8_15 (PIN_INPUT_PULLDOWN | MUX_MODE6) /* button 1 */
+                                        >;
+                        };
+                sb_sw2_pu_pin: pinmux_sb_sw2_pu_pin {
+                                pinctrl-single,pins = <
+                                        BONE_P8_16 (PIN_INPUT_PULLUP | MUX_MODE7) /* button 2 */
+                                        >;
+                        };
+                sb_sw2_pd_pin: pinmux_sb_sw2_pd_pin {
+                                pinctrl-single,pins = <
+                                        BONE_P8_16 (PIN_INPUT_PULLDOWN | MUX_MODE7) /* button 2 */
+                                        >;
+                        };
+                sb_sw2_pru_pu_pin: pinmux_sb_sw2_pru_pu_pin {
+                                pinctrl-single,pins = <
+                                        BONE_P8_16 (PIN_INPUT_PULLUP | MUX_MODE6) /* button 2 */
+                                        >;
+                        };
+                sb_sw2_pru_pd_pin: pinmux_sb_sw2_pru_pd_pin {
+                                pinctrl-single,pins = <
+                                        BONE_P8_16 (PIN_INPUT_PULLDOWN | MUX_MODE6) /* button 2 */
+                                        >;
+                        };
+                sb_gpio_pins: pinmux_sb_gpio_pins {
+                                pinctrl-single,pins = <
+                                        BONE_P8_27 (PIN_INPUT_PULLUP | MUX_MODE7) /* interrupt */
+                                        BONE_P8_28 (PIN_INPUT_PULLUP | MUX_MODE7) /* interrupt */
+                                        BONE_P8_29 (PIN_INPUT_PULLUP | MUX_MODE7) /* interrupt */
+                                        BONE_P8_30 (PIN_INPUT_PULLUP | MUX_MODE7) /* interrupt */
+                                        BONE_P8_39 (PIN_OUTPUT_PULLDOWN | MUX_MODE7) /* driver */
+                                        BONE_P8_40 (PIN_OUTPUT_PULLDOWN | MUX_MODE7) /* driver */
+                                        BONE_P8_41 (PIN_OUTPUT_PULLDOWN | MUX_MODE7) /* driver */
+                                        BONE_P8_42 (PIN_OUTPUT_PULLDOWN | MUX_MODE7) /* driver */
+                                        >;
+                        };
+                sb_ttl_pins: pinmux_sb_ttl_pins {
+                                pinctrl-single,pins = <
+                                        BONE_P8_31 (PIN_OUTPUT_PULLDOWN | INPUT_EN | MUX_MODE7) /* output */
+                                        BONE_P8_32 (PIN_OUTPUT_PULLDOWN | INPUT_EN | MUX_MODE7) /* output */
+                                        BONE_P8_33 (PIN_OUTPUT_PULLDOWN | INPUT_EN | MUX_MODE7) /* output */
+                                        BONE_P8_35 (PIN_OUTPUT_PULLDOWN | INPUT_EN | MUX_MODE7) /* output */
+                                        BONE_P8_43 (PIN_OUTPUT_PULLDOWN | INPUT_EN | MUX_MODE7) /* output */
+                                        BONE_P8_44 (PIN_OUTPUT_PULLDOWN | INPUT_EN | MUX_MODE7) /* output */
+                                        BONE_P8_45 (PIN_OUTPUT_PULLDOWN | INPUT_EN | MUX_MODE7) /* output */
+                                        BONE_P8_46 (PIN_OUTPUT_PULLDOWN | INPUT_EN | MUX_MODE7) /* output */
+                                        >;
+                        };
+                sb_i2c1_pins: pinmux_sb_i2c1_pins {
+                                pinctrl-single,pins = <
+                                        BONE_P9_24 0x73 /* SLEWCTRL_SLOW | INPUT_PULLUP | MODE3 */
+                                        BONE_P9_26 0x73 /* SLEWCTRL_SLOW | INPUT_PULLUP | MODE3 */
+                                >;
+                        };
+                 };
+        };
+
+        /* enables pwm outputs */
+        fragment@2 {
+                target = <&epwmss1>;
+                __overlay__ {
+                        status = "okay";
+                };
+        };
+
+        /* enables pwm outputs */
+        fragment@3 {
+                target = <&epwmss2>;
+                __overlay__ {
+                        status = "okay";
+                };
+        };
+
+        fragment@4 {
+                target = <&ehrpwm2>;
+                __overlay__ {
+                        pinctrl-names = "default";
+                        pinctrl-0 = <&sb_lights_pin>;
+                        status = "okay";
+                };
+        };
+
+        fragment@5 {
+                target = <&ehrpwm1>;
+                __overlay__ {
+                        pinctrl-names = "default";
+                        pinctrl-0 = <>;
+                        status = "okay";
+                };
+        };
+
+        fragment@6 {
+                target = <&i2c1>;
+                __overlay__ {
+                        status = "okay";
+                        pinctrl-names = "default";
+                        pinctrl-0 = <&sb_i2c1_pins>;
+                        clock-frequency = <400000>;
+                        #address-cells = <1>;
+                        #size-cells = <0>;
+                };
+        };
+
+        fragment@7 {
+                target = <&ocp>;
+                __overlay__ {
+                        sb_gpios: sb_gpio_helper {
+                                compatible = "bone-pinmux-helper";
+                                pinctrl-names = "default";
+                                pinctrl-0 = <&sb_gpio_pins>;
+                                status = "okay";
+                        };
+                        sb_ttls: sb_ttl_helper {
+                                compatible = "bone-pinmux-helper";
+                                pinctrl-names = "default";
+                                pinctrl-0 = <&sb_ttl_pins>;
+                                status = "okay";
+                        };
+                        sb_sw1_pinmux {
+                                compatible = "bone-pinmux-helper";
+                                pinctrl-names = "default", "gpio_pu", "gpio_pd", "pru_pu", "pru_pd";
+                                pinctrl-0 = <&sb_sw1_pu_pin>;
+                                pinctrl-1 = <&sb_sw1_pu_pin>;
+                                pinctrl-2 = <&sb_sw1_pd_pin>;
+                                pinctrl-3 = <&sb_sw1_pru_pu_pin>;
+                                pinctrl-4 = <&sb_sw1_pru_pd_pin>;
+                                status = "okay";
+                        };
+                        sb_sw2_pinmux {
+                                compatible = "bone-pinmux-helper";
+                                pinctrl-names = "default", "gpio_pu", "gpio_pd", "pru_pu", "pru_pd";
+                                pinctrl-0 = <&sb_sw2_pu_pin>;
+                                pinctrl-1 = <&sb_sw2_pu_pin>;
+                                pinctrl-2 = <&sb_sw2_pd_pin>;
+                                pinctrl-3 = <&sb_sw2_pru_pu_pin>;
+                                pinctrl-4 = <&sb_sw2_pru_pd_pin>;
+                                status = "okay";
+                        };
+                        sb_motor_pinmux {
+                                compatible = "bone-pinmux-helper";
+                                pinctrl-names = "default", "gpio", "pwm", "pru";
+                                pinctrl-0 = <&sb_motor_pwm_pins>;
+                                pinctrl-1 = <&sb_motor_gpio_pins>;
+                                pinctrl-2 = <&sb_motor_pwm_pins>;
+                                pinctrl-3 = <&sb_motor_pru_pins>;
+                                status = "okay";
+                        };
+
+                };
+        };
+
+        /* creates user interface */
+        fragment@8 {
+                target-path = "/";
+                __overlay__ {
+                        sbd-lights {
+                                compatible = "pwm-leds";
+                                status = "okay";
+                                sbd-lights-pwm {
+                                        label = "starboard::lights";
+                                        /*channel, period (ns), polarity */
+                                        pwms = <&ehrpwm2 1 500000 0>;
+                                        /* pwm-names = "lights"; */
+                                        max-brightness = <255>;
+                                };
+                        };
+                };
+        };
+};
