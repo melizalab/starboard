@@ -1,0 +1,101 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/board/am335x-bbw-bbb-base.h>
+#include <dt-bindings/pinctrl/am33xx.h>
+
+
+/ {
+        compatible = "ti,beaglebone-black";
+
+        part-number = "BBB-PeckBoard";
+        version = "00B2";
+
+        fragment@0 {
+                target = <&i2c1>;
+                __overlay__ {
+                        //pinctrl-0 = <&peckboard_pcf8575>;
+                        //pinctrl-names = "default";
+                        #address-cells = <1>;
+                        #size-cells = <0>;
+                        pcf8575: pcf8575 {
+                                compatible = "ti,pcf8575";
+                                gpio-controller;
+                                #gpio-cells = <2>;
+                                reg = <0x20>;
+                                lines-initial-states = <0x11ff>;
+                        };
+                };
+        };
+
+        fragment@1 {
+                target-path = "/";
+                __overlay__ {
+                        peckboard-cues {
+                                compatible = "gpio-leds";
+                                peckboard-cue-lbl {
+                                        label = "peckboard:right:blue";
+                                        gpios = <&pcf8575 0 GPIO_ACTIVE_HIGH>;
+                                        default-state = "off";
+                                };
+                                peckboard-cue-cbl {
+                                        label = "peckboard:center:blue";
+                                        gpios = <&pcf8575 1 GPIO_ACTIVE_HIGH>;
+                                        default-state = "off";
+                                };
+                                peckboard-cue-rbl {
+                                        label = "peckboard:left:blue";
+                                        gpios = <&pcf8575 2 GPIO_ACTIVE_HIGH>;
+                                        default-state = "off";
+                                };
+                                peckboard-cue-lrd {
+                                        label = "peckboard:right:red";
+                                        gpios = <&pcf8575 3 GPIO_ACTIVE_HIGH>;
+                                        default-state = "off";
+                                };
+                                peckboard-cue-crd {
+                                        label = "peckboard:center:red";
+                                        gpios = <&pcf8575 4 GPIO_ACTIVE_HIGH>;
+                                        default-state = "off";
+                                };
+                                peckboard-cue-rrd {
+                                        label = "peckboard:left:red";
+                                        gpios = <&pcf8575 5 GPIO_ACTIVE_HIGH>;
+                                        default-state = "off";
+                                };
+                                peckboard-cue-lgr {
+                                        label = "peckboard:right:green";
+                                        gpios = <&pcf8575 6 GPIO_ACTIVE_HIGH>;
+                                        default-state = "off";
+                                };
+                                peckboard-cue-cgr {
+                                        label = "peckboard:center:green";
+                                        gpios = <&pcf8575 7 GPIO_ACTIVE_HIGH>;
+                                        default-state = "off";
+                                };
+                                peckboard-cue-rgr {
+                                        label = "peckboard:left:green";
+                                        gpios = <&pcf8575 8 GPIO_ACTIVE_HIGH>;
+                                        default-state = "off";
+                                };
+                                peckboard-cue-lir {
+                                        label = "peckboard:right:ir";
+                                        gpios = <&pcf8575 9 GPIO_ACTIVE_HIGH>;
+                                        default-state = "on";
+                                };
+                                peckboard-cue-cir {
+                                        label = "peckboard:center:ir";
+                                        gpios = <&pcf8575 10 GPIO_ACTIVE_HIGH>;
+                                        default-state = "on";
+                                };
+                                peckboard-cue-rir {
+                                        label = "peckboard:left:ir";
+                                        gpios = <&pcf8575 11 GPIO_ACTIVE_HIGH>;
+                                        default-state = "on";
+                                };
+
+                        };
+                };
+        };
+};
